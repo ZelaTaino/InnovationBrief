@@ -17,11 +17,13 @@ export class QuestionSheetComponent implements OnInit {
 	constructor(private questionSheetService: QuestionSheetService){}
 
 	ngOnInit(): void {
-		console.log("Entered ngOnInit")
+		console.log("ngOnit");
 		this.questionSheetService.getQuestions()
 		.do(console.log)
 		.subscribe(
-			questions => this.questions
+			question => this.questions = question
 		);
+		console.log("QUESTIONS");
+		console.log(this.questions);
 	}
 }
