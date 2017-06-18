@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
 })
 export class LandingPageComponent {
   title = 'Innovation Brief';
-
-  constructor(){}
 }

@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
 	selector: 'logo-header',
 	templateUrl: './logo-header.component.html'
 })
-export class LogoHeaderComponent {
-	
-}
+export class LogoHeaderComponent {}

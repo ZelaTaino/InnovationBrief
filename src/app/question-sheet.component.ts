@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Question } from './question';
 import { QuestionSheetService } from './question-sheet.service';
 import { OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
 	selector: 'question-sheet',
@@ -10,7 +11,10 @@ import { OnInit } from '@angular/core';
 })
 
 export class QuestionSheetComponent implements OnInit {
+	sheetType = "Background Information";
 	questions : Question[];
+	// questions: Observable<Question[]>;
+
 
 	constructor(private questionSheetService: QuestionSheetService){}
 
