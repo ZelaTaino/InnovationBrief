@@ -13,16 +13,15 @@ import { Observable } from 'rxjs/Rx';
 export class QuestionSheetComponent implements OnInit {
 	sheetType = "Background Information";
 	questions : Question[];
-	// questions: Observable<Question[]>;
-
 
 	constructor(private questionSheetService: QuestionSheetService){}
 
-	getQuestions(): void {
-		this.questions = this.questionSheetService.getQuestions();
-	}
-
 	ngOnInit(): void {
-		this.getQuestions();
+		console.log("Entered ngOnInit")
+		this.questionSheetService.getQuestions()
+		.do(console.log)
+		.subscribe(
+			questions => this.questions
+		);
 	}
 }
