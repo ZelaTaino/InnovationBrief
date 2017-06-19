@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Rx';
 
 export class QuestionSheetComponent implements OnInit {
 	sheetType = "Background Information";
-	questions : Question[];
+	questions : Question[] = [];
 
 	constructor(private questionSheetService: QuestionSheetService){}
 
@@ -20,9 +20,7 @@ export class QuestionSheetComponent implements OnInit {
 		console.log("ngOnit");
 		this.questionSheetService.getQuestions()
 		.do(console.log)
-		.subscribe(
-			question => this.questions = question
-		);
+		.subscribe(questions => this.questions = questions); 
 		console.log("QUESTIONS");
 		console.log(this.questions);
 	}
