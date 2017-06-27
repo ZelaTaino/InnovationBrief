@@ -1,0 +1,39 @@
+<div class="container">
+	<h1>Background</h1>
+	<form #backgroundForm="ngForm">
+		<div class="form-group">
+			<label for="q1">
+				<h3>
+					Why do you want/need to run an innovation event?
+				</h3>
+				<h4>
+					A short summary on why you want to run a Launchpad Event. What is the background to the engagement, what is the business/customer need, what is the hoped for outcome from the event?
+				</h4>
+			</label>
+			<input type="textarea" class="form-control" id="q1" required name="q1">
+		</div>
+		<div class="form-group">
+			<label for="q2">
+				<h3>
+					What have you observed/learnt to decide that there is a problem?
+				</h3>
+				<h4>
+					The source could be industry trends, internal data analysis, some key market insights or competitor analysis. Please provide links to the relevant decks that support your assertion.
+				</h4>
+			</label>
+			<input type="textarea" class="form-control" id="q2" required name="q2">
+		</div>
+		<div class="form-group">
+			<label for="q3">
+				<h3>
+					Why is this a problem for your business and/or the customer?
+				</h3>
+				<h4>
+					How does the issue that you have observed impact the customer and/or your business? Please provide quantitative proof if possible
+				</h4>
+			</label>
+			<input type="textarea" class="form-control" id="q3" required name="q3">
+		</div>
+		<button (click)="btnClick();">Next</button>
+	</form>
+</div>

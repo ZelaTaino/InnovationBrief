@@ -1,6 +1,6 @@
-import { Question } from './question';
+import { Question } from '../models/question';
 import { Injectable } from '@angular/core';
-import { QUESTIONS } from './mock-questions';
+import { QUESTIONS } from '../models/mock-questions';
 import { Observable } from 'rxjs/Rx';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
@@ -16,7 +16,7 @@ export class QuestionSheetService {
 
 	getQuestions() : Observable<Question[]> {
 		console.log("getQuestions");
-		return this.db.list('backgroundQuestions')
+		return this.db.list('background')
 		.do(console.log)
 		.map(Question.fromJsonList);		
 	}
