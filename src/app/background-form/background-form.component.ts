@@ -9,17 +9,25 @@ import { Response } from '../models/response';
 })
 export class BackgroundFormComponent{
 
+	answer1: string = "";
+	answer2: string = "";
+	answer3: string = "";
+
 	constructor(private router: Router){}
 
-	btnClick(){
-		console.log("Enter");
+	passAnswers(ans_1:string, ans_2: string, ans_3: string){
+		this.answer1 = ans_1;
+		this.answer2 = ans_2;
+		this.answer3 = ans_3;
+	}
+
+	nextScreen(){
 		this.router.navigateByUrl('/customer-form');
 	}
 
-	model = new Response(1,1,1,"Hey");
-	submitted = false;
+	// submitted = false;
 
-	onSubmit(){this.submitted = true}
+	// onSubmit(){this.submitted = true}
 
-	get diagnostic(){return JSON.stringify(this.model);}
+	// get diagnostic(){return JSON.stringify();}
 }
