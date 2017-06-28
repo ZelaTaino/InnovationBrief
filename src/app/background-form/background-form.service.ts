@@ -7,8 +7,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class BackgroundFormService {
 
 	private basePath: string = "/response";
-	//figure out how to get the list
-	answers : FirebaseListObservable<any> = null;
+
+	answers : FirebaseListObservable<any> = this.db.list(this.basePath);
 
 	constructor(private db:AngularFireDatabase){}
 
