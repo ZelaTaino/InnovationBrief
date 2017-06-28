@@ -4,6 +4,7 @@ import { Response } from '../models/response';
 import { BackgroundFormService } from './background-form.service';
 import { Observable } from 'rxjs/Rx';
 import { OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
 	selector: 'background-form',
@@ -18,6 +19,7 @@ export class BackgroundFormComponent implements OnInit {
 	answer_list : string[] = [];
 	r: Response;
 	response_list : Response[] = [];
+	list_from_fb : FirebaseListObservable<any>;
 
 	constructor(private router: Router, private service: BackgroundFormService){}
 
@@ -29,12 +31,12 @@ export class BackgroundFormComponent implements OnInit {
 		this.answer_list.push(ans_1, ans_2, ans_3);
 		console.log(this.answer_list);
 		for(var ans of this.answer_list){
-			this.r = new Response(0, 0, 0, ans);
+			this.r = new Response(0, 0, ans);
 			this.response_list.push(this.r);
 		}
 		console.log(this.response_list);
-		for(var res of this.response_list){
-			this.service.pushAnswer(res);
+		for(var resp of this.response_list){
+			this.service.pushAnswer(resp);
 		}
 	}
 
@@ -42,8 +44,19 @@ export class BackgroundFormComponent implements OnInit {
 		this.router.navigateByUrl('/customer-form');
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.list_from_fb = this.service.readAnswers({limitToLast:3});
+		this.parseAnswersArray(this.list_from_fb);
+	}
 
+	parseAnswersArray(list: FirebaseListObservable<any>){
+		list.subscribe( answers =>{
+			answers.forEach(a => {
+				//Im not sure how to assign it to each answer
+				//Im going to try and use question components
+			});
+		});
+	}
 	// submitted = false;
 
 	// onSubmit(){this.submitted = true}
