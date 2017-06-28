@@ -8,12 +8,12 @@ export class Question {
 	}
 
 	static fromJsonList(array): Question[] {
-		console.log("Enter");
+		console.log("In Question From Json list");
 		return array.map(Question.fromJson);
 	}
 
 	static fromJson({$key, statement, description}):Question {
-		console.log("TEST");
+		console.log("In Question fromJson");
 		return new Question($key, statement, description);
 	}
 }

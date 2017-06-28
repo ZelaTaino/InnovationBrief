@@ -47,15 +47,22 @@ export class BackgroundFormService {
 	When page loads, component should
 	call this function to answers on screen.
 	*/
-	readAnswers(query={}): FirebaseListObservable<any>{
+	// readAnswers(query={}): FirebaseListObservable<any>{
+	// 	console.log("Read answer");
+	// 	this.answers = this.db.list(this.basePath, {query: query});
+	// 	// this.answers.subscribe( answers =>{
+	// 	// 	answers.forEach(a => {
+	// 	// 		console.log(a.answer);
+	// 	// 	});
+	// 	// });
+	// 	return this.answers;
+	// }
+
+	readAnswers(query={}): Observable<Response[]>{
 		console.log("Read answer");
-		this.answers = this.db.list(this.basePath, {query: query});
-		// this.answers.subscribe( answers =>{
-		// 	answers.forEach(a => {
-		// 		console.log(a.answer);
-		// 	});
-		// });
-		return this.answers;
+		return this.db.list('reponse')
+		.do(console.log)
+		.map(Response.fromJsonList);
 	}
 
 	/*

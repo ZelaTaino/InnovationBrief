@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Question } from '../models/question';
+import { QuestionAndAnswer } from '../models/questionAndAnswer';
 import { Router } from '@angular/router';
 import { Response } from '../models/response';
 import { BackgroundFormService } from './background-form.service';
@@ -20,9 +21,14 @@ export class BackgroundFormComponent implements OnInit {
 	answer_list : string[] = [];
 	r: Response;
 	response_list : Response[] = [];
-	list_from_fb : FirebaseListObservable<any>;
+	// responses : FirebaseListObservable<any>;
+	question_answer_list : QuestionAndAnswer[] = [];
+
+	questions_list : Question[] = [];
+	responses_list : Response[] =[];
 
 	questions : Observable<Question[]>
+	responses: Observable<Response[]>
 
 	constructor(private router: Router, private bgService: BackgroundFormService){}
 
@@ -33,14 +39,15 @@ export class BackgroundFormComponent implements OnInit {
 		this.answer3 = ans_3;
 		this.answer_list.push(ans_1, ans_2, ans_3);
 		console.log(this.answer_list);
-		for(var ans of this.answer_list){
-			this.r = new Response(0, 0, ans);
-			this.response_list.push(this.r);
-		}
-		console.log(this.response_list);
-		for(var resp of this.response_list){
-			this.bgService.pushAnswer(resp);
-		}
+		//Response init is missing key
+		// for(var ans of this.answer_list){
+		// 	this.r = new Response(0, 0, ans);
+		// 	this.response_list.push(this.r);
+		// }
+		// console.log(this.response_list);
+		// for(var resp of this.response_list){
+		// 	this.bgService.pushAnswer(resp);
+		// }
 	}
 
 	nextScreen(){
@@ -49,8 +56,38 @@ export class BackgroundFormComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.questions = this.bgService.getQuestions().do(console.log);
-		this.list_from_fb = this.bgService.readAnswers({limitToLast:3});
-		this.parseAnswersArray(this.list_from_fb);
+		this.responses = this.bgService.readAnswers({limitToLast:3});
+
+		//unwrap questions and put in array
+		this.questions.subscribe(questions => {
+			questions.forEach(q => {
+				this.questions_list.push(q);
+			});
+		});
+
+		//unwrap answers and put in array
+		this.responses.subscribe(responses => {
+			responses.forEach(a => {
+				this.responses_list.push(a);
+			});
+		});
+
+		console.log("QUESTIONS LIST: ", this.questions_list);
+		console.log("RESPONSE LIST", this.responses_list);
+		
+		// this.questions.subscribe( q => {
+		// 	q.forEach(question => {
+		// 		this.responses.subscribe(a => {
+		// 			a.forEach(answer => {
+		// 				this.question_answer_list.push(new QuestionAndAnswer(question, answer));
+		// 			});
+		// 		});
+		// 	});
+		// });
+
+		// console.log("THIS THING", this.question_answer_list);
+
+		// this.parseAnswersArray(this.responses);
 	}
 
 	parseAnswersArray(list: FirebaseListObservable<any>){

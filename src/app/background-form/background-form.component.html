@@ -36,6 +36,7 @@
 		</div> -->
 		<ul>
 			<question *ngFor="let question of questions | async" [question]="question"></question>
+			<input #answer type="textarea" class="form-control" id="q1" required name="answer">
 		</ul>
 		<button (click)="passAnswers(answer.value); nextScreen();">Next</button>
 	</form>

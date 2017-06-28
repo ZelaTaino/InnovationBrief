@@ -8,5 +8,6 @@ import { Question } from '../models/question'
 
 export class QuestionComponent {
     @Input() question: Question;
+    @Input() answer: Response;
 }
 
