@@ -1,7 +1,7 @@
 <div class="container">
 	<h1>Background</h1>
 	<form #backgroundForm="ngForm">
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label for="q1">
 				<h3>
 					Why do you want/need to run an innovation event?
@@ -33,7 +33,10 @@
 				</h4>
 			</label>
 			<input #answer3 type="textarea" class="form-control" id="q3" required name="q3">
-		</div>
-		<button (click)="passAnswers(answer1.value, answer2.value, answer3.value); nextScreen();">Next</button>
+		</div> -->
+		<ul>
+			<question *ngFor="let question of questions | async" [question]="question"></question>
+		</ul>
+		<button (click)="passAnswers(answer.value); nextScreen();">Next</button>
 	</form>
 </div>

@@ -1,17 +1,19 @@
 export class Question {
-	question: string;
+	statement: string;
 	description: string;
 
-	constructor($key: string, question: string, description: string){
-		this.question = question;
+	constructor($key: string, statement: string, description: string){
+		this.statement = statement;
 		this.description = description;
 	}
 
 	static fromJsonList(array): Question[] {
+		console.log("Enter");
 		return array.map(Question.fromJson);
 	}
 
-	static fromJson({$key, question, description}):Question {
-		return new Question($key, question, description);
+	static fromJson({$key, statement, description}):Question {
+		console.log("TEST");
+		return new Question($key, statement, description);
 	}
 }

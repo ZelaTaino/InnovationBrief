@@ -1,4 +1,5 @@
 import { Response } from '../models/response';
+import { Question } from '../models/question';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -12,6 +13,13 @@ export class BackgroundFormService {
 	response_list : Observable<Response[]>;
 
 	constructor(private db:AngularFireDatabase){}
+
+	getQuestions() : Observable<Question[]> {
+		console.log("getQuestions");
+		return this.db.list('questions')
+		.do(console.log)
+		.map(Question.fromJsonList);
+	}
 
 	/*
 	Component should call this method 

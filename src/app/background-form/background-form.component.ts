@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Question } from '../models/question';
 import { Router } from '@angular/router';
 import { Response } from '../models/response';
 import { BackgroundFormService } from './background-form.service';
@@ -21,7 +22,9 @@ export class BackgroundFormComponent implements OnInit {
 	response_list : Response[] = [];
 	list_from_fb : FirebaseListObservable<any>;
 
-	constructor(private router: Router, private service: BackgroundFormService){}
+	questions : Observable<Question[]>
+
+	constructor(private router: Router, private bgService: BackgroundFormService){}
 
 	passAnswers(ans_1:string, ans_2: string, ans_3: string){
 		console.log("Entered pass");
@@ -36,7 +39,7 @@ export class BackgroundFormComponent implements OnInit {
 		}
 		console.log(this.response_list);
 		for(var resp of this.response_list){
-			this.service.pushAnswer(resp);
+			this.bgService.pushAnswer(resp);
 		}
 	}
 
@@ -45,15 +48,17 @@ export class BackgroundFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.list_from_fb = this.service.readAnswers({limitToLast:3});
+		this.questions = this.bgService.getQuestions().do(console.log);
+		this.list_from_fb = this.bgService.readAnswers({limitToLast:3});
 		this.parseAnswersArray(this.list_from_fb);
 	}
 
 	parseAnswersArray(list: FirebaseListObservable<any>){
 		list.subscribe( answers =>{
 			answers.forEach(a => {
+				console.log(a.answer);
 				//Im not sure how to assign it to each answer
-				//Im going to try and use question components
+				//Im going to try and use question componentsi
 			});
 		});
 	}

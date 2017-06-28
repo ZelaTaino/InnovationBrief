@@ -1,3 +1,14 @@
-<h2>{{ question.question }}</h2>
+<!-- <h2>{{ question.question }}</h2>
 <p>{{ question.description }}</p>
-<input type="textarea" name="response">
+<input type="textarea" name="response"> -->
+<div class="form-group">
+	<label for="{{ question.$key }}">
+		<h3>
+			{{ question.statement }}
+		</h3>
+		<h4>
+			{{ question.description }}
+		</h4>
+	</label>
+	<input #answer type="textarea" class="form-control" id="q1" required name="{{ question.$key }}">
+</div>
