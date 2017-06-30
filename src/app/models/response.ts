@@ -20,7 +20,7 @@ export class Response {
 
 	//not being called
 	static fromJson({$key, question_id, user_id, answer}): Response {
-		console.log("Response from json");
+		console.log("In Response fromJson");
 		return new Response($key, question_id, user_id, answer);
 	}
 }

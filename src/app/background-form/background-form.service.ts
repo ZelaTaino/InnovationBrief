@@ -7,7 +7,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class BackgroundFormService {
 
-	private basePath: string = "/response";
+	private basePath: string = "response";
 
 	answers : FirebaseListObservable<any>;
 	response_list : Observable<Response[]>;
@@ -58,9 +58,9 @@ export class BackgroundFormService {
 	// 	return this.answers;
 	// }
 
-	readAnswers(query={}): Observable<Response[]>{
+	readAnswers(): Observable<Response[]>{
 		console.log("Read answer");
-		return this.db.list('reponse')
+		return this.db.list('response')
 		.do(console.log)
 		.map(Response.fromJsonList);
 	}

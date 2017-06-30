@@ -56,24 +56,24 @@ export class BackgroundFormComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.questions = this.bgService.getQuestions().do(console.log);
-		this.responses = this.bgService.readAnswers({limitToLast:3});
+		this.responses = this.bgService.readAnswers(/*{limitToLast:3}*/).do(console.log);
 
 		//unwrap questions and put in array
-		this.questions.subscribe(questions => {
-			questions.forEach(q => {
-				this.questions_list.push(q);
-			});
-		});
+		// this.questions.subscribe(questions => {
+		// 	questions.forEach(q => {
+		// 		this.questions_list.push(q);
+		// 	});
+		// });
 
-		//unwrap answers and put in array
-		this.responses.subscribe(responses => {
-			responses.forEach(a => {
-				this.responses_list.push(a);
-			});
-		});
+		// //unwrap answers and put in array
+		// this.responses.subscribe(responses => {
+		// 	responses.forEach(a => {
+		// 		this.responses_list.push(a);
+		// 	});
+		// });
 
-		console.log("QUESTIONS LIST: ", this.questions_list);
-		console.log("RESPONSE LIST", this.responses_list);
+		// console.log("QUESTIONS LIST: ", this.questions_list);
+		// console.log("RESPONSE LIST", this.responses_list);
 		
 		// this.questions.subscribe( q => {
 		// 	q.forEach(question => {
