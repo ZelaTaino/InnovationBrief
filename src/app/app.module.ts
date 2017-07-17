@@ -15,8 +15,6 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { AuthService } from "./security/auth.service";
 import { AuthGuard } from "./security/auth.guard";
-import { QuestionComponent } from './question/question.component';
-import { QuestionSheetComponent } from './question-sheet/question-sheet.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoHeaderComponent } from './logo-header/logo-header.component';
@@ -26,6 +24,8 @@ import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { MarketFormComponent } from './market-form/market-form.component';
 import { AngularFireAuthModule } from "angularfire2/auth";
 
+import { InnovationBriefService } from './shared/model/innovation-brief.service';
+
 import { AppRoutingModule } from './app-rounting.module';
 
 @NgModule({
@@ -33,8 +33,6 @@ import { AppRoutingModule } from './app-rounting.module';
     AppComponent,
     AdminHomeComponent,
     UserHomeComponent, 
-    QuestionComponent, 
-    QuestionSheetComponent,
     LoginComponent,
     RegisterComponent,
     LogoHeaderComponent, 
@@ -53,7 +51,7 @@ import { AppRoutingModule } from './app-rounting.module';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [InnovationBriefService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

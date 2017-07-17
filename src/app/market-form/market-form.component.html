@@ -10,7 +10,7 @@
 					What is the market opportunity for the business if this problem is solved?
 				</h4>
 			</label>
-			<input type="textarea" class="form-control" id="q7" required name="q7">
+			<input #answer7 value="{{ ibr.a_7 }}" type="textarea" class="form-control" id="q7" required name="q7">
 		</div>
 		<div class="form-group">
 			<label for="q8">
@@ -21,7 +21,7 @@
 					What is the key benefit(s) of your proposed solution?
 				</h4>
 			</label>
-			<input type="textarea" class="form-control" id="q8" required name="q8">
+			<input #answer8 value="{{ ibr.a_8 }}" type="textarea" class="form-control" id="q8" required name="q8">
 		</div>
 		<div class="form-group">
 			<label for="q9">
@@ -32,8 +32,8 @@
 					How does the issue that you have observed impact the customer and/or your business? Please provide quantitative proof if possible
 				</h4>
 			</label>
-			<input type="textarea" class="form-control" id="q9" required name="q9">
+			<input #answer9 value="{{ ibr.a_9 }}" type="textarea" class="form-control" id="q9" required name="q9">
 		</div>
-		<button>Submit</button>
+		<button (click)="createIBR(answer7.value, answer8.value, answer9.value); setIBR();">Submit</button>
 	</form>
 </div>

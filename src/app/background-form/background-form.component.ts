@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Response } from '../models/response';
-import { BackgroundFormService } from './background-form.service';
+
+import { InnovationBriefService } from '../shared/model/innovation-brief.service';
 import { Observable } from 'rxjs/Rx';
 import { OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { InnovationBriefResponses } from '../shared/model/innovation-brief-responses';
 
 @Component({
 	selector: 'background-form',
-	templateUrl: './background-form.component.html',
-	providers: [BackgroundFormService]
+	templateUrl: './background-form.component.html'
 })
 
 export class BackgroundFormComponent implements OnInit {
@@ -21,23 +21,18 @@ export class BackgroundFormComponent implements OnInit {
 	response_list : Response[] = [];
 	list_from_fb : FirebaseListObservable<any>;
 
-	constructor(private router: Router, private service: BackgroundFormService){}
+	ibr: InnovationBriefResponses;
 
-	passAnswers(ans_1:string, ans_2: string, ans_3: string){
-		console.log("Entered pass");
-		this.answer1 = ans_1;
-		this.answer2 = ans_2;
-		this.answer3 = ans_3;
-		this.answer_list.push(ans_1, ans_2, ans_3);
-		console.log(this.answer_list);
-		for(var ans of this.answer_list){
-			this.r = new Response(0, 0, ans);
-			this.response_list.push(this.r);
-		}
-		console.log(this.response_list);
-		for(var resp of this.response_list){
-			this.service.pushAnswer(resp);
-		}
+	constructor(private router: Router, private ib_service: InnovationBriefService){
+		this.ibr = new InnovationBriefResponses();
+	}
+
+	createIBR(a_1:string, a_2: string, a_3: string){
+		this.ibr.a_1 = a_1;
+		this.ibr.a_2 = a_2;
+		this.ibr.a_3 = a_3;
+		this.ib_service.ib_responses = this.ibr;
+		console.log("creating IBR: ", this.ibr);
 	}
 
 	nextScreen(){
@@ -45,18 +40,12 @@ export class BackgroundFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.list_from_fb = this.service.readAnswers({limitToLast:3});
-		this.parseAnswersArray(this.list_from_fb);
+		this.ib_service.getResponses()
+			.do(val => console.log("ngOnInit: ", val))
+			.subscribe(val => this.ibr = val);
 	}
 
-	parseAnswersArray(list: FirebaseListObservable<any>){
-		list.subscribe( answers =>{
-			answers.forEach(a => {
-				//Im not sure how to assign it to each answer
-				//Im going to try and use question components
-			});
-		});
-	}
+	
 	// submitted = false;
 
 	// onSubmit(){this.submitted = true}

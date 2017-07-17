@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { InnovationBriefResponses } from '../shared/model/innovation-brief-responses';
+import { InnovationBriefService } from '../shared/model/innovation-brief.service';
 
 import { Router } from '@angular/router';
 
@@ -8,16 +10,24 @@ import { Router } from '@angular/router';
 })
 export class CustomerFormComponent {
 
-	answer4: string = "";
-	answer5: string = "";
-	answer6: string = "";
+	ibr: InnovationBriefResponses;
 
-	constructor(private router: Router){}
+	constructor(private router: Router, private ib_service: InnovationBriefService){
+		this.ibr = new InnovationBriefResponses();
+	}
 
-	passAnswers(ans_4:string, ans_5: string, ans_6: string){
-		this.answer4 = ans_4;
-		this.answer5 = ans_5;
-		this.answer6 = ans_6;
+	ngOnInit(): void {
+		this.ib_service.getResponses()
+			.do(val => console.log("ngOnInit: ", val))
+			.subscribe(val => this.ibr = val);
+	}
+
+	createIBR(a_4, a_5, a_6){
+		this.ibr.a_4 = a_4;
+		this.ibr.a_5 = a_5;
+		this.ibr.a_6 = a_6;
+		this.ib_service.ib_responses = this.ibr;
+		console.log("creating ibr: ", this.ibr);
 	}
 
 	nextScreen(){
