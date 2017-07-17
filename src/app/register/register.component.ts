@@ -36,7 +36,7 @@ export class RegisterComponent  {
             .subscribe(
                 () => {
                     alert('User created successfully !');
-                    this.router.navigateByUrl('/login');
+                    this.router.navigateByUrl('/launchpad-dashboard');
                 },
                 err => alert(err)
             );

@@ -17,8 +17,8 @@ const routes: Routes = [
     { path: 'create-launchpad', component: LoginComponent},
     { path: 'launchpad-dashboard',
         children:[
-            {path: ":id",children: [{path: 'innovation-brief', component: LandingPageComponent}, {path: '', component: LaunchpadFormsComponent}]},
-            {path: 'create-launchpad', component: LoginComponent},
+            // {path: ":id",children: [{path: 'innovation-brief', component: LandingPageComponent}, {path: '', component: LaunchpadFormsComponent}]},
+            {path: 'register', component: RegisterComponent},
             {path: '', component: LaunchpadDashboardComponent}
         ]
     },
