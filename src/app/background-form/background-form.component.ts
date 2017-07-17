@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Response } from '../shared/model/response';
+
 import { InnovationBriefService } from '../shared/model/innovation-brief.service';
 import { Observable } from 'rxjs/Rx';
 import { OnInit } from '@angular/core';

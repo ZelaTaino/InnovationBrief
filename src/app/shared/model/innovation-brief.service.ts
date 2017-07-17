@@ -1,4 +1,3 @@
-import { Response } from './response';
 import { InnovationBriefResponses } from './innovation-brief-responses';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';

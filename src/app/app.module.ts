@@ -11,8 +11,6 @@ import "rxjs/add/operator/do";
 import { firebaseConfig } from '../environments/firebase.config'
 
 import { AppComponent } from './app.component';
-import { QuestionComponent } from './question/question.component';
-import { QuestionSheetComponent } from './question-sheet/question-sheet.component';
 import { LogoHeaderComponent } from './logo-header/logo-header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BackgroundFormComponent } from './background-form/background-form.component';
@@ -26,8 +24,6 @@ import { AppRoutingModule } from './app-rounting.module';
 @NgModule({
   declarations: [
     AppComponent, 
-    QuestionComponent, 
-    QuestionSheetComponent, 
     LogoHeaderComponent, 
     LandingPageComponent,
     BackgroundFormComponent,
