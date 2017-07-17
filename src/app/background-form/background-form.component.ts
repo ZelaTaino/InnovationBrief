@@ -40,9 +40,13 @@ export class BackgroundFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.ib_service.getResponses()
-			.do(val => console.log("ngOnInit: ", val))
-			.subscribe(val => this.ibr = val);
+		if(!this.ib_service.ib_responses){
+			this.ib_service.getResponses()
+				.do(val => console.log("ngOnInit customer: ", val))
+				.subscribe(val => this.ibr = val);
+		}else{
+			this.ibr = this.ib_service.ib_responses;
+		}
 	}
 
 	

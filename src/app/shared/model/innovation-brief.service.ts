@@ -6,25 +6,25 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 @Injectable()
 export class InnovationBriefService {
 
-	private basePath: string = "/responses";
-	ib_responses: InnovationBriefResponses;
+  private basePath: string = "/responses";
+  ib_responses: InnovationBriefResponses;
 
-	responses$: FirebaseListObservable<any>;
+  responses$: FirebaseListObservable<any>;
 
-	constructor(private db:AngularFireDatabase){}
+  constructor(private db:AngularFireDatabase){}
 
-	setIBR(){
-		console.log("setting ibr dict", this.ib_responses.getDict());
-		// TODO: make user a var
-		const path = this.db.object("/responses/user0");
-		path.update({ [this.ib_responses.$key] : this.ib_responses.getDict() });
-	}
+  setIBR(){
+    console.log("setting ibr dict", this.ib_responses.getDict());
+    // TODO: make user a var
+    const path = this.db.object("/responses/user0");
+    path.update({ [this.ib_responses.$key] : this.ib_responses.getDict() });
+  }
 
-	getResponses(): Observable<InnovationBriefResponses>{
-		console.log("getting responses");
-		return this.db.object('responses/user0/form0')
-			.do(val => console.log(val))
-			.map(val => InnovationBriefResponses.fromJson(val));
-	}
+  getResponses(): Observable<InnovationBriefResponses>{
+    console.log("getting responses");
+    return this.db.object('responses/user0/form0')
+      .do(val => console.log(val))
+      .map(val => InnovationBriefResponses.fromJson(val));
+  }
 
 }

@@ -10,7 +10,8 @@ export class InnovationBriefResponses {
 		public a_6?: string,
 		public a_7?: string,
 		public a_8?: string,
-		public a_9?: string){
+		public a_9?: string
+	){
 
 		this.$key = "form0";
 

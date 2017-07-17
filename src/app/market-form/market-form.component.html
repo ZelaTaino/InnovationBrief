@@ -34,6 +34,6 @@
 			</label>
 			<input #answer9 value="{{ ibr.a_9 }}" type="textarea" class="form-control" id="q9" required name="q9">
 		</div>
-		<button (click)="createIBR(answer7.value, answer8.value, answer9.value); setIBR();">Submit</button>
+		<button (click)="createIBR(answer7.value, answer8.value, answer9.value); setIBR(); exitForm();">Submit</button>
 	</form>
 </div>

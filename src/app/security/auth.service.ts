@@ -46,7 +46,6 @@ export class AuthService {
     return subject.asObservable();
   }
 
-
   logout() {
     this.afAuth.auth.signOut();
     this.authInfo$.next(AuthService.UNKNOWN_USER);

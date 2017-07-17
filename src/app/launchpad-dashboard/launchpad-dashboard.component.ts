@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { GeneralService } from '../shared/model/general.service';
 
 import { LaunchPad } from '../shared/model/launch-pad';
 
 @Component({
-  selector: 'admin-home',
-  templateUrl: './admin-home.component.html'
+  selector: 'launchpad-dashboard',
+  templateUrl: './launchpad-dashboard.component.html',
+  styleUrls: ['./launchpad-dashboard.component.css']
 })
+export class LaunchpadDashboardComponent implements OnInit {
 
-export class AdminHomeComponent {
   title = 'Welcome Admin';
   launch_pads: LaunchPad[];
 
@@ -24,5 +25,4 @@ export class AdminHomeComponent {
       .do(val => console.log("getLaunchPads: ", val))
       .subscribe(val => this.launch_pads = val);
   }
-
 }

@@ -25,8 +25,14 @@ import { MarketFormComponent } from './market-form/market-form.component';
 import { AngularFireAuthModule } from "angularfire2/auth";
 
 import { InnovationBriefService } from './shared/model/innovation-brief.service';
+import { GeneralService } from './shared/model/general.service';
 
-import { AppRoutingModule } from './app-rounting.module';
+import { RouterConfig } from './router.config';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormListComponent } from './form-list/form-list.component';
+import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-dashboard.component';
+import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
+import { CreateLaunchpadComponent } from './create-launchpad/create-launchpad.component';
 
 @NgModule({
   declarations: [
@@ -39,19 +45,24 @@ import { AppRoutingModule } from './app-rounting.module';
     LandingPageComponent,
     BackgroundFormComponent,
     CustomerFormComponent,
-    MarketFormComponent
+    MarketFormComponent,
+    DashboardComponent,
+    FormListComponent,
+    LaunchpadDashboardComponent,
+    LaunchpadFormsComponent,
+    CreateLaunchpadComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
-    AppRoutingModule,
+    RouterConfig,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [InnovationBriefService, AuthService, AuthGuard],
+  providers: [InnovationBriefService, AuthService, AuthGuard, GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

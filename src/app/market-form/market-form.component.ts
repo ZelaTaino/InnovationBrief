@@ -17,9 +17,13 @@ export class MarketFormComponent{
 	}
 
 	ngOnInit(): void {
-		this.ib_service.getResponses()
-			.do(val => console.log("ngOnInit: ", val))
-			.subscribe(val => this.ibr = val);
+		if(!this.ib_service.ib_responses){
+			this.ib_service.getResponses()
+				.do(val => console.log("ngOnInit market: ", val))
+				.subscribe(val => this.ibr = val);
+		}else{
+			this.ibr = this.ib_service.ib_responses;
+		}
 	}
 
 	createIBR(a_7, a_8, a_9){
@@ -32,6 +36,10 @@ export class MarketFormComponent{
 
 	setIBR(){
 		this.ib_service.setIBR();
+	}
+
+	exitForm(){
+		this.router.navigateByUrl('/user-home');
 	}	
 
 }

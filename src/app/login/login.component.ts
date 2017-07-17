@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder} from "@angular/forms";
 import { AuthService } from "../security/auth.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import {AuthInfo} from "../security/auth-info";
 
 @Component({
@@ -13,18 +13,19 @@ export class LoginComponent implements OnInit {
 
   form:FormGroup;
   authInfo:AuthInfo;
+  can_register: number;
 
   constructor(private fb:FormBuilder, private authService: AuthService,
-                private router:Router) {
+    private router:Router, private route: ActivatedRoute) {
       this.form = this.fb.group({
           email: ['',Validators.required],
           password: ['',Validators.required]
-      });
+    });
   }
 
   ngOnInit() {
+    this.route.queryParams.do(val => console.log(val)).subscribe(params => this.can_register = +params['can_register'] || 0);
   }
-
 
   login() {
       const formValue = this.form.value;
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
               // need to handle login failure here
               (auth) => {
                 if (auth.uid == this.authInfo.getAdminId()) {
-                  this.router.navigate(['/admin-home']);
+                  this.router.navigate(['/launchpad-dashboard']);
                 } else {
                   this.router.navigate(['/user-home']);
                 }

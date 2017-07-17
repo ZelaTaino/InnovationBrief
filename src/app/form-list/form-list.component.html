@@ -1,0 +1,10 @@
+<table>
+	<tr *ngFor="let form of forms">
+		<td>
+			{{ form.name }}
+		</td>
+		<td>
+			<button [routerLink]="form.url">View</button>
+		</td>
+	</tr>
+</table>
