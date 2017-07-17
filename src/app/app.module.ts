@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/do";
@@ -11,21 +11,32 @@ import "rxjs/add/operator/do";
 import { firebaseConfig } from '../environments/firebase.config'
 
 import { AppComponent } from './app.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { UserHomeComponent } from './user-home/user-home.component';
+import { AuthService } from "./security/auth.service";
+import { AuthGuard } from "./security/auth.guard";
 import { QuestionComponent } from './question/question.component';
 import { QuestionSheetComponent } from './question-sheet/question-sheet.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { LogoHeaderComponent } from './logo-header/logo-header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BackgroundFormComponent } from './background-form/background-form.component';
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { MarketFormComponent } from './market-form/market-form.component';
+import { AngularFireAuthModule } from "angularfire2/auth";
 
 import { AppRoutingModule } from './app-rounting.module';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,
+    AdminHomeComponent,
+    UserHomeComponent, 
     QuestionComponent, 
-    QuestionSheetComponent, 
+    QuestionSheetComponent,
+    LoginComponent,
+    RegisterComponent,
     LogoHeaderComponent, 
     LandingPageComponent,
     BackgroundFormComponent,
@@ -36,11 +47,13 @@ import { AppRoutingModule } from './app-rounting.module';
     BrowserModule,
     NgbModule.forRoot(),
     AppRoutingModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
