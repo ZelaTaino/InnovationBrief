@@ -19,6 +19,8 @@ import { BackgroundFormComponent } from './background-form/background-form.compo
 import { CustomerFormComponent } from './customer-form/customer-form.component';
 import { MarketFormComponent } from './market-form/market-form.component';
 
+import { InnovationBriefService } from './shared/model/innovation-brief.service';
+
 import { AppRoutingModule } from './app-rounting.module';
 
 @NgModule({
@@ -40,7 +42,7 @@ import { AppRoutingModule } from './app-rounting.module';
     AngularFireDatabaseModule,
     FormsModule
   ],
-  providers: [],
+  providers: [InnovationBriefService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
