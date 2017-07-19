@@ -12,8 +12,6 @@ export class InnovationBriefService {
 
   responses$: FirebaseListObservable<any>;
 
-  currentUserInfo: any;
-
   constructor(private db:AngularFireDatabase, private authService: AuthService){}
 
   setIBR(){
@@ -28,14 +26,17 @@ export class InnovationBriefService {
 
   getResponses(): Observable<InnovationBriefResponses>{
 
-    return this.authService.authInfo$.subscribe(authInfo => {
-      this.db.object('responses/' + authInfo.getUserId() + '/form0')
-        .do(val => console.log(val))
-        .map(val => InnovationBriefResponses.fromJson(val));
-      });
+    const authInfo$ = this.authService.authInfo$;
+    // const responses_from_user = 
+    return authInfo$
+      .switchMap(authInfo => this.db.object('responses/' + authInfo.getUserId() + '/form0'))
+      .do(val => console.log('getting stuff: ', val))
+      .map(val => InnovationBriefResponses.fromJson(val));
     // return this.db.object('responses/' + AuthService.UNKNOWN_USER.getUserId() + '/form0')
     //   .do(val => console.log(val))
     //   .map(val => InnovationBriefResponses.fromJson(val));
+
+    // responses_from_user.subscribe();
   }
 
 }
