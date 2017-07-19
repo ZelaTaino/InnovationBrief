@@ -33,6 +33,7 @@ import { FormListComponent } from './form-list/form-list.component';
 import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-dashboard.component';
 import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
 import { CreateLaunchpadComponent } from './create-launchpad/create-launchpad.component';
+import { LaunchpadComponent } from './launchpad/launchpad.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CreateLaunchpadComponent } from './create-launchpad/create-launchpad.co
     FormListComponent,
     LaunchpadDashboardComponent,
     LaunchpadFormsComponent,
-    CreateLaunchpadComponent
+    CreateLaunchpadComponent,
+    LaunchpadComponent
   ],
   imports: [
     BrowserModule,

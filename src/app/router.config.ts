@@ -17,14 +17,23 @@ const routes: Routes = [
     { path: 'create-launchpad', component: LoginComponent},
     { path: 'launchpad-dashboard',
         children:[
-            // {path: ":id",children: [{path: 'innovation-brief', component: LandingPageComponent}, {path: '', component: LaunchpadFormsComponent}]},
+            {path: "launchpad/:id",
+                children: [
+                    {path: "innovation-brief",
+                        children: [
+                            {path: 'background-form', component: BackgroundFormComponent},
+                            {path: 'customer-form', component: CustomerFormComponent},
+                            {path: 'market-form', component: MarketFormComponent},
+                            {path: '', component: LandingPageComponent}
+                        ]},
+                    {path: '', component: LaunchpadFormsComponent}
+                ]},
             {path: 'register', component: RegisterComponent},
             {path: '', component: LaunchpadDashboardComponent}
         ]
     },
     { path: 'user-home', component: UserHomeComponent },
     { path: 'user-home', children: [{path: 'innovation-brief', component: LandingPageComponent}]},
-    { path: 'register', component: RegisterComponent },
     { path: 'landing-page', component: LandingPageComponent },
     { path: 'background-form', component: BackgroundFormComponent},
     { path: 'customer-form', component: CustomerFormComponent},

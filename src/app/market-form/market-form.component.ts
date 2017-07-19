@@ -40,6 +40,6 @@ export class MarketFormComponent{
 
 	exitForm(){
 		this.router.navigateByUrl('/user-home');
-	}	
+	}
 
 }

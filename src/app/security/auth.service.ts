@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, BehaviorSubject } from "rxjs/Rx";
 import { AngularFireAuth } from "angularfire2/auth";
-import { AuthInfo} from "./auth-info";
+import { AuthInfo } from "./auth-info";
 import { Router } from "@angular/router";
 import * as firebase from 'firebase/app';
 
@@ -11,6 +11,7 @@ export class AuthService {
   static UNKNOWN_USER = new AuthInfo(null, null);
 
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
+  createdUID: string;
 
   constructor(private afAuth: AngularFireAuth, private router:Router) {
 
@@ -32,6 +33,7 @@ export class AuthService {
 
     promise
       .then(res => {
+        this.createdUID = this.afAuth.auth.currentUser.uid;
         const authInfo = new AuthInfo(this.afAuth.auth.currentUser.uid, this.afAuth.auth.currentUser.email);
         this.authInfo$.next(authInfo);
         subject.next(res);
@@ -44,6 +46,10 @@ export class AuthService {
     });
 
     return subject.asObservable();
+  }
+
+  getCreatedUID(): string{
+    return this.createdUID;
   }
 
   logout() {

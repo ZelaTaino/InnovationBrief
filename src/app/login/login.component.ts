@@ -38,7 +38,10 @@ export class LoginComponent implements OnInit {
                 if (auth.uid == this.authInfo.getAdminId()) {
                   this.router.navigate(['/launchpad-dashboard']);
                 } else {
-                  this.router.navigate(['/user-home']);
+                  //TODO: call getUserId to config navigation
+                  //hard coded user0
+                  //ask brady if we should make another set of paths?
+                  this.router.navigate(['launchpad-dashboard/launchpad/' + auth.uid]);
                 }
               }
           );

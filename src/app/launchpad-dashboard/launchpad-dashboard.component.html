@@ -6,7 +6,7 @@
       <td>
         {{ launch_pad.project }} {{ launch_pad.client }}
       </td>
-      <button [routerLink]="launch_pad.url">View</button>
+      <button routerLink="launchpad/{{ launch_pad.$key }}">View</button>
     </tr>
   </table>
   <a routerLink="register">Add Launch Pad</a>

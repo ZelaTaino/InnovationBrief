@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "../security/auth.service";
 import {Router} from "@angular/router";
+import { GeneralService } from '../shared/model/general.service';
 
 @Component({
   selector: 'app-register',
@@ -9,37 +10,41 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent  {
 
-  form:FormGroup;
+  form: FormGroup;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
-              private router: Router) {
+              private router: Router,
+              private general_service: GeneralService) {
 
-      this.form = this.fb.group({
-          email: ['',Validators.required],
-          password: ['',Validators.required],
-          confirm: ['',Validators.required]
-      });
+    this.form = this.fb.group({
+      client: ['',Validators.required],
+      project: ['', Validators.required],
+      email: ['',Validators.required],
+      password: ['',Validators.required],
+      confirm: ['',Validators.required]
+    });
 
 
   }
 
     isPasswordMatch() {
-        const val = this.form.value;
-        return val && val.password && val.password == val.confirm;
+      const val = this.form.value;
+      return val && val.password && val.password == val.confirm;
     }
 
     signUp() {
-        const val = this.form.value;
+      const val = this.form.value;
 
-        this.authService.signUp(val.email, val.password)
-            .subscribe(
-                () => {
-                    alert('User created successfully !');
-                    this.router.navigateByUrl('/launchpad-dashboard');
-                },
-                err => alert(err)
-            );
+      this.authService.signUp(val.email, val.password)
+          .subscribe(
+              () => {
+                  this.general_service.addLaunchPad(val.client, val.project, this.authService.getCreatedUID());
+                  alert('User created successfully !');
+                  this.router.navigateByUrl('/launchpad-dashboard');
+              },
+              err => alert(err)
+          );
     }
 
 
