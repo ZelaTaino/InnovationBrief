@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder} from "@angular/forms";
 import { AuthService } from "../security/auth.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import {AuthInfo} from "../security/auth-info";
 
 @Component({
   selector: 'app-login',
@@ -12,7 +11,6 @@ import {AuthInfo} from "../security/auth-info";
 export class LoginComponent implements OnInit {
 
   form:FormGroup;
-  authInfo:AuthInfo;
   can_register: number;
 
   constructor(private fb:FormBuilder, private authService: AuthService,
@@ -29,13 +27,12 @@ export class LoginComponent implements OnInit {
 
   login() {
       const formValue = this.form.value;
-      this.authService.authInfo$.subscribe(authInfo =>  this.authInfo = authInfo);
       
       this.authService.login(formValue.email, formValue.password)
           .subscribe(
               // need to handle login failure here
               (auth) => {
-                if (auth.uid == this.authInfo.getAdminId()) {
+                if (this.authService.isAdmin(auth.uid)) {
                   this.router.navigate(['/launchpad-dashboard']);
                 } else {
                   //TODO: call getUserId to config navigation

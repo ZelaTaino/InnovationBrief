@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { AuthService } from "./security/auth.service";
-import { AuthGuard } from "./security/auth.guard";
+import { AdminGuard } from "./security/auth.guard";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoHeaderComponent } from './logo-header/logo-header.component';
@@ -64,7 +64,7 @@ import { LaunchpadComponent } from './launchpad/launchpad.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [InnovationBriefService, AuthService, AuthGuard, GeneralService],
+  providers: [InnovationBriefService, AuthService, AdminGuard, GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

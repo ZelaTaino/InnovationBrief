@@ -7,49 +7,46 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
+  private adminId:string = 'eCGCxLFGILgD2wB699dRHfZNDy93';
 
-  static UNKNOWN_USER = new AuthInfo(null, null);
+  static UNKNOWN_USER = new AuthInfo(null);
 
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
-  createdUID: string;
 
   constructor(private afAuth: AngularFireAuth, private router:Router) {
-
   }
 
   login(email, password):Observable<any> {
     return this.fromFirebaseAuthPromise(this.afAuth.auth.signInWithEmailAndPassword(email, password));
   }
 
+  fromFirebaseAuthPromise(promise):Observable<any> {
+
+        const subject = new Subject<any>();
+
+        promise
+            .then(res => {
+                    const authInfo = new AuthInfo(this.afAuth.auth.currentUser.uid);
+                    this.authInfo$.next(authInfo);
+                    subject.next(res);
+                    subject.complete();
+                },
+                err => {
+                    this.authInfo$.error(err);
+                    subject.error(err);
+                    subject.complete();
+                });
+
+        return subject.asObservable();
+    }
+
 
   signUp(email, password) {
     return this.fromFirebaseAuthPromise(this.afAuth.auth.createUserWithEmailAndPassword(email, password));
   }
 
-
-  fromFirebaseAuthPromise(promise):Observable<any> {
-
-    const subject = new Subject<any>();
-
-    promise
-      .then(res => {
-        this.createdUID = this.afAuth.auth.currentUser.uid;
-        const authInfo = new AuthInfo(this.afAuth.auth.currentUser.uid, this.afAuth.auth.currentUser.email);
-        this.authInfo$.next(authInfo);
-        subject.next(res);
-        subject.complete();
-      },
-    err => {
-        this.authInfo$.error(err);
-        subject.error(err);
-        subject.complete();
-    });
-
-    return subject.asObservable();
-  }
-
-  getCreatedUID(): string{
-    return this.createdUID;
+  getAuthState() {
+    return this.afAuth.authState;
   }
 
   logout() {
@@ -58,4 +55,23 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  getCurrentUserId() {
+    return new Promise(function (resolve, reject) {
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          resolve(user.uid);
+        } else {
+          reject(Error('User not validated'));
+        }
+      });
+    });
+  };
+
+  isAdmin(uid) {
+      if (uid == this.adminId) {
+          return true;
+      } else {
+          return false;
+      }
+  }
 }

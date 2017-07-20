@@ -10,6 +10,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-dashboard.component';
 import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
+import { AdminGuard } from "./security/auth.guard";
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -30,7 +31,9 @@ const routes: Routes = [
                 ]},
             {path: 'register', component: RegisterComponent},
             {path: '', component: LaunchpadDashboardComponent}
-        ]
+        ],
+      // THIS WILL PREVENT A USER TO ROUTE HERE IF THEY ARE NOT ADMIN
+      canActivate: [AdminGuard]
     },
     { path: 'user-home', component: UserHomeComponent },
     { path: 'user-home', children: [{path: 'innovation-brief', component: LandingPageComponent}]},
