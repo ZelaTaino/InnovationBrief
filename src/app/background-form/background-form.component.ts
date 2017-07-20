@@ -6,53 +6,86 @@ import { Observable } from 'rxjs/Rx';
 import { OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { InnovationBriefResponses } from '../shared/model/innovation-brief-responses';
+import { AuthService } from '../security/auth.service';
 
 @Component({
-	selector: 'background-form',
-	templateUrl: './background-form.component.html'
+  selector: 'background-form',
+  templateUrl: './background-form.component.html'
 })
 
 export class BackgroundFormComponent implements OnInit {
-	answer1: string = "";
-	answer2: string = "";
-	answer3: string = "";
-	answer_list : string[] = [];
-	r: Response;
-	response_list : Response[] = [];
-	list_from_fb : FirebaseListObservable<any>;
+  
+  ibr: InnovationBriefResponses;
 
-	ibr: InnovationBriefResponses;
+  constructor(
+    private router: Router, 
+    private ib_service: InnovationBriefService, 
+    private authService: AuthService){
+    this.ibr = new InnovationBriefResponses();
+  }
 
-	constructor(private router: Router, private ib_service: InnovationBriefService){
-		this.ibr = new InnovationBriefResponses();
-	}
+  createIBR(a_1:string, a_2: string, a_3: string){
+    this.ibr.a_1 = a_1;
+    this.ibr.a_2 = a_2;
+    this.ibr.a_3 = a_3;
+    this.ib_service.ib_responses = this.ibr;
+    console.log("creating IBR: ", this.ibr);
+  }
 
-	createIBR(a_1:string, a_2: string, a_3: string){
-		this.ibr.a_1 = a_1;
-		this.ibr.a_2 = a_2;
-		this.ibr.a_3 = a_3;
-		this.ib_service.ib_responses = this.ibr;
-		console.log("creating IBR: ", this.ibr);
-	}
+  // nextScreen(){
+  //   this.router.navigate(['customer-form']);
+  // }
 
-	nextScreen(){
-		this.router.navigateByUrl('/customer-form');
-	}
+  ngOnInit(): void {
 
-	ngOnInit(): void {
-		if(!this.ib_service.ib_responses){
-			this.ib_service.getResponses()
-				.do(val => console.log("ngOnInit customer: ", val))
-				.subscribe(val => this.ibr = val);
-		}else{
-			this.ibr = this.ib_service.ib_responses;
-		}
-	}
+    // this.authService.getCurrentUserId()
+    //     .then(function (uid) {
 
-	
-	// submitted = false;
+    //       console.log('logged in user id: ', uid);
+    //       if(!this.ib_service.ib_responses){
+    //         this.ib_service.getResponses(uid)
+    //             .do(val => console.log("ngOnInit background", val))
+    //             .subscribe(val => this.ibr = val);
+    //       }else{
+    //         this.ibr = this.ib_service.ib_responses;
+    //       }
 
-	// onSubmit(){this.submitted = true}
+    //     })
+    //     .catch(function (err) {
+    //       console.log(err);
+    //     });
 
-	// get diagnostic(){return JSON.stringify();}
+
+    this.authService.getCurrentUserId()
+        .then(uid => {
+
+          console.log('logged in user id: ', uid);
+          if(!this.ib_service.ib_responses){
+            this.ib_service.getResponses(uid)
+                .do(val => console.log("ngOnInit background", val))
+                .subscribe(val => this.ibr = val);
+          }else{
+            this.ibr = this.ib_service.ib_responses;
+          }
+
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+
+    // if(!this.ib_service.ib_responses){
+    //   this.ib_service.getResponses()
+    //     .do(val => console.log("ngOnInit customer: ", val))
+    //     .subscribe(val => this.ibr = val);
+    // }else{
+    //   this.ibr = this.ib_service.ib_responses;
+    // }
+  }
+
+  
+  // submitted = false;
+
+  // onSubmit(){this.submitted = true}
+
+  // get diagnostic(){return JSON.stringify();}
 }

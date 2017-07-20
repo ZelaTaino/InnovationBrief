@@ -4,7 +4,7 @@
 			{{ form.name }}
 		</td>
 		<td>
-			<button [routerLink]="form.url">View</button>
+			<button (click)="goToForm(form.url);">View</button>
 		</td>
 		<td>
 			Complete: {{ form.complete }}

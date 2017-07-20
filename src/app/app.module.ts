@@ -34,6 +34,7 @@ import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-das
 import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
 import { CreateLaunchpadComponent } from './create-launchpad/create-launchpad.component';
 import { LaunchpadComponent } from './launchpad/launchpad.component';
+import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { LaunchpadComponent } from './launchpad/launchpad.component';
     LaunchpadDashboardComponent,
     LaunchpadFormsComponent,
     CreateLaunchpadComponent,
-    LaunchpadComponent
+    LaunchpadComponent,
+    InnovationBriefAnswersComponent
   ],
   imports: [
     BrowserModule,

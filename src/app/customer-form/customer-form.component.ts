@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { InnovationBriefResponses } from '../shared/model/innovation-brief-responses';
 import { InnovationBriefService } from '../shared/model/innovation-brief.service';
+import { AuthService } from '../security/auth.service';
 
 import { Router } from '@angular/router';
 
@@ -12,18 +13,27 @@ export class CustomerFormComponent {
 
 	ibr: InnovationBriefResponses;
 
-	constructor(private router: Router, private ib_service: InnovationBriefService){
+	constructor(private authService: AuthService, private router: Router, private ib_service: InnovationBriefService){
 		this.ibr = new InnovationBriefResponses();
 	}
 
 	ngOnInit(): void {
-		if(!this.ib_service.ib_responses){
-			this.ib_service.getResponses()
-				.do(val => console.log("ngOnInit customer: ", val))
-				.subscribe(val => this.ibr = val);
-		}else{
-			this.ibr = this.ib_service.ib_responses;
-		}
+		this.authService.getCurrentUserId()
+        .then(uid => {
+
+          console.log('logged in user id: ', uid);
+          if(!this.ib_service.ib_responses){
+            this.ib_service.getResponses(uid)
+                .do(val => console.log("ngOnInit customer", val))
+                .subscribe(val => this.ibr = val);
+          }else{
+            this.ibr = this.ib_service.ib_responses;
+          }
+
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
 	}
 
 	createIBR(a_4, a_5, a_6){
@@ -34,7 +44,7 @@ export class CustomerFormComponent {
 		console.log("creating ibr: ", this.ibr);
 	}
 
-	nextScreen(){
-		this.router.navigateByUrl('/market-form');
-	}
+	// nextScreen(){
+	// 	this.router.navigateByUrl('/market-form');
+	// }
 }

@@ -11,27 +11,22 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-dashboard.component';
 import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
 import { AdminGuard } from "./security/auth.guard";
+import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component'
 
 const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
     { path: 'create-launchpad', component: LoginComponent},
     { path: 'launchpad-dashboard',
-        children:[
-            {path: "launchpad/:id",
-                children: [
-                    {path: "innovation-brief",
-                        children: [
-                            {path: 'background-form', component: BackgroundFormComponent},
-                            {path: 'customer-form', component: CustomerFormComponent},
-                            {path: 'market-form', component: MarketFormComponent},
-                            {path: '', component: LandingPageComponent}
-                        ]},
-                    {path: '', component: LaunchpadFormsComponent}
-                ]},
-            {path: 'register', component: RegisterComponent},
-            {path: '', component: LaunchpadDashboardComponent}
-        ],
+      children:[
+        {path: "launchpad/:id",
+            children: [
+              {path: 'innovation-brief-answers/:id', component: InnovationBriefAnswersComponent},
+              {path: '', component: LaunchpadFormsComponent}
+            ]},
+        {path: 'register', component: RegisterComponent},
+        {path: '', component: LaunchpadDashboardComponent}
+      ],
       // THIS WILL PREVENT A USER TO ROUTE HERE IF THEY ARE NOT ADMIN
       canActivate: [AdminGuard]
     },
@@ -39,15 +34,20 @@ const routes: Routes = [
       children: [
         {path: "innovation-brief",
           children: [
-              {path: 'background-form', component: BackgroundFormComponent},
-              {path: 'customer-form', component: CustomerFormComponent},
-              {path: 'market-form', component: MarketFormComponent},
-              {path: '', component: LandingPageComponent}
-          ]
-        },
-        {path: '', component: LaunchpadFormsComponent}
-      ]
-    }
+            {path: 'background-form',
+              children: [
+                {path: 'customer-form',
+                  children: [
+                    {path: 'market-form', component: MarketFormComponent},
+                    {path: '', component: CustomerFormComponent},
+                  ]},
+            {path: '', component: BackgroundFormComponent}
+          ]},
+        {path: '', component: LandingPageComponent}
+      ]},
+    {path: '', component: LaunchpadFormsComponent}
+  ]},
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({
