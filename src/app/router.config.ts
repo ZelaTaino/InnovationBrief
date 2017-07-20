@@ -35,12 +35,19 @@ const routes: Routes = [
       // THIS WILL PREVENT A USER TO ROUTE HERE IF THEY ARE NOT ADMIN
       canActivate: [AdminGuard]
     },
-    { path: 'user-home', component: UserHomeComponent },
-    { path: 'user-home', children: [{path: 'innovation-brief', component: LandingPageComponent}]},
-    { path: 'landing-page', component: LandingPageComponent },
-    { path: 'background-form', component: BackgroundFormComponent},
-    { path: 'customer-form', component: CustomerFormComponent},
-    { path: 'market-form', component: MarketFormComponent}
+    { path: 'launchpad/:id',
+      children: [
+        {path: "innovation-brief",
+          children: [
+              {path: 'background-form', component: BackgroundFormComponent},
+              {path: 'customer-form', component: CustomerFormComponent},
+              {path: 'market-form', component: MarketFormComponent},
+              {path: '', component: LandingPageComponent}
+          ]
+        },
+        {path: '', component: LaunchpadFormsComponent}
+      ]
+    }
 ];
 
 @NgModule({

@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
                   //TODO: call getUserId to config navigation
                   //hard coded user0
                   //ask brady if we should make another set of paths?
-                  this.router.navigate(['launchpad-dashboard/launchpad/' + auth.uid]);
+                  this.router.navigate(['launchpad/' + auth.uid]);
                 }
               }
           );
