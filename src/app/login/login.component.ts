@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb:FormBuilder, private authService: AuthService,
     private router:Router, private route: ActivatedRoute) {
       this.form = this.fb.group({
-          email: ['',Validators.required],
+          username: ['',Validators.required],
           password: ['',Validators.required]
     });
   }
@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
 
   login() {
       const formValue = this.form.value;
+      let username_email = formValue.username + "@fake.com";
       
-      this.authService.login(formValue.email, formValue.password)
+      this.authService.login(username_email, formValue.password)
           .subscribe(
               // need to handle login failure here
               (auth) => {

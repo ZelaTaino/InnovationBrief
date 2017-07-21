@@ -20,7 +20,7 @@ export class RegisterComponent  {
     this.form = this.fb.group({
       client: ['',Validators.required],
       project: ['', Validators.required],
-      email: ['',Validators.required],
+      username: ['',Validators.required],
       password: ['',Validators.required],
       confirm: ['',Validators.required]
     });
@@ -35,8 +35,9 @@ export class RegisterComponent  {
 
     signUp() {
       const val = this.form.value;
+      let username_email = val.username + "@fake.com";
 
-      this.authService.signUp(val.email, val.password)
+      this.authService.signUp(username_email, val.password)
           .subscribe(
               () => {
                   this.general_service.addLaunchPad(val.client, val.project, this.authService.getCreatedUID());
