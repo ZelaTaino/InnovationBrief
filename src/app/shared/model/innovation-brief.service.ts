@@ -1,22 +1,31 @@
 import { InnovationBriefResponses } from './innovation-brief-responses';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AuthService } from '../../security/auth.service';
+import * as firebase from 'firebase';
+
+import { Upload } from './upload';
 
 @Injectable()
 export class InnovationBriefService {
 
-  private basePath: string = "/responses";
   ib_responses: InnovationBriefResponses;
+  private uploadTask: firebase.storage.UploadTask;
+  sdkdb: any;
+  form_id = "form0";
 
-  responses$: FirebaseListObservable<any>;
+  constructor(
+    private db:AngularFireDatabase, 
+    private authService: AuthService){
 
-  constructor(private db:AngularFireDatabase, private authService: AuthService){}
+    this.sdkdb = firebase.database().ref();
+    
+  }
 
   setIBR(uid){
     console.log("setting ibr dict", this.ib_responses.getDict());
-    const path = this.db.object("/responses/" + uid);
+    const path = this.db.object(`/responses/${uid}`);
     path.update({ [this.ib_responses.$key] : this.ib_responses.getDict() });  
   }
 
@@ -36,10 +45,63 @@ export class InnovationBriefService {
 
 
 
-    return this.db.object('responses/' + uid + '/form0')
+    return this.db.object('responses/' + uid + "/" + this.form_id)
       .do(val => console.log(val))
       .map(val => InnovationBriefResponses.fromJson(val));
 
+  }
+
+  upload(upload: Upload, idValue: string){
+    let storageRef = firebase.storage().ref();
+    this.uploadTask = storageRef.child(`/uploads/${upload.file.name}`).put(upload.file);
+
+    this.uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,
+      (snapshot) => {
+        upload.progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        upload.url = this.uploadTask.snapshot.downloadURL;
+        upload.name = upload.file.name;
+        this.saveFileData(upload, idValue);
+      }
+
+    );
+  }
+
+  private saveFileData(upload: Upload, idValue: string): Observable<any>{
+
+    const newUploadKey = this.sdkdb.child('uploads').push().key;
+
+    console.log(newUploadKey);
+    let dataToSave = {};
+    dataToSave[`uploads/${newUploadKey}`] = upload;
+    dataToSave[`uploadsPerForm/user0/${this.form_id}/${idValue}/${newUploadKey}`] = true;
+
+    return this.firebaseUpdate(dataToSave);
+
+    // this.db.list('/uploads').push(upload); //get key that was pusehd
+    // this.db.list('uploadsPerForm/' + "user0/" + "form0/" + "a_1_files");
+  }
+
+  firebaseUpdate(dataToSave){
+    const subject = new Subject();
+
+    this.sdkdb.update(dataToSave)
+        .then(
+          val => {
+            subject.next(val);
+            subject.complete();
+          },
+          err => {
+            subject.error(err);
+            subject.complete();
+          }
+        );
+
+    return subject.asObservable();
   }
 
 }

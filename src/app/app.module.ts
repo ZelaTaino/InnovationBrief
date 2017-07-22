@@ -64,7 +64,7 @@ import { InnovationBriefAnswersComponent } from './innovation-brief-answers/inno
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [InnovationBriefService, AuthService, AdminGuard, GeneralService],
   bootstrap: [AppComponent]
