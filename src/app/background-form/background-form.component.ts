@@ -19,46 +19,14 @@ export class BackgroundFormComponent implements OnInit {
   @ViewChild('a_1_files') a_1_files: any;
 
   ibr: InnovationBriefResponses;
-  selectedFiles: FileList;
-  currentUpload: Upload;
+  // selectedFiles: FileList;
+  // currentUpload: Upload;
 
   constructor(
     private router: Router, 
     private ib_service: InnovationBriefService, 
     private authService: AuthService){
     this.ibr = new InnovationBriefResponses();
-  }
-
-  createIBR(a_1:string, a_2: string, a_3: string){
-    this.ibr.a_1 = a_1;
-    this.ibr.a_2 = a_2;
-    this.ibr.a_3 = a_3;
-    this.ib_service.ib_responses = this.ibr;
-    console.log("creating IBR: ", this.ibr);
-  }
-
-  //detecets when file is about to be uploaded
-  detectFiles(event){
-    this.selectedFiles = event.target.files;
-  }
-
-  //uploads a file and saves to db
-  upload(event){
-    var target = event.target || event.srcElement || event.currentTarget;
-    var idAttr = target.attributes.id;
-    var idValue = idAttr.nodeValue;
-
-    let file = this.selectedFiles.item(0);
-    this.currentUpload = new Upload(file);
-
-    this.authService.getCurrentUserId()
-        .then(uid => {
-          this.ib_service.upload(this.currentUpload, idValue, uid);
-          this.a_1_files.nativeElement.value = "";
-        })
-        .catch( err => {
-          console.log(err);
-        });
   }
 
   ngOnInit(): void {
@@ -82,6 +50,37 @@ export class BackgroundFormComponent implements OnInit {
 
   }
 
+  createIBR(a_1:string, a_2: string, a_3: string){
+    this.ibr.a_1 = a_1;
+    this.ibr.a_2 = a_2;
+    this.ibr.a_3 = a_3;
+    this.ib_service.ib_responses = this.ibr;
+    console.log("creating IBR: ", this.ibr);
+  }
+
+  // //detecets when file is about to be uploaded
+  // detectFiles(event){
+  //   this.selectedFiles = event.target.files;
+  // }
+
+  // //uploads a file and saves to db
+  // upload(event){
+  //   var target = event.target || event.srcElement || event.currentTarget;
+  //   var idAttr = target.attributes.id;
+  //   var idValue = idAttr.nodeValue;
+
+  //   let file = this.selectedFiles.item(0);
+  //   this.currentUpload = new Upload(file);
+
+  //   this.authService.getCurrentUserId()
+  //       .then(uid => {
+  //         this.ib_service.upload(this.currentUpload, idValue, uid);
+  //         this.a_1_files.nativeElement.value = "";
+  //       })
+  //       .catch( err => {
+  //         console.log(err);
+  //       });
+  // }
   
   // submitted = false;
 

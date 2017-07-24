@@ -100,4 +100,11 @@ export class InnovationBriefService {
     return subject.asObservable();
   }
 
+  // getUploads(): FirebaseListObservable<Upload[]> {
+
+    
+
+  //   return
+  // }
+
 }

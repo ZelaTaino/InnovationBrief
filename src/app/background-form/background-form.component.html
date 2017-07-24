@@ -11,12 +11,13 @@
 				</h4>
 			</label>
 			<input #answer1 value="{{ ibr.a_1 }}" type="textarea" class="form-control" id="q1" required name="q1">
+			<uploader [tag_id]="'a_1_files'"></uploader>
 
-			<input #a_1_files type="file" name="a_1_file" (change)="detectFiles($event)" >
+<!-- 			<input #a_1_files type="file" name="a_1_file" (change)="detectFiles($event)" >
 			<button type="button" (click)="upload($event)" [disabled]="!selectedFiles" id="a_1_files">Upload</button>
 			<div *ngIf="currentUpload">
 				{{ currentUpload?.progress }}% Complete
-			</div>
+			</div> -->
 
 <!-- 			<p>Uploaded files</p>
 			<div *ngFor="let upload of uploads">

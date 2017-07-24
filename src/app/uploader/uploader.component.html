@@ -1,0 +1,10 @@
+<input #input_elem type="file" name="{{ tag_id }}" (change)="detectFiles($event)" >
+<button type="button" (click)="upload($event)" [disabled]="!selectedFiles">Upload</button>
+<div *ngIf="currentUpload">
+  {{ currentUpload?.progress }}% Complete
+</div>
+
+<div>
+  <strong>Upload item</strong>
+  <button>Delete</button>
+</div>
