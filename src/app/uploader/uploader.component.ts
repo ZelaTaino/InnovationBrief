@@ -3,6 +3,7 @@ import { InnovationBriefService } from '../shared/model/innovation-brief.service
 import { Upload } from '../shared/model/upload';
 import { AuthService } from '../security/auth.service';
 import { FirebaseListObservable } from 'angularfire2/database';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'uploader',
@@ -16,7 +17,7 @@ export class UploaderComponent implements OnInit {
 
   currentUpload: Upload;
   selectedFiles: FileList;
-  uploads: FirebaseListObservable<Upload[]>;
+  uploads$: Observable<Upload[]>;
 
   constructor(
     private ib_service: InnovationBriefService,
@@ -24,7 +25,7 @@ export class UploaderComponent implements OnInit {
 
   //this works because it could handle its own info
   ngOnInit() {
-    //this.uploads = this.ib_service.getUploads();
+    this.uploads$ = this.ib_service.getUploads();
   }
 
   //detecets when file is about to be uploaded

@@ -100,11 +100,24 @@ export class InnovationBriefService {
     return subject.asObservable();
   }
 
-  // getUploads(): FirebaseListObservable<Upload[]> {
+  getUploads(): Observable<Upload[]>{
 
-    
+    const uploads$ = this.db.list('uploadsPerForm/4ToeqvY0r5V7RzFB2dgncVH869m1/form0/a_1_files')
+    .do(val => console.log("get uplaods:", val));
 
-  //   return
-  // }
+    return uploads$.map(uploadsPerForm => 
+      uploadsPerForm.map(u => 
+        this.db.object('uploads/' + u.$key)))
+            .flatMap(fb_observs => Observable.combineLatest(fb_observs))
+            .do(val => console.log("stuff: ", val));
+
+    // formsUplaods$.subscribe();
+    // const uploadsPerForm$ = uploads$
+    //   .switchMap(upload => this.db.object('uploads/' + upload.$key))
+    //   .do(val => console.log(val));
+
+    // uploadsPerForm$.subscribe();
+
+  }
 
 }

@@ -4,7 +4,7 @@
   {{ currentUpload?.progress }}% Complete
 </div>
 
-<div>
-  <strong>Upload item</strong>
+<div *ngFor="let upload of (uploads$ | async)">
+  <strong>{{ upload.name }}</strong>
   <button>Delete</button>
 </div>
