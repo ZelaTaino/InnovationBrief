@@ -100,9 +100,9 @@ export class InnovationBriefService {
     return subject.asObservable();
   }
 
-  getUploads(): Observable<Upload[]>{
+  getUploads(uid, tag_id): Observable<Upload[]>{
 
-    const uploads$ = this.db.list('uploadsPerForm/4ToeqvY0r5V7RzFB2dgncVH869m1/form0/a_1_files')
+    const uploads$ = this.db.list(`uploadsPerForm/${uid}/${this.form_id}/${tag_id}`)
     .do(val => console.log("get uplaods:", val));
 
     return uploads$.map(uploadsPerForm => 
@@ -110,14 +110,25 @@ export class InnovationBriefService {
         this.db.object('uploads/' + u.$key)))
             .flatMap(fb_observs => Observable.combineLatest(fb_observs))
             .do(val => console.log("stuff: ", val));
+  }
 
-    // formsUplaods$.subscribe();
-    // const uploadsPerForm$ = uploads$
-    //   .switchMap(upload => this.db.object('uploads/' + upload.$key))
-    //   .do(val => console.log(val));
+  deleteUpload(uid, tag_id, upload){
+    this.deleteFileData(uid, tag_id, upload.$key);
+    this.deleteFileStorage(upload.name);
+  }
 
-    // uploadsPerForm$.subscribe();
+  private deleteFileData(uid, tag_id, key) {
 
+    let dataToSave = {};
+    dataToSave[`uploads/${key}`] = null;
+    dataToSave[`uploadsPerForm/${uid}/${this.form_id}/${tag_id}/${key}`] = null;
+
+    return this.firebaseUpdate(dataToSave);
+  }
+
+  private deleteFileStorage(name: string){
+    const storageRef = firebase.storage().ref();
+    storageRef.child(`uploads/${name}`).delete();
   }
 
 }

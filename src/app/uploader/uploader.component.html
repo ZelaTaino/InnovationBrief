@@ -6,5 +6,5 @@
 
 <div *ngFor="let upload of (uploads$ | async)">
   <strong>{{ upload.name }}</strong>
-  <button>Delete</button>
+  <button (click)="deleteUpload(upload)">Delete</button>
 </div>

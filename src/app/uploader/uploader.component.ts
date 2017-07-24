@@ -25,7 +25,13 @@ export class UploaderComponent implements OnInit {
 
   //this works because it could handle its own info
   ngOnInit() {
-    this.uploads$ = this.ib_service.getUploads();
+    this.authService.getCurrentUserId()
+        .then( uid => {
+          this.uploads$ = this.ib_service.getUploads(uid, this.tag_id);
+        })
+        .catch(err => {
+          console.log(err)
+        });
   }
 
   //detecets when file is about to be uploaded
@@ -51,6 +57,14 @@ export class UploaderComponent implements OnInit {
         });
   }
 
-
+  deleteUpload(upload){
+    this.authService.getCurrentUserId()
+        .then(uid => {
+          this.ib_service.deleteUpload(uid, this.tag_id, upload);
+        })
+        .catch(err => {
+          console.log(err)
+        });
+  }
 
 }
