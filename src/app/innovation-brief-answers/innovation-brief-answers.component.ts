@@ -11,6 +11,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class InnovationBriefAnswersComponent implements OnInit {
   
   ibr: InnovationBriefResponses;
+  launchpad_id: any;
 
   constructor(private activeRoute: ActivatedRoute, private ib_service: InnovationBriefService) { 
     this.ibr = new InnovationBriefResponses();
@@ -19,6 +20,7 @@ export class InnovationBriefAnswersComponent implements OnInit {
   ngOnInit() {
     this.activeRoute.params
         .subscribe((params: Params) => {
+          this.launchpad_id = params['id'];
           this.ib_service.getResponses(params['id'])
               .subscribe(val => this.ibr = val);
         });

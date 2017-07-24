@@ -36,6 +36,7 @@ import { CreateLaunchpadComponent } from './create-launchpad/create-launchpad.co
 import { LaunchpadComponent } from './launchpad/launchpad.component';
 import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component';
 import { UploaderComponent } from './uploader/uploader.component';
+import { UploaderListComponent } from './uploader-list/uploader-list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UploaderComponent } from './uploader/uploader.component';
     CreateLaunchpadComponent,
     LaunchpadComponent,
     InnovationBriefAnswersComponent,
-    UploaderComponent
+    UploaderComponent,
+    UploaderListComponent
   ],
   imports: [
     BrowserModule,

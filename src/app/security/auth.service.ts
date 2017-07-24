@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  private adminId:string = 'eCGCxLFGILgD2wB699dRHfZNDy93';
+  private adminId:string = 'LBS9fMtoeGME8LXFQPlvgHTNxtI3';
 
   static UNKNOWN_USER = new AuthInfo(null);
 

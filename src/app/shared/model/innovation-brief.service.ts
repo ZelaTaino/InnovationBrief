@@ -131,4 +131,8 @@ export class InnovationBriefService {
     storageRef.child(`uploads/${name}`).delete();
   }
 
+  downloadFile(upload){
+    
+  }
+
 }

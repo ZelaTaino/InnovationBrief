@@ -3,8 +3,9 @@
 <div *ngIf="currentUpload">
   {{ currentUpload?.progress }}% Complete
 </div>
+<uploader-list [tag_id]="tag_id"></uploader-list>
 
-<div *ngFor="let upload of (uploads$ | async)">
+<!-- <div *ngFor="let upload of (uploads$ | async)">
   <strong>{{ upload.name }}</strong>
   <button (click)="deleteUpload(upload)">Delete</button>
-</div>
+</div> -->
