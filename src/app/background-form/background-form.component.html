@@ -12,19 +12,6 @@
 			</label>
 			<input #answer1 value="{{ ibr.a_1 }}" type="textarea" class="form-control" id="q1" required name="q1">
 			<uploader [tag_id]="'a_1_files'"></uploader>
-
-<!-- 			<input #a_1_files type="file" name="a_1_file" (change)="detectFiles($event)" >
-			<button type="button" (click)="upload($event)" [disabled]="!selectedFiles" id="a_1_files">Upload</button>
-			<div *ngIf="currentUpload">
-				{{ currentUpload?.progress }}% Complete
-			</div> -->
-
-<!-- 			<p>Uploaded files</p>
-			<div *ngFor="let upload of uploads">
-				<strong>{{ upload.name }}</strong>
-				<button (click)="deleteUpload(upload)">Delete</button>
-			</div> -->
-
 		</div>
 		<div class="form-group">
 			<label for="q2">
@@ -36,6 +23,7 @@
 				</h4>
 			</label>
 			<input #answer2 value="{{ ibr.a_2 }}" type="textarea" class="form-control" id="q2" required name="q2">
+			<uploader [tag_id]="'a_2_files'"></uploader>
 		</div>
 		<div class="form-group">
 			<label for="q3">
@@ -47,6 +35,7 @@
 				</h4>
 			</label>
 			<input #answer3 value="{{ ibr.a_3 }}" type="textarea" class="form-control" id="q3" required name="q3">
+			<uploader [tag_id]="'a_3_files'"></uploader>
 		</div>
 		<button (click)="createIBR(answer1.value, answer2.value, answer3.value);" routerLink="customer-form">Next</button>
 	</form>

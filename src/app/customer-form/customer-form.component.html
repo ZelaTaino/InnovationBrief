@@ -11,6 +11,7 @@
 				</h4>
 			</label>
 			<input #answer4 value="{{ ibr.a_4 }}" type="textarea" class="form-control" id="q4" required name="q4">
+			<uploader [tag_id]="'a_4_files'"></uploader>
 		</div>
 		<div class="form-group">
 			<label for="q5">
@@ -22,6 +23,7 @@
 				</h4>
 			</label>
 			<input #answer5 value="{{ ibr.a_5 }}" type="textarea" class="form-control" id="q5" required name="q5">
+			<uploader [tag_id]="'a_5_files'"></uploader>
 		</div>
 		<div class="form-group">
 			<label for="q6">
@@ -33,6 +35,7 @@
 				</h4>
 			</label>
 			<input #answer6 value="{{ ibr.a_6 }}" type="textarea" class="form-control" id="q6" required name="q6">
+			<uploader [tag_id]="'a_6_files'"></uploader>
 		</div>
 		<button (click)="createIBR(answer4.value, answer5.value, answer6.value);" routerLink="market-form">Next</button>
 	</form>
