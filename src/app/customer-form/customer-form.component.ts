@@ -3,7 +3,7 @@ import { InnovationBriefResponses } from '../shared/model/innovation-brief-respo
 import { InnovationBriefService } from '../shared/model/innovation-brief.service';
 import { AuthService } from '../security/auth.service';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector:'customer-form',
@@ -13,7 +13,11 @@ export class CustomerFormComponent {
 
 	ibr: InnovationBriefResponses;
 
-	constructor(private authService: AuthService, private router: Router, private ib_service: InnovationBriefService){
+	constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private ib_service: InnovationBriefService,
+    private route: ActivatedRoute){
 		this.ibr = new InnovationBriefResponses();
 	}
 
@@ -43,6 +47,11 @@ export class CustomerFormComponent {
 		this.ib_service.ib_responses = this.ibr;
 		console.log("creating ibr: ", this.ibr);
 	}
+
+  prevPage(){
+    console.log(this.route);
+    // this.router.navigate(["../background-form"], {relativeTo: this.route});
+  }
 
 	// nextScreen(){
 	// 	this.router.navigateByUrl('/market-form');

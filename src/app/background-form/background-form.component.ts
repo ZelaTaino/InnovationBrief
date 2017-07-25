@@ -19,8 +19,6 @@ export class BackgroundFormComponent implements OnInit {
   @ViewChild('a_1_files') a_1_files: any;
 
   ibr: InnovationBriefResponses;
-  // selectedFiles: FileList;
-  // currentUpload: Upload;
 
   constructor(
     private router: Router, 
@@ -58,33 +56,4 @@ export class BackgroundFormComponent implements OnInit {
     console.log("creating IBR: ", this.ibr);
   }
 
-  // //detecets when file is about to be uploaded
-  // detectFiles(event){
-  //   this.selectedFiles = event.target.files;
-  // }
-
-  // //uploads a file and saves to db
-  // upload(event){
-  //   var target = event.target || event.srcElement || event.currentTarget;
-  //   var idAttr = target.attributes.id;
-  //   var idValue = idAttr.nodeValue;
-
-  //   let file = this.selectedFiles.item(0);
-  //   this.currentUpload = new Upload(file);
-
-  //   this.authService.getCurrentUserId()
-  //       .then(uid => {
-  //         this.ib_service.upload(this.currentUpload, idValue, uid);
-  //         this.a_1_files.nativeElement.value = "";
-  //       })
-  //       .catch( err => {
-  //         console.log(err);
-  //       });
-  // }
-  
-  // submitted = false;
-
-  // onSubmit(){this.submitted = true}
-
-  // get diagnostic(){return JSON.stringify();}
 }

@@ -23,6 +23,9 @@ export class InnovationBriefService {
     
   }
 
+  //-------QUESTION METHODS
+  
+
   //--------- RESPONSE METHODS
 
   //passes answers to db when user submits
@@ -129,10 +132,6 @@ export class InnovationBriefService {
   private deleteFileStorage(name: string){
     const storageRef = firebase.storage().ref();
     storageRef.child(`uploads/${name}`).delete();
-  }
-
-  downloadFile(upload){
-    
   }
 
 }

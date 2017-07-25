@@ -37,6 +37,8 @@
 			<input #answer6 value="{{ ibr.a_6 }}" type="textarea" class="form-control" id="q6" required name="q6">
 			<uploader [tag_id]="'a_6_files'"></uploader>
 		</div>
+
+		<button [routerLink]="['../../']">Previous</button>
 		<button (click)="createIBR(answer4.value, answer5.value, answer6.value);" routerLink="market-form">Next</button>
 	</form>
 </div>

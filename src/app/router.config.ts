@@ -12,39 +12,48 @@ import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-das
 import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
 import { AdminGuard } from "./security/auth.guard";
 import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component'
+import { QuestionFormComponent } from './question-form/question-form.component';
 
+// const routes: Routes = [
+//     { path: '', redirectTo: '/login', pathMatch: 'full' },
+//     { path: 'login', component: LoginComponent },
+//     { path: 'create-launchpad', component: LoginComponent},
+//     { path: 'launchpad-dashboard',
+//       children:[
+//         {path: "launchpad/:id",
+//             children: [
+//               {path: 'innovation-brief-answers/:id', component: InnovationBriefAnswersComponent},
+//               {path: '', component: LaunchpadFormsComponent}
+//             ]},
+//         {path: 'register', component: RegisterComponent},
+//         {path: '', component: LaunchpadDashboardComponent}
+//       ],
+//       // THIS WILL PREVENT A USER TO ROUTE HERE IF THEY ARE NOT ADMIN
+//       canActivate: [AdminGuard]
+//     },
+//     { path: 'launchpad/:id',
+//       children: [
+//         {path: "innovation-brief",
+//           children: [
+//             {path: 'background-form',
+//               children: [
+//                 {path: 'customer-form',
+//                   children: [
+//                     {path: 'market-form', component: MarketFormComponent},
+//                     {path: '', component: CustomerFormComponent},
+//                   ]},
+//             {path: '', component: BackgroundFormComponent}
+//           ]},
+//         {path: '', component: LandingPageComponent}
+//       ]},
+//     {path: '', component: LaunchpadFormsComponent}
+//   ]}
+//   // {path: '**', redirectTo: 'login'}
+// ];
 const routes: Routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
-    { path: 'create-launchpad', component: LoginComponent},
-    { path: 'launchpad-dashboard',
-      children:[
-        {path: "launchpad/:id",
-            children: [
-              {path: 'innovation-brief-answers/:id', component: InnovationBriefAnswersComponent},
-              {path: '', component: LaunchpadFormsComponent}
-            ]},
-        {path: 'register', component: RegisterComponent},
-        {path: '', component: LaunchpadDashboardComponent}
-      ],
-      // THIS WILL PREVENT A USER TO ROUTE HERE IF THEY ARE NOT ADMIN
-      canActivate: [AdminGuard]
-    },
-    { path: 'launchpad/:id',
-      children: [
-        {path: "innovation-brief",
-          children: [
-            {path: 'background-form',
-              children: [
-                {path: 'customer-form',
-                  children: [
-                    {path: 'market-form', component: MarketFormComponent},
-                    {path: '', component: CustomerFormComponent},
-                  ]},
-            {path: '', component: BackgroundFormComponent}
-          ]},
-        {path: '', component: LandingPageComponent}
-      ]},
+  {path: 'login', component: LoginComponent},
+  {path: 'innovation-brief',children: [
+    {path: ':id', component: QuestionFormComponent},
     {path: '', component: LaunchpadFormsComponent}
   ]},
   {path: '**', redirectTo: 'login'}

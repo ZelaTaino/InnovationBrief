@@ -43,8 +43,4 @@ export class UploaderListComponent implements OnInit {
         });
   }
 
-  downloadFile(upload){
-    this.ib_service.downloadFile(upload);
-  }
-
 }

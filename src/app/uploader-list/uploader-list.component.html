@@ -1,5 +1,4 @@
 <div *ngFor="let upload of (uploads$ | async)">
   <strong><a href="{{ upload.url }}" download="{{ upload.name}}">{{ upload.name }}</a></strong>
   <button *ngIf="!launchpad_id" (click)="deleteUpload(upload)">Delete</button>
-  <!-- <button (click)="downloadFile(upload)">Download</button> -->
 </div>

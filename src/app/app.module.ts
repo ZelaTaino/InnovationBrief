@@ -26,6 +26,7 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 
 import { InnovationBriefService } from './shared/model/innovation-brief.service';
 import { GeneralService } from './shared/model/general.service';
+import { QuestionService } from './shared/model/question.service';
 
 import { RouterConfig } from './router.config';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -37,6 +38,9 @@ import { LaunchpadComponent } from './launchpad/launchpad.component';
 import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component';
 import { UploaderComponent } from './uploader/uploader.component';
 import { UploaderListComponent } from './uploader-list/uploader-list.component';
+import { QuestionComponent } from './question/question.component';
+import { QuestionFormComponent } from './question-form/question-form.component';
+import { QuestionTextComponent } from './question-text/question-text.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,10 @@ import { UploaderListComponent } from './uploader-list/uploader-list.component';
     LaunchpadComponent,
     InnovationBriefAnswersComponent,
     UploaderComponent,
-    UploaderListComponent
+    UploaderListComponent,
+    QuestionComponent,
+    QuestionFormComponent,
+    QuestionTextComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +77,7 @@ import { UploaderListComponent } from './uploader-list/uploader-list.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [InnovationBriefService, AuthService, AdminGuard, GeneralService],
+  providers: [InnovationBriefService, AuthService, AdminGuard, GeneralService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
