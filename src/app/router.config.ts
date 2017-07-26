@@ -13,6 +13,7 @@ import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.compo
 import { AdminGuard } from "./security/auth.guard";
 import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component'
 import { QuestionFormComponent } from './question-form/question-form.component';
+import { CompletedComponent } from './completed/completed.component';
 
 // const routes: Routes = [
 //     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -53,8 +54,10 @@ import { QuestionFormComponent } from './question-form/question-form.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'innovation-brief',children: [
+    {path: 'overview', component: InnovationBriefAnswersComponent},
+    {path: 'completed', component: CompletedComponent},
     {path: ':id', component: QuestionFormComponent},
-    {path: '', component: LaunchpadFormsComponent}
+    {path: '', component: LandingPageComponent}
   ]},
   {path: '**', redirectTo: 'login'}
 ];

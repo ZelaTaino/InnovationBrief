@@ -14,9 +14,6 @@ export class QuestionTextComponent implements OnInit {
   constructor(private question_service: QuestionService) { }
 
   ngOnInit() {
-    this.question_service.getQuestion()
-        .do(val => console.log())
-        .subscribe(val => this.question = val);
   }
 
 }

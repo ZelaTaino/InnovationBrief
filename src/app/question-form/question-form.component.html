@@ -1,7 +1,8 @@
-<!-- <h3>Type</h3>
-<h4>Insert main question here</h4>
-<h5>Description here</h5>
+<h3>{{ question.type }}</h3>
+<h4>{{ question.question }}</h4>
+<h5>{{ question.description }}</h5>
+<input type="textarea" [(ngModel)]="response" (blur)="updateAnswer()">
+<uploader [tag_id]="uploader_tag"></uploader>
 
-<input #answer value="TODO value" type="textarea" class="form-control" name="a_1">
-
-<uploader [tag_id]="'a_1_files'"></uploader> -->
+<button *ngIf="question_id != 1" (click)="previous()">Prev</button>
+<button (click)="next()">Next</button>

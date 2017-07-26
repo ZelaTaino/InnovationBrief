@@ -41,6 +41,7 @@ import { UploaderListComponent } from './uploader-list/uploader-list.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { QuestionTextComponent } from './question-text/question-text.component';
+import { CompletedComponent } from './completed/completed.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { QuestionTextComponent } from './question-text/question-text.component';
     UploaderListComponent,
     QuestionComponent,
     QuestionFormComponent,
-    QuestionTextComponent
+    QuestionTextComponent,
+    CompletedComponent
   ],
   imports: [
     BrowserModule,

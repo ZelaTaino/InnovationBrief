@@ -23,7 +23,10 @@ export class InnovationBriefService {
     
   }
 
-  //-------QUESTION METHODS
+  updateCompletion(uid){
+    const path = this.db.object(`/userFormCompletion/${uid}`);
+    path.update({"form0": true})
+  }
   
 
   //--------- RESPONSE METHODS
