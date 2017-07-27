@@ -1,0 +1,16 @@
+.circle {
+  width: 28pt;
+  height: 28pt;
+  border-radius: 50%;
+  background-color: #F79F1A;
+  display: inline-block;
+  margin: 3pt;
+  float: right;
+
+  cursor: pointer;
+}
+
+.outline {
+  background-color: white;
+  border: 2pt solid #F79F1A;
+}

@@ -1,11 +1,12 @@
 a {
   color: black;
+  font-size: 1.3em;
 }
 
 .wrapper {
-  margin: 5pt 0;
+  margin: 8pt 0;
   width: 24%;
-  min-width: 220pt;
+  min-width: 370pt;
 }
 
 .delete-button {
@@ -14,4 +15,6 @@ a {
   padding: 0 4pt;
   margin: 0 5pt;
   float: right;
+
+  font-size: 1.3em;
 }

@@ -59,6 +59,20 @@ const routes: Routes = [
     {path: ':id', component: QuestionFormComponent},
     {path: '', component: LandingPageComponent}
   ]},
+  { path: 'create-launchpad', component: LoginComponent},
+  { path: 'launchpad-dashboard',
+    children:[
+      {path: "launchpad/:id",
+          children: [
+            {path: 'innovation-brief-answers/:id', component: InnovationBriefAnswersComponent},
+            {path: '', component: LaunchpadFormsComponent}
+          ]},
+      {path: 'register', component: RegisterComponent},
+      {path: '', component: LaunchpadDashboardComponent}
+    ],
+    // THIS WILL PREVENT A USER TO ROUTE HERE IF THEY ARE NOT ADMIN
+    canActivate: [AdminGuard]
+  },
   {path: '**', redirectTo: 'login'}
 ];
 

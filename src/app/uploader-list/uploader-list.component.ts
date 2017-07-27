@@ -20,7 +20,6 @@ export class UploaderListComponent implements OnInit, OnChanges{
     private authService: AuthService) { }
 
   ngOnInit() {
-    console.log("INTIALIZES");
     // this.authService.getCurrentUserId()
     //     .then( uid => {
     //       if(this.authService.isAdmin(uid)){

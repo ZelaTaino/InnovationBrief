@@ -16,6 +16,7 @@ export class QuestionFormComponent implements OnInit {
 
   //get id from parameter
   //use that to get question, answer, and uploads
+  num_questions = 9;
   question_id: number;
   answer_tag: string;
   uploader_tag: string;
