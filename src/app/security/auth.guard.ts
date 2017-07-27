@@ -21,3 +21,31 @@ export class AdminGuard implements CanActivate {
       });
     }
 }
+
+
+@Injectable()
+export class UserGuard implements CanActivate {
+
+    constructor(private authService:AuthService, private router:Router) {
+
+    }
+
+    canActivate(route: ActivatedRouteSnapshot,
+                state: RouterStateSnapshot): Observable<boolean> {
+
+      return this.authService.getAuthState().map(auth => {
+        if (auth) {
+          console.log(auth);
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .take(1)
+      .do(allowed => {
+        if(!allowed) {
+          this.router.navigate(['/login']);
+        }
+      });
+    }
+}
