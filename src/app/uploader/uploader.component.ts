@@ -52,9 +52,6 @@ export class UploaderComponent implements OnInit {
           this.input_elem.nativeElement.value = "";
           this.label_text = "Choose file";
           this.selectedFiles = null;
-          if(this.currentUpload.progress == 100){
-            this.currentUpload = null;
-          }
         })
         .catch( err => {
           console.log(err);

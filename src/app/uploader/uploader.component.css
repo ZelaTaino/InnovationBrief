@@ -23,9 +23,9 @@ p {
   display: inline-block;
   cursor: pointer;
   border-radius: 50px;
-  padding: 7pt 0;
+  padding: 7pt 10pt;
   text-align: center;
-  width: 93pt;
+  min-width: 93pt;
 }
 
 .input-file + label * {
@@ -46,8 +46,8 @@ p {
 }
 
 .progress {
-  width: 30%;
-  min-width: 200pt;
+  width: 24%;
+  min-width: 370pt;
   background: white;
   box-shadow: none;
   border-radius: 0;

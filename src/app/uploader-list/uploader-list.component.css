@@ -4,17 +4,26 @@ a {
 }
 
 .wrapper {
+  border-bottom: 1pt solid lightgray;
+  padding: 5pt;
   margin: 8pt 0;
   width: 24%;
   min-width: 370pt;
 }
 
 .delete-button {
-  background-color: transparent;
+/*  background-color: transparent;
   border: 1pt solid black;
   padding: 0 4pt;
   margin: 0 5pt;
   float: right;
 
-  font-size: 1.3em;
+  font-size: 1.3em;*/
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+.delete-img {
+  width: 12pt;
 }
