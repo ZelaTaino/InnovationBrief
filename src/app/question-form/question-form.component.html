@@ -1,8 +1,15 @@
-<h3>{{ question.type }}</h3>
-<h4>{{ question.question }}</h4>
-<h5>{{ question.description }}</h5>
-<input type="textarea" [(ngModel)]="response" (blur)="updateAnswer()">
-<uploader [tag_id]="uploader_tag"></uploader>
+<img src="../assets/img/logo-black.png">
+
+<section class="question-form-wrapper">
+  <h3>{{ question.type }}</h3>
+  <h4>{{ question.question }}</h4>
+  <h5>{{ question.description }}</h5>
+  <input type="textarea" [(ngModel)]="response" (blur)="updateAnswer()">  
+</section>
+
+<section class="uploder-wrapper">
+  <uploader [tag_id]="uploader_tag"></uploader>
+</section>
 
 <button class="rounded button-primary nav-button" *ngIf="question_id != 1" (click)="previous()">Prev</button>
 <!-- <button class="rounded button-primary nav-button" (click)="next()">Next</button> -->

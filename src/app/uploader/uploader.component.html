@@ -11,9 +11,17 @@
 </label>
 
 <button class="upload-button rounded button-primary" type="button" (click)="upload($event)" [disabled]="!selectedFiles">Upload</button>
+
+<div class="progress">
+  <div [style.width.%]="currentUpload?.progress" *ngIf="currentUpload?.progress != 100 || currentUpload?.progress != 0" class="progress-bar"></div>
+</div>
+
+
+<!-- 
 <div *ngIf="currentUpload">
   {{ currentUpload?.progress }}% Complete
-</div>
+</div> -->
+
 <uploader-list [tag_id]="tag_id"></uploader-list>
 
 <!-- <div *ngFor="let upload of (uploads$ | async)">

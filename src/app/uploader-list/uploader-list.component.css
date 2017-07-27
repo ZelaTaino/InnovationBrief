@@ -1,4 +1,17 @@
+a {
+  color: black;
+}
+
+.wrapper {
+  margin: 5pt 0;
+  width: 24%;
+  min-width: 220pt;
+}
+
 .delete-button {
   background-color: transparent;
   border: 1pt solid black;
+  padding: 0 4pt;
+  margin: 0 5pt;
+  float: right;
 }
