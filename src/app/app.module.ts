@@ -15,6 +15,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { AuthService } from "./security/auth.service";
 import { AdminGuard } from "./security/auth.guard";
+import { UserGuard } from "./security/auth.guard";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoHeaderComponent } from './logo-header/logo-header.component';
@@ -83,7 +84,7 @@ import { NavBubbleComponent } from './nav-bubble/nav-bubble.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [InnovationBriefService, AuthService, AdminGuard, GeneralService, QuestionService],
+  providers: [InnovationBriefService, AuthService, AdminGuard, UserGuard, GeneralService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

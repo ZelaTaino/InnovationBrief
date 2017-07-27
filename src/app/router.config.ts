@@ -11,6 +11,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { LaunchpadDashboardComponent } from './launchpad-dashboard/launchpad-dashboard.component';
 import { LaunchpadFormsComponent } from './launchpad-forms/launchpad-forms.component';
 import { AdminGuard } from "./security/auth.guard";
+import { UserGuard } from "./security/auth.guard";
 import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component'
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { CompletedComponent } from './completed/completed.component';
@@ -58,8 +59,12 @@ const routes: Routes = [
     {path: 'completed', component: CompletedComponent},
     {path: ':id', component: QuestionFormComponent},
     {path: '', component: LandingPageComponent}
-  ]},
-  { path: 'create-launchpad', component: LoginComponent},
+    ],
+    canActivate: [UserGuard]
+  },
+  { path: 'create-launchpad', component: LoginComponent,
+    canActivate: [AdminGuard]
+  },
   { path: 'launchpad-dashboard',
     children:[
       {path: "launchpad/:id",
