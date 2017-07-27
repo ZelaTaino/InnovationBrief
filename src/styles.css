@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+ background-color: white; 
+}
+
+button:focus {
+  outline-width: 0;
+}
+
+input:focus {
+  outline-width: 0;
+}
+
+.center {
+  display: block;
+  margin: 5pt auto;
+}
+
+.input-textfield {
+  min-width: 180pt;
+  min-height: 30pt;
+  width: 30%;
+  border: none;
+  padding: 1%;
+  text-align: center;
+}
+
+.button-primary {
+  color: white;
+  background-color: #F79F1A;
+  border: none;
+}
+
+.rounded {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}

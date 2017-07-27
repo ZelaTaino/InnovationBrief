@@ -1,16 +1,14 @@
-<form autocomplete="off" novalidate class="login-form" [formGroup]="form">
 
-    <fieldset>
-        <legend>Login</legend>
-        <div class="form-field">
-            <label>Username:</label>
-            <input name="username" formControlName="username">
-        </div>
-        <div class="form-field">
-            <label>Password:</label>
-            <input name="password" formControlName="password" type="password">
-        </div>
-    </fieldset>
+<div class="wrapper">
+    <img class="logo center" src="../../assets/img/Logo.png">
 
-    <button (click)="login()">Login</button>
-</form>
+    <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+
+        <input placeholder="Username" class=" center input-textfield rounded" name="username" formControlName="username">
+
+        <input placeholder="Password" class="center input-textfield rounded" name="password" formControlName="password" type="password">
+
+        <button class="center button-primary rounded login-button" (click)="login()">Login</button>
+
+    </form>
+</div>

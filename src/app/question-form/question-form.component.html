@@ -4,5 +4,5 @@
 <input type="textarea" [(ngModel)]="response" (blur)="updateAnswer()">
 <uploader [tag_id]="uploader_tag"></uploader>
 
-<button *ngIf="question_id != 1" (click)="previous()">Prev</button>
-<button (click)="next()">Next</button>
+<button class="rounded button-primary nav-button" *ngIf="question_id != 1" (click)="previous()">Prev</button>
+<!-- <button class="rounded button-primary nav-button" (click)="next()">Next</button> -->

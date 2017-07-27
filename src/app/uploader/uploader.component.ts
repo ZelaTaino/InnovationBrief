@@ -16,6 +16,7 @@ export class UploaderComponent implements OnInit {
 
   currentUpload: Upload;
   selectedFiles: FileList;
+  label_text = "Choose file";
 
   constructor(
     private ib_service: InnovationBriefService,
@@ -27,6 +28,15 @@ export class UploaderComponent implements OnInit {
   //detecets when file is about to be uploaded
   detectFiles(event){
     this.selectedFiles = event.target.files;
+
+    let filename = "";
+    filename = event.target.value.split('\\').pop();
+
+    if(filename){
+      this.label_text = filename;
+    }else{
+      this.label_text = "Choose file";
+    }
   }
 
   //uploads a file and saves to db
@@ -40,6 +50,7 @@ export class UploaderComponent implements OnInit {
           console.log("IDVALUE: ", this.tag_id);
           this.ib_service.upload(this.currentUpload, this.tag_id, uid);
           this.input_elem.nativeElement.value = "";
+          this.label_text = "Choose file";
           this.selectedFiles = null;
         })
         .catch( err => {

@@ -1,5 +1,16 @@
-<input #input_elem type="file" name="{{ tag_id }}" (change)="detectFiles($event)" >
-<button type="button" (click)="upload($event)" [disabled]="!selectedFiles">Upload</button>
+<p>Add optional supporting documents</p>
+
+<!-- <label for="upload-file" class="upload-file rounded button-primary">Testing</label>
+
+<input #input_elem id="upload-file" type="file" name="{{ tag_id }}" (change)="detectFiles($event)" >
+
+ -->
+
+<input #input_elem type="file" name="file" id="file" class="input-file" (change)="detectFiles($event)">
+<label for="file" [innerHtml]="label_text">
+</label>
+
+<button class="upload-button rounded button-primary" type="button" (click)="upload($event)" [disabled]="!selectedFiles">Upload</button>
 <div *ngIf="currentUpload">
   {{ currentUpload?.progress }}% Complete
 </div>

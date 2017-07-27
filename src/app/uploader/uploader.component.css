@@ -1,0 +1,38 @@
+
+.input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.input-file + label {
+
+  font-weight: normal;
+
+  color: black;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 4pt 7pt;
+}
+
+.input-file + label * {
+  pointer-events: none;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background-color: #F79F1A;
+}
+
+.upload-button {
+  color: black;
+  font-weight: normal;
+  padding: 4pt 7pt;
+  width: 70pt;
+}
+
