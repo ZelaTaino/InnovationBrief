@@ -11,6 +11,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class NavBubbleComponent implements OnInit {
 
   @Input() q_id: number;
+  @Input() is_confirmation: boolean;
+  @Input() nav: string;
   is_active = false;
 
 
@@ -20,7 +22,6 @@ export class NavBubbleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("INITITITITII");
     this.route.params.subscribe((params: Params) => {
       console.log("bubble: ", +params['id']);
       if(+params['id'] >= this.q_id){
@@ -32,7 +33,11 @@ export class NavBubbleComponent implements OnInit {
   }
 
   navTo(){
-    this.router.navigate(['innovation-brief', this.q_id]);
+    if(this.is_confirmation){
+      this.router.navigate(['innovation-brief', this.nav]);
+    }else{
+      this.router.navigate(['innovation-brief', this.q_id]);
+    }
   }
 
 
