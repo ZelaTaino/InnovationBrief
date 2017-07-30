@@ -1,0 +1,97 @@
+
+h1 {
+  color: white;
+  font-size: 4em;
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+h3 {
+  color: black;
+  font-size: 2.5em;
+  margin-bottom: 40pt;
+}
+
+h4 {
+  color: white;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+p {
+  font-size: 1.3em;
+}
+
+.background {
+  background: url('../../assets/img/backgrounds/Earth.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  /*padding: 100pt 6%;*/
+  padding: 2% 2% 1% 2%;
+  /*height: 630pt;*/
+}
+
+.text-container {
+  margin-top: 90pt;
+  margin-bottom: 60pt;
+}
+
+
+.logo {
+  width: 21%;
+  margin-left: 2%;
+  min-width: 100pt;
+  margin-bottom: 17pt;
+  cursor: pointer;
+}
+
+#about {
+  background-color: white;
+}
+
+.container {
+  padding: 30pt 12% 0 12%;
+}
+
+.down-button {
+  width: 30pt;
+  margin-bottom: 25pt;
+  cursor: pointer;
+}
+
+.button-container {
+  margin-top: 180pt;
+}
+
+.cell-icon {
+  width: 60pt;
+  float: left;
+}
+
+.cell-container{
+  margin: 70pt; 
+  margin-top: 8pt;
+  overflow: auto
+}
+
+.cell-container img {
+  display: block;
+}
+
+.cell-content {
+  margin-left: 80pt;
+}
+
+#footer {
+  padding: 5% 0 5% 0;
+}
+
+

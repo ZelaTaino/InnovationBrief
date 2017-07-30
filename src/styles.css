@@ -34,12 +34,8 @@ body {
  background-color: white; 
 }
 
-button:focus {
-  outline-width: 0;
-}
-
-input:focus {
-  outline-width: 0;
+*:focus {
+  outline: none;
 }
 
 .wrapper {
@@ -77,6 +73,15 @@ input:focus {
 .button-large {
   width: 30%;
   min-width: 180pt;
+  min-height: 32pt;
+  padding: 1%;
+
+  font-size: 1.3em;
+}
+
+.button-medium {
+  width: 20%;
+  min-width: 150pt;
   min-height: 32pt;
   padding: 1%;
 

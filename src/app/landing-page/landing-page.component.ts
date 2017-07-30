@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import {} from ''
 
 @Component({
   selector: 'landing-page',
-  templateUrl: './landing-page.component.html'
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.css']
 })
 
 export class LandingPageComponent {
-  title = 'Innovation Brief';
+
+  @ViewChild('scroll_content') scroll_content: ElementRef;
+
+  scrollTo(){
+    let element = document.getElementById('about');
+    this.scroll_content.nativeElement.scrollTop(100);
+  }
+
 }

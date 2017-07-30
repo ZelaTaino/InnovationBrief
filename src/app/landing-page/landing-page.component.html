@@ -1,4 +1,58 @@
-<div>
-	<h1>{{ title }}</h1>
-	<a routerLink="1">Start</a>
+<div #scroll_content class="background">
+
+    <img routerLink="/innovation-brief" class="logo" src="../../assets/img/logo.png">
+
+    <div class="text-container">
+      <h1>Innovation Brief</h1>
+      <h2>Challenge Definition</h2>      
+    </div>
+
+    <button class="center button-primary button-medium rounded" routerLink="1">Start</button>
+
+    <div class="button-container">
+      <h4>Instruction</h4>
+      <img (click)="scrollTo()" class="center down-button" src="../../assets/img/down-button.png">
+    </div>
+
+
+  <section id="about">
+    <div class="container">
+      <h3>About</h3>
+
+      <div class="cell-container">
+        <img class="cell-icon" src="../../assets/img/icon-1.png">
+        <p class="cell-content">
+          This template will help frame your business problem in a clear manner to help the Mastercard team to prepare for the Launchpad event.
+        </p>
+      </div>
+
+      <div class="cell-container">
+        <img class="cell-icon" src="../../assets/img/icon-2.png">
+        <p class="cell-content">
+          This template is just a guide to illicit information, if you don’t know the answer to a question, say so or give a best effort response.
+        </p>
+      </div>
+
+      <div class="cell-container">
+        <img class="cell-icon" src="../../assets/img/icon-3.png">
+        <p class="cell-content">
+          Additional presentations/documents should be embedded into the appropriate boxes where they support/defend the answer.
+        </p>
+      </div>
+
+      <div class="cell-container">
+        <img class="cell-icon" src="../../assets/img/icon-4.png">
+        <p class="cell-content">
+          In some instances the answer will be unknown, in others the answer will be based on a personal/functional view point without explicit data to support. Both scenarios are fine.
+        </p>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section id="footer">
+    <button class="center button-primary button-medium rounded" routerLink="1">Start</button>
+  </section>
+
 </div>
