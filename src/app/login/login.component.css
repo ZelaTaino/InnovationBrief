@@ -1,21 +1,20 @@
-div {
-  background-color: black;
+.background {
+  background: url('../../assets/img/backgrounds/login.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  padding: 100pt 0;
 }
 
 .wrapper {
-  margin-top: 150pt;
-  margin-bottom: 35pt;
+  margin-top: 100pt;
+  margin-bottom: 80pt;
 }
 
 .logo {
   width: 45%;
   min-width: 190pt;
   margin-bottom: 40pt;
-}
-
-.login-button {
-  width: 30%;
-  min-width: 180pt;
-  min-height: 32pt;
-  padding: 1%;
 }

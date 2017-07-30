@@ -1,5 +1,5 @@
-
-<div class="wrapper">
+<div class="background">
+  <div class="wrapper">
     <img class="logo center" src="../../assets/img/logo.png">
 
     <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
@@ -8,7 +8,9 @@
 
         <input placeholder="Password" class="center input-textfield rounded" name="password" formControlName="password" type="password">
 
-        <button class="center button-primary rounded login-button" (click)="login()">Login</button>
+        <button class="center button-primary rounded button-large" (click)="login()">Login</button>
 
     </form>
+  </div>
+
 </div>
