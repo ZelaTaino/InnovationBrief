@@ -17,20 +17,19 @@ h5 {
   margin-bottom: 20pt;
 }
 
-textarea:focus {
-  outline: none;
-}
-
 .background {
   background-image: url("../../assets/img/backgrounds/question-form-background.png");
   background-size: 100%;
   background-repeat: no-repeat;
+
 }
 
 .logo {
   width: 21%;
   min-width: 100pt;
   margin-bottom: 17pt;
+  cursor: pointer;
+
 }
 
 .question-form-wrapper {

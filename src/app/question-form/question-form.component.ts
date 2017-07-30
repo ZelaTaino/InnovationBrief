@@ -16,7 +16,7 @@ export class QuestionFormComponent implements OnInit {
 
   //get id from parameter
   //use that to get question, answer, and uploads
-  num_questions = 9;
+  num_questions = 11;
   question_id: number;
   answer_tag: string;
   uploader_tag: string;
@@ -75,13 +75,13 @@ export class QuestionFormComponent implements OnInit {
   }
 
   next(){
-    if((this.question_id + 1) !<= 9){
+    if((this.question_id + 1) !<= this.num_questions){
       let next_id = this.question_id + 1;
       this.router.navigate(['innovation-brief', next_id]);
       console.log("entered: ", next_id);
     }
 
-    if(this.question_id == 9){
+    if(this.question_id == this.num_questions){
       this.router.navigate(['innovation-brief/confirmation']);
     }
   }
