@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../security/auth.service';
 
 @Component({
   selector: 'app-completed',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompletedComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private auth_service: AuthService
+    ) { }
 
   ngOnInit() {
   }
+
+  startForm(){
+    this.router.navigate(["innovation-brief"]);
+  }
+
+  logout(){
+    this.auth_service.logout();
+  }
+
 
 }

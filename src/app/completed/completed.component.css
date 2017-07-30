@@ -1,0 +1,142 @@
+.wrapper {
+  margin: 0;
+}
+
+h2 {
+  color: white;
+  font-size: 5em;
+  margin-bottom: 0pt;
+}
+
+h3 {
+  color: white;
+  font-size: 1.3em;
+  margin-top: 0;
+}
+
+.background {
+  background: url('../../assets/img/backgrounds/thankyou.jpg') no-repeat center center fixed;
+/*  background-size: 100%;
+  background-repeat: no-repeat;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 500pt;
+  height: 500pt;
+  background-color: #F79F1A;
+  text-align: center;
+}
+
+.center {
+  margin: 0pt auto;
+}
+
+.button-white {
+  border: 1pt solid white;
+}
+
+.space {
+  height: 50pt;
+}
+
+.space-bottom {
+  height: 25pt;
+}
+
+.text-content {
+  margin: auto 0;
+  width: 100%;
+}
+
+
+.element {
+  height: auto;
+  position: relative;
+  top: 50%;
+  transform:      translateY(-50%);
+
+}
+
+.button-container {
+  margin: 40pt 0;
+}
+
+.launchpad-logo {
+  width: 60%;
+  float: right;
+  padding-right: 20pt;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.mc-logo {
+  width: 21%;
+  padding-top: 11pt;
+  margin-left: 20pt;
+}
+
+
+
+
+
+
+
+
+.x0 {
+    /*float:left;*/
+    width:100%;
+}
+.x1 {
+    margin:0px auto;
+}
+
+.x2 {
+    overflow:hidden;
+    display:block;
+    float:left;
+    /*width:auto;*/
+    /*height:auto;*/
+    position: relative;
+    border-radius:50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    -khtml-border-radius: 50%;
+    background: #F79F1A;
+}
+
+.x4 {
+    height:20%;
+    text-align:center;
+    width:200%;
+}
+
+@media (max-width: 320px) 
+{
+    .x2 {padding: 50%;}
+}
+
+@media (min-width: 321px) and (max-width: 800px)
+{
+    .x2 {padding: 50%;}
+}
+
+@media (min-width: 801px)
+{
+    .x1 {width:800px}
+    .x2 {padding: 40%;}
+}
+
