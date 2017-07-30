@@ -45,6 +45,7 @@ import { QuestionTextComponent } from './question-text/question-text.component';
 import { CompletedComponent } from './completed/completed.component';
 import { NavBubblesComponent } from './nav-bubbles/nav-bubbles.component';
 import { NavBubbleComponent } from './nav-bubble/nav-bubble.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { NavBubbleComponent } from './nav-bubble/nav-bubble.component';
     QuestionTextComponent,
     CompletedComponent,
     NavBubblesComponent,
-    NavBubbleComponent
+    NavBubbleComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
