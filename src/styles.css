@@ -42,6 +42,10 @@ input:focus {
   outline-width: 0;
 }
 
+.wrapper {
+  margin: 2% 2% 6% 4%;
+}
+
 .center {
   display: block;
   margin: 5pt auto;
@@ -54,6 +58,8 @@ input:focus {
   border: none;
   padding: 1%;
   text-align: center;
+
+  font-size: 1.3em;
 }
 
 .button-primary {
@@ -66,4 +72,20 @@ input:focus {
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
+}
+
+.button-large {
+  width: 30%;
+  min-width: 180pt;
+  min-height: 32pt;
+  padding: 1%;
+
+  font-size: 1.3em;
+}
+
+.nav-button {
+  color: white;
+  width: 120pt;
+  padding: 7pt 15pt;
+  font-size: 1.3em;
 }
