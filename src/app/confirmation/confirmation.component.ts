@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class ConfirmationComponent implements OnInit {
 
-  num_bubbles = 10;
+  //TODO: Add num questions to form to make dynamic
+
+  num_bubbles = 11;
 
   constructor(
     private router: Router
@@ -22,7 +24,7 @@ export class ConfirmationComponent implements OnInit {
 
   prev(){
     console.log("TEST");
-    this.router.navigate(['innovation-brief/9']);
+    this.router.navigate(['innovation-brief/11']);
   }
 
 }

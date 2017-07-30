@@ -12,10 +12,8 @@ h3 {
   background-image: url("../../assets/img/backgrounds/question-form-background.png");
   background-size: 100%;
   background-repeat: no-repeat;
-}
 
-.wrapper {
-  margin: 2% 2% 0% 4%;
+  padding: 2% 2% 2% 4%;
 }
 
 .clear {
@@ -33,8 +31,8 @@ h3 {
 }
 
 .button-container {
-  margin-top: 100pt;
-  margin-bottom: 110pt
+  margin-top: 80pt;
+  margin-bottom: 140pt
 }
 
 .submit-button {
