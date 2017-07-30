@@ -1,3 +1,6 @@
-<div *ngFor="let num of num_bubbles_array">
-  <nav-bubble [q_id]="10 - num"></nav-bubble>
-</div>
+<table>
+  <tr>
+    <nav-bubble *ngFor="let num of num_bubbles_array" [q_id]="num"></nav-bubble>
+    <nav-bubble [nav]="'confirmation'" [is_confirmation]="true"></nav-bubble>
+  </tr>
+</table>
