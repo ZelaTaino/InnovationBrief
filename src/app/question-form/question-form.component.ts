@@ -75,13 +75,14 @@ export class QuestionFormComponent implements OnInit {
   }
 
   next(){
-    if((this.question_id + 1) !<= this.num_questions){
+
+    if(this.question_id == 9){
+      this.router.navigate(['innovation-brief/cover',]);
+    }else if((this.question_id + 1) !<= this.num_questions){
       let next_id = this.question_id + 1;
       this.router.navigate(['innovation-brief', next_id]);
       console.log("entered: ", next_id);
-    }
-
-    if(this.question_id == this.num_questions){
+    }else if(this.question_id == this.num_questions){
       this.router.navigate(['innovation-brief/confirmation']);
     }
   }

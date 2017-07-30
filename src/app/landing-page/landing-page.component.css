@@ -35,7 +35,7 @@ p {
   background-size: cover;
 
   /*padding: 100pt 6%;*/
-  padding: 2% 2% 1% 2%;
+  /*padding: 2% 2% 1% 2%;*/
   /*height: 630pt;*/
 }
 
@@ -47,10 +47,9 @@ p {
 
 .logo {
   width: 21%;
-  margin-left: 2%;
   min-width: 100pt;
-  margin-bottom: 17pt;
   cursor: pointer;
+  margin: 2% 0 17pt 2%;
 }
 
 #about {

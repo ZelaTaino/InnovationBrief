@@ -10,9 +10,10 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class NavBubbleComponent implements OnInit {
 
-  @Input() q_id: number;
+  @Input() bubble_id: any;
   @Input() nav: string;
   is_active: boolean;
+  is_dark_orange: boolean;
 
 
   constructor(
@@ -21,17 +22,33 @@ export class NavBubbleComponent implements OnInit {
   ) { this.is_active = false; }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      console.log("bubble: ", +params['id']);
 
-      if(this.router.url == "/innovation-brief/confirmation"){
-        console.log("route: ", this.router.url);
+    if(this.bubble_id == 'cover' || this.bubble_id == 'confirmation'){
+      this.is_dark_orange = true;
+    }
+
+    this.route.params.subscribe((params: Params) => {
+      // console.log("bubble: ", +params['id']);
+
+      // if(this.router.url == "/innovation-brief/confirmation"){
+      //   console.log("route: ", this.router.url);
+      //   this.is_active = true;
+      // }else if(+params['id'] >= this.bubble_id){
+      //   this.is_active = true;
+      // }else{
+      //   this.is_active = false;
+      // }
+
+      if(+params['id'] >= this.bubble_id){
         this.is_active = true;
-      }else if(+params['id'] >= this.q_id){
+      }else if(this.router.url == "/innovation-brief/confirmation" || this.router.url == "/innovation-brief/cover"){
+        this.is_active = true;
+      }else if(+params['id'] >= 10 && this.bubble_id == 'cover'){
         this.is_active = true;
       }else{
         this.is_active = false;
       }
+
     });
   }
 
@@ -39,7 +56,7 @@ export class NavBubbleComponent implements OnInit {
     if(this.nav){
       this.router.navigate(['innovation-brief', this.nav]);
     }else{
-      this.router.navigate(['innovation-brief', this.q_id]);
+      this.router.navigate(['innovation-brief', this.bubble_id]);
     }
   }
 

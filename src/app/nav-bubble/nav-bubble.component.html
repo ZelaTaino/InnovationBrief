@@ -1,2 +1,5 @@
-<div *ngIf="!is_active" (click)="navTo()" class="circle outline"></div>
-<div *ngIf="is_active" (click)="navTo()" class="circle"></div>
+<div *ngIf="is_active && !is_dark_orange" (click)="navTo()" class="circle orange-circle"></div>
+<div *ngIf="!is_active && !is_dark_orange" (click)="navTo()" class="circle orange-outline"></div>
+
+<div *ngIf="is_dark_orange && is_active" (click)="navTo()" class="circle dark-orange-circle"></div>
+<div *ngIf="is_dark_orange && !is_active" (click)="navTo()" class="circle dark-orange-outline"></div>

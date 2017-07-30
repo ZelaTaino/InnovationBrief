@@ -1,16 +1,34 @@
+div {
+  margin: 0;
+}
+
 .circle {
   width: 28pt;
   height: 28pt;
   border-radius: 50%;
   
-  background-color: #F79F1A;
   display: inline-block;
   margin: 2pt;
-  border: 2pt solid #F79F1A;
 
   cursor: pointer;
 }
 
-.outline {
+.orange-circle {
+  background-color: #F79F1A;
+  border: 2pt solid #F79F1A;
+}
+
+.orange-outline {
+  border: 2pt solid #F79F1A;
+  background-color: transparent;
+}
+
+.dark-orange-circle {
+  background-color: #FF5F01;
+  border: 2pt solid #FF5F01;
+}
+
+.dark-orange-outline {
+  border: 2pt solid #FF5F01;
   background-color: transparent;
 }
