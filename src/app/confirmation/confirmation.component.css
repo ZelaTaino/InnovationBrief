@@ -1,0 +1,58 @@
+
+h3 {
+  font-weight: bolder;
+  font-size: 3em;
+  text-align: center;
+
+  margin: 100pt auto 20pt;
+  width: 60%;
+}
+
+.background {
+  background-image: url("../../assets/img/backgrounds/question-form-background.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  margin: 2% 2% 0% 4%;
+}
+
+.clear {
+  height: 50pt;
+}
+
+.logo {
+  width: 21%;
+  min-width: 100pt;
+  margin-bottom: 17pt;
+}
+
+.question-form-wrapper {
+  margin: 30pt 2% 0pt 5%;
+}
+
+.button-container {
+  margin-top: 100pt;
+  margin-bottom: 110pt
+}
+
+.submit-button {
+  display: block;
+  margin: 20pt auto;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
+.space {
+  height: 10pt;
+}
