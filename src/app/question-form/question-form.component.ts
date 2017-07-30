@@ -82,7 +82,7 @@ export class QuestionFormComponent implements OnInit {
     }
 
     if(this.question_id == 9){
-      this.router.navigate(['innovation-brief/overview']);
+      this.router.navigate(['innovation-brief/confirmation']);
     }
   }
 

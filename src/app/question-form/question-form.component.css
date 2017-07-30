@@ -21,9 +21,10 @@ textarea:focus {
   outline: none;
 }
 
-.wrapper {
-  margin: 2% 2% 6% 4%;
-
+.background {
+  background-image: url("../../assets/img/backgrounds/question-form-background.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .logo {
@@ -48,6 +49,7 @@ textarea:focus {
   padding: 10pt;
 
   font-size: 1.4em;
+  background-color: transparent;
 }
 
 .uploader-wrapper {
@@ -60,4 +62,15 @@ textarea:focus {
   width: 120pt;
   padding: 7pt 15pt;
   font-size: 1.3em;
+}
+
+.right {
+  float: right;
+}
+
+.clearfix:after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
 }
