@@ -16,6 +16,7 @@ import { InnovationBriefAnswersComponent } from './innovation-brief-answers/inno
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { CompletedComponent } from './completed/completed.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { QuestionCoverComponent } from './question-cover/question-cover.component';
 
 // const routes: Routes = [
 //     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -58,6 +59,7 @@ const routes: Routes = [
   {path: 'innovation-brief',children: [
     {path: 'confirmation', component: ConfirmationComponent},
     {path: 'completed', component: CompletedComponent},
+    {path: 'cover', component: QuestionCoverComponent},
     {path: ':id', component: QuestionFormComponent},
     {path: '', component: LandingPageComponent}
     ],
