@@ -15,6 +15,7 @@ import { UserGuard } from "./security/auth.guard";
 import { InnovationBriefAnswersComponent } from './innovation-brief-answers/innovation-brief-answers.component'
 import { QuestionFormComponent } from './question-form/question-form.component';
 import { CompletedComponent } from './completed/completed.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
 
 // const routes: Routes = [
 //     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -55,7 +56,7 @@ import { CompletedComponent } from './completed/completed.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'innovation-brief',children: [
-    {path: 'overview', component: InnovationBriefAnswersComponent},
+    {path: 'confirmation', component: ConfirmationComponent},
     {path: 'completed', component: CompletedComponent},
     {path: ':id', component: QuestionFormComponent},
     {path: '', component: LandingPageComponent}
