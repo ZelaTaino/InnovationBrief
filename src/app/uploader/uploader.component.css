@@ -48,7 +48,7 @@ p {
 .progress {
   width: 24%;
   min-width: 370pt;
-  background: white;
+  background: transparent;
   box-shadow: none;
   border-radius: 0;
   margin-bottom: 4pt;
