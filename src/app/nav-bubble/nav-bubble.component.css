@@ -3,12 +3,16 @@ div {
 }
 
 .circle {
-  width: 28pt;
-  height: 28pt;
+  width: 2vw;
+  height: 2vw;
+  max-width: 24pt;
+  max-height: 24pt;
+  min-width: 15pt;
+  min-height: 15pt;
   border-radius: 50%;
   
   display: inline-block;
-  margin: 2pt;
+  margin: 0.5pt;
 
   cursor: pointer;
 }
@@ -32,3 +36,4 @@ div {
   border: 2pt solid #FF5F01;
   background-color: transparent;
 }
+

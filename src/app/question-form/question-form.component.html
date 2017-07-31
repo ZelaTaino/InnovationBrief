@@ -1,6 +1,7 @@
+<nav-bar></nav-bar>
 <div class="background">
-  <div class="wrapper">
-  <img  routerLink="/innovation-brief" class="logo" src="../assets/img/logo-black.png">
+  <div class="">
+<!--   <img  routerLink="/innovation-brief" class="logo" src="../assets/img/logo-black.png"> -->
 
     <div class="question-form-wrapper">
       <section class="question-container">
@@ -17,12 +18,12 @@
       <button class="rounded button-primary nav-button" *ngIf="question_id != 1" (click)="previous()">Prev</button>
       <button class="rounded button-primary nav-button" (click)="next()">Next</button>
 
-      <div class="clearfix">
+<!--       <div class="clearfix">
         <div class="right">
-          <!-- <nav-bubbles [num_bubbles]="num_questions"></nav-bubbles> -->
+          <nav-bubbles [num_bubbles]="num_questions"></nav-bubbles>
           <nav-bubbles></nav-bubbles>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </div>

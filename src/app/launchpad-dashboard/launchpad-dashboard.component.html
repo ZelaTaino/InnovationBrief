@@ -1,13 +1,29 @@
-<div>
+<div class="wrap">
+
+  <div class="header-wrapper">
+    <img routerLink="/innovation-brief" class="logo" src="../../assets/img/logo.png">
+    <a (click)="logout()" class="right" href="">Logout</a>
+  </div>
+
   <h1>{{ title }}</h1>
-  <p>List of launch pads</p>
-  <table>
+  <h2>List of launch pads</h2>
+
+<!--   <table class="launchpad-list">
     <tr *ngFor="let launch_pad of launch_pads">
       <td>
-        {{ launch_pad.project }} {{ launch_pad.client }}
+        <button class="button-primary rounded button-extra-large" routerLink="launchpad/{{ launch_pad.$key }}">
+          {{ launch_pad.project }} {{ launch_pad.client }}
+        </button>
       </td>
-      <button routerLink="launchpad/{{ launch_pad.$key }}">View</button>
     </tr>
-  </table>
+  </table> -->
+
+  <launchpad-table class="lp-table" [launchpads]="launch_pads"></launchpad-table>
+
   <a routerLink="register">Add Launch Pad</a>
+
+</div>
+
+<div id="bg">
+  <img src="../../assets/img/backgrounds/dashboard.jpg">
 </div>

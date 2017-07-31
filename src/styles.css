@@ -24,14 +24,21 @@
   src: url(./assets/fonts/MarkPro.otf);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
 
 html * {
   font-family: MarkPro, sans-serif !important;
   font-weight: normal;
+
 }
 
 body {
  background-color: white; 
+ /* Ensure the html element always takes up the full height of the browser window */
+  min-height:100%;
 }
 
 *:focus {
@@ -84,6 +91,16 @@ body {
   min-width: 150pt;
   min-height: 32pt;
   padding: 1%;
+
+  font-size: 1.3em;
+}
+
+.button-extra-large {
+  width: 100%;
+  min-width: 180pt;
+  min-height: 32pt;
+  padding: 1%;
+  margin: 5pt 0;
 
   font-size: 1.3em;
 }

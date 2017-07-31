@@ -18,10 +18,15 @@ h5 {
 }
 
 .background {
-  background-image: url("../../assets/img/backgrounds/question-form-background.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
+  background: url("../../assets/img/backgrounds/question-form-background.png") no-repeat center center fixed;
+/*  background-size: 100%;
+  background-repeat: no-repeat;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
+  padding: 50pt 2% 6% 4%;
 }
 
 .logo {
@@ -66,6 +71,11 @@ h5 {
 .right {
   float: right;
 }
+
+.left {
+  display: inline;
+}
+
 
 .clearfix:after { 
    content: " ";

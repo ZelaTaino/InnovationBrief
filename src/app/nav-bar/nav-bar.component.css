@@ -1,0 +1,39 @@
+nav {
+  background-color: white;
+  width: 100%;
+  padding-left: 60pt;
+  padding-right: 40pt;
+  padding-top: 8pt;
+  padding-bottom: 8pt;
+}
+
+a {
+  font-size: 1.6em;
+  color: black;
+}
+
+.bubbles {
+  margin-left: 10pt;
+}
+
+.logo {
+  padding-top: 2pt;
+  width: 21%;
+  min-width: 100pt;
+  cursor: pointer;
+}
+
+.scrolling {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  border-bottom: 0.5px solid #DEDEDE;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}

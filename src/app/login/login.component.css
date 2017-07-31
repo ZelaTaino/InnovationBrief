@@ -1,11 +1,29 @@
-.background {
-  background: url('../../assets/img/backgrounds/login.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 
-  padding: 100pt 0;
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 50px auto;
+    padding: 20px;
 }
 
 .wrapper {

@@ -28,9 +28,8 @@ p {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  /*height: 600pt;*/
 
-  /*padding: 2% 2% 1% 2%;*/
+  padding-top: 160pt;
 }
 
 .logo {

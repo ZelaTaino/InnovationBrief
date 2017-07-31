@@ -1,0 +1,21 @@
+<div class="container">
+  
+  <div class="square" *ngFor="let launchpad of launchpads">
+      <div class="content button">
+
+        <div class="project">
+          <img class="icon v-align" src="../../assets/img/project-icon.png"><p class="project-name v-align">{{ launchpad.project }}</p>
+        </div>
+        
+        <div>
+          <img class="icon-small v-align" src="../../assets/img/client-icon.png"><p class="client-name v-align">{{ launchpad.client }}</p>
+        </div>
+
+        <div class="status-container">
+          <div class="circle v-align"></div>
+          <p class="status-text v-align">Ready for review</p>
+        </div>
+
+      </div>
+  </div>
+</div>

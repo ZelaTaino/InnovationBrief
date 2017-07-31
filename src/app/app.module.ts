@@ -47,6 +47,8 @@ import { NavBubblesComponent } from './nav-bubbles/nav-bubbles.component';
 import { NavBubbleComponent } from './nav-bubble/nav-bubble.component';
 import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { QuestionCoverComponent } from './question-cover/question-cover.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LaunchpadTableComponent } from './launchpad-table/launchpad-table.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import { QuestionCoverComponent } from './question-cover/question-cover.componen
     NavBubblesComponent,
     NavBubbleComponent,
     ConfirmationComponent,
-    QuestionCoverComponent
+    QuestionCoverComponent,
+    NavBarComponent,
+    LaunchpadTableComponent
   ],
   imports: [
     BrowserModule,

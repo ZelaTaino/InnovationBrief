@@ -1,5 +1,35 @@
+
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 50px auto;
+    padding: 10px;
+}
+
+
 .wrapper {
   margin: 0;
+  margin-bottom: 60pt;
 }
 
 h2 {
@@ -14,15 +44,18 @@ h3 {
   margin-top: 0;
 }
 
-.background {
-  background: url('../../assets/img/backgrounds/thankyou.jpg') no-repeat center center fixed;
-/*  background-size: 100%;
-  background-repeat: no-repeat;*/
+/*.background {
+  background: url('../../assets/img/backgrounds/thankyou.jpg') no-repeat center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+
+  padding-bottom: 90pt;
+
+}*/
 
 .circle {
   border-radius: 50%;
@@ -85,58 +118,7 @@ h3 {
 
 .mc-logo {
   width: 21%;
-  padding-top: 11pt;
+  padding-bottom: 10pt;
   margin-left: 20pt;
-}
-
-
-
-
-
-
-
-
-.x0 {
-    /*float:left;*/
-    width:100%;
-}
-.x1 {
-    margin:0px auto;
-}
-
-.x2 {
-    overflow:hidden;
-    display:block;
-    float:left;
-    /*width:auto;*/
-    /*height:auto;*/
-    position: relative;
-    border-radius:50%;
-    -moz-border-radius:50%;
-    -webkit-border-radius:50%;
-    -khtml-border-radius: 50%;
-    background: #F79F1A;
-}
-
-.x4 {
-    height:20%;
-    text-align:center;
-    width:200%;
-}
-
-@media (max-width: 320px) 
-{
-    .x2 {padding: 50%;}
-}
-
-@media (min-width: 321px) and (max-width: 800px)
-{
-    .x2 {padding: 50%;}
-}
-
-@media (min-width: 801px)
-{
-    .x1 {width:800px}
-    .x2 {padding: 40%;}
 }
 

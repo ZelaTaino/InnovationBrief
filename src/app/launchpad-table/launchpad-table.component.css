@@ -1,0 +1,84 @@
+p {
+  margin: 0;
+  color: white;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.project {
+  margin-bottom: 6pt;
+}
+
+.icon {
+  width: 13pt;
+  margin-right: 6pt;
+}
+
+.icon-small {
+  width: 11pt;
+  margin-right: 6pt;
+}
+
+.project-name {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.client-name {
+  font-size: 1.1em;
+}
+
+.container {
+  width: 70%;
+  margin: 20pt auto;
+}
+
+.square {
+    float:left;
+    position: relative;
+    width: 30%;
+    min-width: 180pt;
+    min-height: 100pt;
+    padding-bottom : 22%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    background-color:#F5A623;
+    overflow:hidden;
+}
+
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*5% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    
+}
+
+.status-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 5%;
+}
+
+.circle {
+  border-radius: 50%;
+  background-color: #069F00;
+  width: 0.8vw;
+  height: 0.8vw;
+  display: inline-block;
+}
+
+/*.status-text {
+  display: inline-block;
+}*/
+
+.v-align {
+  display: inline-block;
+  vertical-align:middle;
+}
+
+.button:hover {
+  background-color: #FF5F01
+}

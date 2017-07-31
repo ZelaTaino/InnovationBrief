@@ -1,18 +1,22 @@
 <div #scroll_content class="background">
-
+  <div class="header-wrapper">
     <img routerLink="/innovation-brief" class="logo" src="../../assets/img/logo.png">
 
-    <div class="text-container">
-      <h1>Innovation Brief</h1>
-      <h2>Challenge Definition</h2>      
-    </div>
+    <!-- <button class="button-primary button-medium rounded right">Logout</button> -->
+    <a (click)="logout()" class="right" href="">Logout</a>
+  </div>
 
-    <button class="center button-primary button-medium rounded" routerLink="1">Start</button>
+  <div class="text-container">
+    <h1>Innovation Brief</h1>
+    <h2>Challenge Definition</h2>      
+  </div>
 
-    <div class="button-container">
-      <h4>Instruction</h4>
-      <img (click)="scrollTo()" class="center down-button" src="../../assets/img/down-button.png">
-    </div>
+  <button class="center button-primary button-medium rounded" routerLink="1">Start</button>
+
+  <div class="button-container">
+    <h4>Instruction</h4>
+    <img (click)="scrollTo()" class="center down-button" src="../../assets/img/down-button.png">
+  </div>
 
 
   <section id="about">
@@ -56,3 +60,9 @@
   </section>
 
 </div>
+
+<!-- 
+<div id="bg">
+    <img src="../../assets/img/backgrounds/Earth.jpg">
+</div> -->
+

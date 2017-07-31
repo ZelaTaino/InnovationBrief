@@ -27,6 +27,11 @@ p {
   font-size: 1.3em;
 }
 
+a {
+  font-size: 1.6em;
+  color: white;
+}
+
 .background {
   background: url('../../assets/img/backgrounds/Earth.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -34,9 +39,12 @@ p {
   -o-background-size: cover;
   background-size: cover;
 
+  padding-top: 2%;
+
   /*padding: 100pt 6%;*/
   /*padding: 2% 2% 1% 2%;*/
   /*height: 630pt;*/
+
 }
 
 .text-container {
@@ -49,7 +57,7 @@ p {
   width: 21%;
   min-width: 100pt;
   cursor: pointer;
-  margin: 2% 0 17pt 2%;
+  /*margin: 2% 0 17pt 2%;*/
 }
 
 #about {
@@ -93,4 +101,10 @@ p {
   padding: 5% 0 5% 0;
 }
 
+.right {
+  float: right;
+}
 
+.header-wrapper {
+  margin: 0 2% 0 2%;
+}
