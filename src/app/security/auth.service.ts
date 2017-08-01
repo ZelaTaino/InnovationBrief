@@ -3,6 +3,7 @@ import { Observable, Subject, BehaviorSubject } from "rxjs/Rx";
 import { AngularFireAuth } from "angularfire2/auth";
 import { AuthInfo } from "./auth-info";
 import { Router } from "@angular/router";
+import { firebaseConfig } from '../../environments/firebase.config';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -46,7 +47,10 @@ export class AuthService {
 
 
   signUp(email, password) {
-    return this.fromFirebaseAuthPromise(this.afAuth.auth.createUserWithEmailAndPassword(email, password));
+    var secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary");
+    return this.fromFirebaseAuthPromise(secondaryApp.auth().createUserWithEmailAndPassword(email, password).then(function() {
+      secondaryApp.auth().signOut();
+    }));
   }
 
   getAuthState() {
