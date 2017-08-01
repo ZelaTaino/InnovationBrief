@@ -54,17 +54,29 @@ p {
   margin-bottom: 4pt;
 }
 
+
+
 .progress-bar {
   height: 12px;
-  /*background-image: linear-gradient(to bottom);*/
-  transition: 0.4s linear;
-  transition-property: width;
   background-color: #F79F1A;
   box-shadow: none;
 }
 
 .progress-bar-complete {
-  /*transition: background-color 2s ease-out;*/
-  /*background-color: transparent;*/
+  transition: background-color 0.5s ease-out;
+  background-color: transparent;
+}
+
+.transition {
+  transition: 0.4s linear;
+  transition-property: width;
+}
+
+.progress-bar-reset {
+  width: 0;
+}
+
+.no-transition {
+  transition: none;
 }
 
