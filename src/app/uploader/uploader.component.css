@@ -32,17 +32,18 @@ p {
   pointer-events: none;
 }
 
-/*.input-file:focus + label,
-.input-file + label:hover {
-  background-color: #F79F1A;
-}
-*/
 .upload-button {
   color: black;
   font-weight: normal;
   font-size: 1.3em;
   padding: 7pt 15pt;
   width: 82pt;
+}
+
+.input-file:focus + label,
+.input-file + label:hover {
+  background-color: #F57E23;
+  border-color: #F57E23;
 }
 
 .progress {
