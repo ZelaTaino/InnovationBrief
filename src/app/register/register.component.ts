@@ -58,8 +58,7 @@ export class RegisterComponent  {
               this.general_service.addLaunchPad(value.client, value.project, this.authService.getCreatedUID());
               alert('User created successfully !');
               this.router.navigate(['launchpad-dashboard']);
-            },
-            err => alert(err)
+            }
         );
     }
 
