@@ -5,7 +5,7 @@
     <span [innerHtml]="prev_button_text"></span>
   </button>
 
-  <button class="rounded button-primary nav-button" [ngClass]="{'to-section': is_next_cover}" (click)="next()">
+  <button class="rounded button-primary nav-button" [ngClass]="{'to-section': is_next_cover, 'hidden-button': hidden_button}" (click)="next()">
     <span [innerHtml]="next_button_text"></span>
     <img class="icon" src="../../assets/img/next-arrow-icon.png">
   </button>

@@ -8,7 +8,7 @@
   min-height: 15pt;
   border-radius: 50%;
 
-  border: 1.5pt solid #F79F1A;
+  border: 1.5pt solid #FF5F01;
   background-color: transparent;
   
   display: inline-block;
@@ -18,15 +18,15 @@
 }
 
 .question-active {
-  background-color: #F79F1A;
+  background-color: #FF5F01;
 }
 
 .cover-active {
-  background-color: #FF5F01;
-  border-color: #FF5F01;
+  background-color: #EA001B;
+  border-color: #EA001B;
 }
 
 .cover-nonactive {
-  border-color: #FF5F01;
+  border-color: #EA001B;
 }
 

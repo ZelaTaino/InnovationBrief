@@ -41,9 +41,9 @@ export class RegisterComponent  {
       this.authService.signUp(username_email, val.password)
           .subscribe(
               () => {
-                  this.general_service.addLaunchPad(val.client, val.project, this.authService.getCreatedUID());
-                  alert('User created successfully !');
-                  this.router.navigateByUrl('/launchpad-dashboard');
+                this.general_service.addLaunchPad(val.client, val.project, this.authService.getCreatedUID());
+                alert('User created successfully !');
+                this.router.navigate(['launchpad-dashboard']);
               },
               err => alert(err)
           );

@@ -35,9 +35,10 @@ export class UserGuard implements CanActivate {
 
       return this.authService.getAuthState().map(auth => {
         if (auth) {
-          console.log(auth);
+          console.log('auth:', auth);
           return true;
         } else {
+          console.log('other auth:', auth);
           return false;
         }
       })

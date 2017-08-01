@@ -33,3 +33,7 @@ nav {
   display: inline-block;
   vertical-align: center;
 }
+
+.hidden-button {
+  visibility: hidden;
+}

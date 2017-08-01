@@ -1,18 +1,22 @@
 <nav-bar></nav-bar>
 <div class="background">
 
-  <div class="question-form-wrapper">
+  <div class="wrap">
 
     <h3>Are you ready to submit your Innovation Brief responses?</h3>
 
     <div class="button-container">
-      <button (click)="submit()" class="button-primary button-large rounded submit-button">Submit</button>
-      <button (click)="submit()" class="button-primary button-large rounded submit-button">Save for later</button>
-      <button (click)="prev()" class="button-primary button-large rounded submit-button">Previous</button>
+      <button (click)="submit()" class="button-primary button-large rounded submit-button h-center">Submit</button>
+      <button (click)="save()" class="button-primary button-large rounded h-center">Save &amp; Logout</button>
     </div>
 
     <div class="space"> </div>
 
   </div>
 
+</div>
+<nav-footer></nav-footer>
+
+<div id="bg">
+  <img src="../../assets/img/backgrounds/question-form-background.png">
 </div>

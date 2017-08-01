@@ -32,6 +32,11 @@ export class ConfirmationComponent implements OnInit {
       .catch(err => {
         console.log(err);
       });
+      
+  }
+
+  save(){
+    this.authService.logout();
   }
 
   prev(){

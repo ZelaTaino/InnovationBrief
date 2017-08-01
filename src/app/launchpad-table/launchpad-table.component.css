@@ -114,3 +114,8 @@ p {
 .button:hover {
   background-color: #FF5F01
 }
+
+.cell-container {
+  flex-direction: column;
+  justify-content: center;
+}

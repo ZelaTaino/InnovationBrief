@@ -14,6 +14,7 @@ export class NavFooterComponent implements OnInit {
   prev_button_text: string;
   is_next_cover: boolean;
   is_prev_cover: boolean;
+  hidden_button: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +25,14 @@ export class NavFooterComponent implements OnInit {
 
   ngOnInit() {
 
+    if(this.router.url == "/innovation-brief/confirmation"){
+      this.hidden_button = true;
+    }else{
+      this.hidden_button = false;
+    }
+
     this.route.params.subscribe((params: Params) => {
+
       this.question_id = +params['id'];
       this.launchpad_id = params['lp-id'];
 
@@ -91,15 +99,34 @@ export class NavFooterComponent implements OnInit {
 
     }else if(this.question_id == this.num_questions){
       this.router.navigate(['innovation-brief/confirmation']);
+
+    }else if(this.router.url == "/innovation-brief/cover"){
+      this.router.navigate(["../", 10], { relativeTo: this.route });
     }
   }
 
   previous(){
-    if((this.question_id - 1) !> 0){
+
+    //if on confirmation
+    if(this.router.url == "/innovation-brief/confirmation"){
+      this.router.navigate(["../", 11], { relativeTo: this.route });
+
+    //if on 10 go back to cover
+    }else if(this.question_id == 10 && !this.launchpad_id){
+      this.router.navigate(['innovation-brief/cover']);
+
+    //if next id is not negative
+    }else if((this.question_id - 1) !> 0){
       let prev_id = this.question_id - 1;
       this.router.navigate(["../", prev_id], { relativeTo: this.route });
-    }else{
+    
+    // if on 1 page
+    }else if(this.question_id == 1){
       this.router.navigate(["innovation-brief"]);
+
+    // if on cover go to 9
+    }else if(this.router.url == "/innovation-brief/cover"){
+      this.router.navigate(["../", 9], { relativeTo: this.route });
     }
 
   }

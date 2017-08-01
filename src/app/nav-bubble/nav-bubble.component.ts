@@ -41,18 +41,23 @@ export class NavBubbleComponent implements OnInit {
       //   this.is_active = false;
       // }
 
-      if(+params['id'] >= this.bubble_id){
+      if(this.bubble_id == "innovation-brief"){
         this.is_active = true;
+
+      }else if(+params['id'] >= this.bubble_id){
+        this.is_active = true;
+
       }else if(this.router.url == "/innovation-brief/confirmation"){
         this.is_active = true;
+
       }else if(this.router.url == "/innovation-brief/cover"){
         if(this.bubble_id < 10 || this.bubble_id == 'cover'){
           this.is_active = true;
         }
+
       }else if(+params['id'] >= 10 && this.bubble_id == 'cover'){
         this.is_active = true;
-      }else if(this.bubble_id == "innovation-brief"){
-        this.is_active = true;
+        
       }else{
         this.is_active = false;
       }

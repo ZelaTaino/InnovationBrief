@@ -28,7 +28,8 @@ export class QuestionService {
   }
 
   submit(uid){
-    const path = this.db.object(`userFormCompletion/${uid}/${this.form_id}`);
+    const path = this.db.object(`userFormCompletion/${uid}`);
+    path.update({[this.form_id]: true});
   }
 
 }

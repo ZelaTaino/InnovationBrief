@@ -4,20 +4,35 @@ h3 {
   font-size: 3em;
   text-align: center;
 
-  margin: 100pt auto 20pt;
+  margin: 0pt auto 20pt;
   width: 60%;
 }
 
-.background {
-  background: url("../../assets/img/backgrounds/question-form-background.png") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
 
-  /*padding: 50pt 2% 6% 4%;*/
-  /*height: 700pt;*/
-  padding: 130pt 2% 9% 4%;
+#bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 220px auto 20pt;
+    padding: 0px;
 }
 
 .clear {
@@ -31,7 +46,7 @@ h3 {
 }
 
 .question-form-wrapper {
-  margin: 30pt 2% 0pt 5%;
+  margin: 0pt 2% 0pt 5%;
 }
 
 .button-container {
@@ -40,8 +55,12 @@ h3 {
 }
 
 .submit-button {
+  background-color: #EA001B;
+}
+
+.h-center{
+  margin: 10pt auto;
   display: block;
-  margin: 20pt auto;
 }
 
 .right {
