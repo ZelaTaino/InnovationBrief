@@ -29,6 +29,10 @@ nav {
   background-color: #EA001B;
 }
 
+.to-section:hover {
+  background-color: #A00012;
+}
+
 .v-align {
   display: inline-block;
   vertical-align: center;

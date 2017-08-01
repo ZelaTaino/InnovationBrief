@@ -28,6 +28,7 @@ import { AngularFireAuthModule } from "angularfire2/auth";
 import { InnovationBriefService } from './shared/model/innovation-brief.service';
 import { GeneralService } from './shared/model/general.service';
 import { QuestionService } from './shared/model/question.service';
+import { WindowRefService } from './shared/model/window.service';
 
 import { RouterConfig } from './router.config';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -98,7 +99,7 @@ import { NavFooterComponent } from './nav-footer/nav-footer.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [InnovationBriefService, AuthService, AdminGuard, UserGuard, GeneralService, QuestionService],
+  providers: [WindowRefService, InnovationBriefService, AuthService, AdminGuard, UserGuard, GeneralService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

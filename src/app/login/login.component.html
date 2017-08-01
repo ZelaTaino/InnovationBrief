@@ -2,18 +2,29 @@
   <div class="wrapper">
     <img class="logo center" src="../../assets/img/logo.png">
 
-    <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+    <form [formGroup]="login_form" (ngSubmit)="login(login_form.value)">
 
-        <input placeholder="Username" class=" center input-textfield rounded" name="username" formControlName="username">
+      <div class="">
+        <input [ngClass]="{'input-error': !login_form.controls['username'].valid && submitted}" type="text" [formControl]="login_form.controls['username']" placeholder="Username" class="center input-textfield rounded">
+      </div>
 
-        <input placeholder="Password" class="center input-textfield rounded" name="password" formControlName="password" type="password">
-
-        <button class="center button-primary rounded button-large" (click)="login()">Login</button>
-
+      <div class="form-group">
+        <input [ngClass]="{'input-error': !login_form.controls['password'].valid && submitted}" type="password" [formControl]="login_form.controls['password']" placeholder="Password" class="center input-textfield rounded">
+      </div>
+      
+      <div class="">
+        <button class="button-primary button-large rounded center" type="submit">Login</button>
+      </div>
+      
+      <div [ngClass]="{'show-alert': error_message}" class="center alert cell-container flex-box">
+        <img class="cell-icon" src="../../assets/img/error-icon.png">
+        <p class="cell-content alert-text" [innerHtml]="error_message"></p>
+      </div>
+      
     </form>
   </div>
 </div>
 
 <div id="bg">
-  <img src="../../assets/img/backgrounds/login.png">
+  <img src="../../assets/img/backgrounds/login.jpg">
 </div>

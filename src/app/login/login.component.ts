@@ -11,42 +11,53 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 export class LoginComponent implements OnInit {
 
-  form:FormGroup;
-  can_register: number;
+  login_form:FormGroup;
 
-  constructor(private fb:FormBuilder, private authService: AuthService,
-    private router:Router, private route: ActivatedRoute) {
-      this.form = this.fb.group({
-          username: ['',Validators.required],
-          password: ['',Validators.required]
+  can_register: number;
+  submitted = false;
+  error_message: string;
+
+  constructor(
+    private fb:FormBuilder, 
+    private authService: AuthService,
+    private router:Router, 
+    private route: ActivatedRoute) {
+      this.login_form = this.fb.group({
+        username: [null, Validators.required],
+        password: [null, Validators.required]
     });
   }
 
   ngOnInit() {
     this.route.queryParams.do(val => console.log(val)).subscribe(params => this.can_register = +params['can_register'] || 0);
   }
+  
+  login(value: any) {
+    console.log(value);
+    this.submitted = true;
 
-  login() {
-      const formValue = this.form.value;
-      let username_email = formValue.username + "@fake.com";
-      
-      this.authService.login(username_email, formValue.password)
-          .subscribe(
-              // need to handle login failure here
-              (auth) => {
-                if (this.authService.isAdmin(auth.uid)) {
-                  this.router.navigate(['/launchpad-dashboard']);
-                } else {
-                  //TODO: call getUserId to config navigation
-                  //hard coded user0
-                  //ask brady if we should make another set of paths?
-                  this.router.navigate(['/innovation-brief']);
-                }
+    if(!this.login_form.controls['username'].valid && !this.login_form.controls['password'].valid){
+      this.error_message = "Looks like you forgot to enter a username and password!";
+    }else if(!this.login_form.controls['username'].valid){
+      this.error_message = "Looks like you forgot to enter a username!";
+    }else if(!this.login_form.controls['password'].valid){
+      this.error_message = "Looks like you forgot to enter a password!";
+    }else{
+      let username_email = value.username + "@fake.com";
+      console.log(value.password);
+      this.authService.login(username_email, value.password)
+        .subscribe(
+            (auth) => {
+              if (this.authService.isAdmin(auth.uid)) {
+                this.router.navigate(['/launchpad-dashboard']);
+              } else {
+                this.router.navigate(['/innovation-brief']);
               }
-          );
+            },
+            (error) =>{
+              this.error_message = "Oops, wrong email or password";
+            });
+    }
   }
 
-  register() {
-      this.router.navigate(['/register']);
-  }
 }

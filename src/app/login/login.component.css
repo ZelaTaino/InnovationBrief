@@ -1,3 +1,49 @@
+.alert-text{
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.alert{
+  text-align: center;
+  min-width: 30%;
+  min-height: 50%;
+  visibility: hidden;
+  /*background-color: #EA001B;*/
+}
+
+.cell-container{
+  margin-top: 70pt;
+  overflow: auto
+}
+
+.cell-container img {
+  display: block;
+}
+
+.cell-content {
+  margin-left: 8pt;
+}
+
+.cell-icon {
+  width: 17pt;
+  float: left;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;  
+  align-content: center;
+  /*margin: 0pt 20pt;*/
+}
+
+.show-alert{
+  visibility: visible;
+}
+
 
 #bg {
   position: fixed;
@@ -36,3 +82,10 @@
   min-width: 190pt;
   margin-bottom: 40pt;
 }
+
+
+.button-primary:disabled {
+  color: #7B7B7B;
+  background-color: #8E8E8E;
+}
+

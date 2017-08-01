@@ -26,7 +26,16 @@
   border-color: #EA001B;
 }
 
+.cover-active:hover{
+  background-color: #A00012;
+}
+
 .cover-nonactive {
+  border-color: #EA001B;
+}
+
+.cover-nonactive:hover{
+  background-color: #EA001B;
   border-color: #EA001B;
 }
 

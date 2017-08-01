@@ -11,18 +11,18 @@ export class GeneralService {
 
   constructor(private db: AngularFireDatabase) {}
 
-  // getLaunchPads(): Observable<LaunchPad[]>{
-  //   return this.db.list('launch-pads')
-  //     .do(val => console.log("getting Launch pad list: ", val))
-  //     .map(val => LaunchPad.fromJsonList(val));
-
-  // }
-
   getLaunchPads(): Observable<LaunchPad[]>{
 
     //get list of launchpads
-    const lp_list = this.db.list('launch-pads')
-      .do(val => console.log(val))
+    // const lp_list = this.db.list('launch-pads')
+    //   .do(val => console.log(val))
+    //   .map(val => LaunchPad.fromJsonList(val));
+
+    const lp_list = this.db.list('launch-pads', {
+      query: {
+        orderByChild: 'client'
+      }
+    }).do(val => console.log("ordered: ", val))
       .map(val => LaunchPad.fromJsonList(val));
 
     let lp_complete_list = lp_list
