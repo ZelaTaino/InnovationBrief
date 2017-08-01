@@ -11,43 +11,60 @@ import { GeneralService } from '../shared/model/general.service';
 })
 export class RegisterComponent  {
 
-  form: FormGroup;
+  register_form: FormGroup;
+  error_message: string;
+  submitted = false;
+  match: boolean;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router: Router,
               private general_service: GeneralService) {
 
-    this.form = this.fb.group({
-      client: ['',Validators.required],
-      project: ['', Validators.required],
-      username: ['',Validators.required],
-      password: ['',Validators.required],
-      confirm: ['',Validators.required]
+    this.register_form = this.fb.group({
+      client: [null, Validators.required],
+      project: [null, Validators.required],
+      username: [null, Validators.required],
+      password: [null, Validators.compose([Validators.required, Validators.minLength(6)])],
+      confirm: [null, Validators.required]
     });
-
 
   }
 
-    isPasswordMatch() {
-      const val = this.form.value;
-      return val && val.password && val.password == val.confirm;
+  isPasswordMatch() {
+    const val = this.register_form.value;
+    this.match = val && val.password && val.password == val.confirm;
+    return val && val.password && val.password == val.confirm;
+  }
+
+  signUp(form: any) {
+    console.log("wign: ", form);
+    this.submitted = true;
+    let value = form.value;
+    let username_email = value.username + "@fake.com";
+
+    console.log(value.client);
+
+    if(!value.client || !value.project || !value.username || !value.password || !value.confirm){
+      this.error_message = "Please fill in required fields";
+    }else if(!this.register_form.controls['password'].valid){
+      this.error_message = "Password must be at least be six characters long";
+    }else if(!this.isPasswordMatch()){
+      this.error_message = "Passwords don't match";
+    }else{
+      this.authService.signUp(username_email, value.password)
+        .subscribe(
+            () => {
+              this.general_service.addLaunchPad(value.client, value.project, this.authService.getCreatedUID());
+              alert('User created successfully !');
+              this.router.navigate(['launchpad-dashboard']);
+            },
+            err => alert(err)
+        );
     }
 
-    signUp() {
-      const val = this.form.value;
-      let username_email = val.username + "@fake.com";
-
-      this.authService.signUp(username_email, val.password)
-          .subscribe(
-              () => {
-                this.general_service.addLaunchPad(val.client, val.project, this.authService.getCreatedUID());
-                alert('User created successfully !');
-                this.router.navigate(['launchpad-dashboard']);
-              },
-              err => alert(err)
-          );
-    }
+    
+  }
 
 
 }

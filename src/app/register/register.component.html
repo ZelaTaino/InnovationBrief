@@ -1,14 +1,58 @@
+<nav-bar-trans></nav-bar-trans>
+
 <div class="wrap">
 
-  <div class="header-wrapper">
+<!--   <div class="header-wrapper">
     <img routerLink="/launchpad-dashboard" class="logo" src="../../assets/img/logo.png">
     <a (click)="logout()" class="right logout" href="">Logout</a>
-  </div>
+  </div> -->
 
-    <h1>Create new LaunchPad</h1>
-    <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+  <h1>Create new LaunchPad</h1>
 
-        <fieldset>
+  <form [formGroup]="register_form" (ngSubmit)="signUp(register_form)">
+
+    <div>
+      <input [ngClass]="{'input-error': !register_form.controls['client'].valid && submitted}" type="text" [formControl]="register_form.controls['client']" placeholder="Client" class="center input-textfield rounded">
+    </div>
+
+    <div>
+      <input [ngClass]="{'input-error': !register_form.controls['project'].valid && submitted}" type="text" [formControl]="register_form.controls['project']" placeholder="Project" class="center input-textfield rounded">
+    </div>
+
+    <div>
+      <input [ngClass]="{'input-error': !register_form.controls['username'].valid && submitted}" type="text" [formControl]="register_form.controls['username']" placeholder="Username" class="center input-textfield rounded">
+    </div>
+
+    <div>
+      <input [ngClass]="{'input-error': (!register_form.controls['password'].valid && submitted) || (register_form.controls['password'].valid && submitted && !isPasswordMatch())}" type="password" [formControl]="register_form.controls['password']" placeholder="Password" class="center input-textfield rounded">
+    </div>
+
+    <div>
+      <input [ngClass]="{'input-error': !register_form.controls['confirm'].valid && submitted && !isPasswordMatch()}" type="password" [formControl]="register_form.controls['confirm']" placeholder="Confirm Password" class="center input-textfield rounded">
+    </div>
+
+    <div class="">
+      <button class="button-primary button-large rounded center" type="submit">Create User</button>
+    </div>
+
+    <div [ngClass]="{'show-alert': error_message}" class="center alert cell-container flex-box">
+        <img class="cell-icon" src="../../assets/img/error-icon.png">
+        <p class="cell-content alert-text" [innerHtml]="error_message"></p>
+      </div>
+
+  </form>
+
+
+
+
+
+
+
+
+
+
+    <!-- <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+
             <div class="form-field">
                 <input class=" center input-textfield rounded" name="client" placeholder="Client" formControlName="client">
             </div>
@@ -24,11 +68,10 @@
             <div class="form-field">
                 <input placeholder="Confirm Password" class="center input-textfield rounded" name="confirm" formControlName="confirm" type="password">
             </div>
-        </fieldset>
 
         <button class="center button-primary rounded button-large" (click)="signUp()" [disabled]="!isPasswordMatch()">Create User</button>
 
-    </form>   
+    </form>    -->
 </div>
 
 <div id="bg">

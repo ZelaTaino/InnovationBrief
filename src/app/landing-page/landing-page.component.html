@@ -1,4 +1,4 @@
-<div #scroll_content class="background">
+<div class="background">
 <!--   <div class="header-wrapper">
     <img routerLink="/innovation-brief" class="logo" src="../../assets/img/logo.png">
 
@@ -15,11 +15,11 @@
 
   <div class="button-container">
     <h4>Instruction</h4>
-    <img (click)="scrollTo()" class="center down-button" src="../../assets/img/down-button.png">
+    <img (click)="smoothScroll()" class="center down-button" src="../../assets/img/down-button.png">
   </div>
 
 
-  <section id="about">
+  <section #about id="about">
     <div class="container">
       <h3>About</h3>
 

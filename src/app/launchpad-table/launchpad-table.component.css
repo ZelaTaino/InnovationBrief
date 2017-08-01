@@ -11,7 +11,8 @@ p {
 }
 
 .frame {
-  text-align: center; margin: 1em 0;
+  text-align: center; 
+  margin: 1em 0;
 }
 
 .add-text {
@@ -76,10 +77,10 @@ p {
 }
 
 .content {
-    position:absolute;
-    height:100%; /* = 100% - 2*5% padding */
-    width:100%; /* = 100% - 2*5% padding */
-    padding: 5%;
+  position:absolute;
+  height:100%; /* = 100% - 2*5% padding */
+  width:100%; /* = 100% - 2*5% padding */
+  padding: 5%;
     
 }
 
@@ -115,7 +116,11 @@ p {
   background-color: #FF5F01
 }
 
-.cell-container {
+.flex-box {
+  display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;  
+  align-content: center;
 }

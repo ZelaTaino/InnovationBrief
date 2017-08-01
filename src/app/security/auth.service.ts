@@ -22,7 +22,6 @@ export class AuthService {
   }
 
   fromFirebaseAuthPromise(promise):Observable<any> {
-
         const subject = new Subject<any>();
 
         promise
@@ -38,7 +37,6 @@ export class AuthService {
                     subject.error(err);
                     subject.complete();
                 });
-
         return subject.asObservable();
     }
 

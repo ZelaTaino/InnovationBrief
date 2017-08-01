@@ -16,6 +16,7 @@ export class NavBarTransComponent implements OnInit {
   currPos: Number = 0;
   startPos: Number = 0;
   changePos: Number = 100;
+  is_admin: boolean;
 
   constructor(
     private auth_service: AuthService,
@@ -23,7 +24,8 @@ export class NavBarTransComponent implements OnInit {
 
   updateHeader(evt) {
     this.currPos = (window.pageYOffset || evt.target.scrollTop) - (evt.target.clientTop || 0);
-    if(this.currPos >= this.changePos ) {
+    if(this.currPos >= this.changePos ) { 
+      console.log("wha");
         this.isScrolled = true;
     } else {
         this.isScrolled = false;
@@ -45,6 +47,15 @@ export class NavBarTransComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth_service.getCurrentUserId()
+      .then(uid => {
+        if(this.auth_service.isAdmin(uid)){
+          this.is_admin = true;
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
 }
