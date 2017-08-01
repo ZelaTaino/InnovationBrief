@@ -22,20 +22,30 @@ export class QuestionFormComponent implements OnInit {
   uploader_tag: string;
   question: Question;
   response = "";
+  launchpad_id: string;
 
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
     private question_service: QuestionService,
-    private router: Router) {
-     }
+    private router: Router) {}
 
   ngOnInit() {
+
     this.route.params.subscribe((params: Params) => {
+
       this.setTags(params['id']);
       this.getQuestion(params['id']);
-      this.getAnswer(params['id']);
       this.question_id = +params['id'];
+
+      //if true it means admin is logged in
+      if(params['lp-id']){
+        this.launchpad_id = params['lp-id'];
+        this.getAnswer(params['id'], params['lp-id']);
+      }else{
+        this.getAnswer(params['id']);
+      }
+
     });
   }
 
@@ -52,12 +62,19 @@ export class QuestionFormComponent implements OnInit {
     console.log("tag: ", this.uploader_tag);
   }
 
-  getAnswer(id){
+  getAnswer(id, lp_id?){
     this.authService.getCurrentUserId()
       .then(uid => {
-        this.question_service.getAnswer(uid, this.answer_tag)
-        .do(val => console.log(val.$value))
-          .subscribe(val => this.response = val.$value);
+        if(this.authService.isAdmin(uid)){
+          this.question_service.getAnswer(lp_id, this.answer_tag)
+            .do(val => console.log(val.$value))
+            .subscribe(val => this.response = val.$value);
+        }else{
+          this.question_service.getAnswer(uid, this.answer_tag)
+            .do(val => console.log(val.$value))
+            .subscribe(val => this.response = val.$value);
+        }
+
       })
       .catch(err => {
         console.log(err);
@@ -74,24 +91,25 @@ export class QuestionFormComponent implements OnInit {
       );
   }
 
-  next(){
+  // next(){
 
-    if(this.question_id == 9){
-      this.router.navigate(['innovation-brief/cover',]);
-    }else if((this.question_id + 1) !<= this.num_questions){
-      let next_id = this.question_id + 1;
-      this.router.navigate(['innovation-brief', next_id]);
-      console.log("entered: ", next_id);
-    }else if(this.question_id == this.num_questions){
-      this.router.navigate(['innovation-brief/confirmation']);
-    }
-  }
+  //   if(this.question_id == 9 && !this.launchpad_id){
+  //     this.router.navigate(['innovation-brief/cover',]);
 
-  previous(){
-    if((this.question_id - 1) !> 0){
-      let prev_id = this.question_id - 1;
-      this.router.navigate(['innovation-brief', prev_id]);
-    }
-  }
+  //   }else if((this.question_id + 1) !<= this.num_questions){
+  //     let next_id = this.question_id + 1;
+  //     this.router.navigate(["../", next_id], { relativeTo: this.route });
+
+  //   }else if(this.question_id == this.num_questions){
+  //     this.router.navigate(['innovation-brief/confirmation']);
+  //   }
+  // }
+
+  // previous(){
+  //   if((this.question_id - 1) !> 0){
+  //     let prev_id = this.question_id - 1;
+  //     this.router.navigate(["../", prev_id], { relativeTo: this.route });
+  //   }
+  // }
 
 }

@@ -49,6 +49,9 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
 import { QuestionCoverComponent } from './question-cover/question-cover.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LaunchpadTableComponent } from './launchpad-table/launchpad-table.component';
+import { NavBarTransComponent } from './nav-bar-trans/nav-bar-trans.component';
+import { NavBarThanksComponent } from './nav-bar-thanks/nav-bar-thanks.component';
+import { NavFooterComponent } from './nav-footer/nav-footer.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +83,10 @@ import { LaunchpadTableComponent } from './launchpad-table/launchpad-table.compo
     ConfirmationComponent,
     QuestionCoverComponent,
     NavBarComponent,
-    LaunchpadTableComponent
+    LaunchpadTableComponent,
+    NavBarTransComponent,
+    NavBarThanksComponent,
+    NavFooterComponent
   ],
   imports: [
     BrowserModule,

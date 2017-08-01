@@ -11,10 +11,32 @@ export class GeneralService {
 
   constructor(private db: AngularFireDatabase) {}
 
+  // getLaunchPads(): Observable<LaunchPad[]>{
+  //   return this.db.list('launch-pads')
+  //     .do(val => console.log("getting Launch pad list: ", val))
+  //     .map(val => LaunchPad.fromJsonList(val));
+
+  // }
+
   getLaunchPads(): Observable<LaunchPad[]>{
-    return this.db.list('launch-pads')
-      .do(val => console.log("getting Launch pad list: ", val))
+
+    //get list of launchpads
+    const lp_list = this.db.list('launch-pads')
+      .do(val => console.log(val))
       .map(val => LaunchPad.fromJsonList(val));
+
+    let lp_complete_list = lp_list
+      .map(lps => {
+        for(let lp of lps){
+          this.db.object(`userFormCompletion/${lp.$key}/form0`)
+            .subscribe(val => lp.complete = val.$value);
+        }
+        return lps;
+      });
+
+      lp_list.subscribe();
+
+    return lp_complete_list;
 
   }
 
@@ -23,11 +45,6 @@ export class GeneralService {
       .do(val => console.log(val))
       .map(val => Form.fromJsonList(val));
   }
-
-  // getUserFormCompletion(id: string): Observable<any> {
-  //   return this.db.list('userFormCompletion/' + id)
-  //     .do(val => console.log(val));
-  // }
 
   getFormsWithCompletion(launchpad_id: string): Observable<Form[]>{
     console.log("test");

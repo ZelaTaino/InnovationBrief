@@ -8,23 +8,18 @@
         <h3>{{ question.type }}</h3>
         <h4>{{ question.question }}</h4>
         <h5>{{ question.description }}</h5>
-        <textarea class="input-textarea" [(ngModel)]="response" (blur)="updateAnswer()"></textarea>
+        <textarea class="input-textarea" [disabled]="launchpad_id" [(ngModel)]="response" (blur)="updateAnswer()"></textarea>
       </section>
 
       <section class="uploader-wrapper">
-        <uploader [tag_id]="uploader_tag"></uploader>
+        <uploader [launchpad_id]="launchpad_id" [tag_id]="uploader_tag"></uploader>
       </section>
 
-      <button class="rounded button-primary nav-button" *ngIf="question_id != 1" (click)="previous()">Prev</button>
-      <button class="rounded button-primary nav-button" (click)="next()">Next</button>
+      <!-- <button class="rounded button-primary nav-button" *ngIf="question_id != 1" (click)="previous()">Prev</button>
+      <button class="rounded button-primary nav-button" *ngIf="question_id != 11 && !launcpad_id" (click)="next()">Next</button> -->
 
-<!--       <div class="clearfix">
-        <div class="right">
-          <nav-bubbles [num_bubbles]="num_questions"></nav-bubbles>
-          <nav-bubbles></nav-bubbles>
-        </div>
-      </div> -->
 
     </div>
   </div>
 </div>
+<nav-footer></nav-footer>

@@ -1,5 +1,1 @@
-<div *ngIf="is_active && !is_dark_orange" (click)="navTo()" class="circle orange-circle"></div>
-<div *ngIf="!is_active && !is_dark_orange" (click)="navTo()" class="circle orange-outline"></div>
-
-<div *ngIf="is_dark_orange && is_active" (click)="navTo()" class="circle dark-orange-circle"></div>
-<div *ngIf="is_dark_orange && !is_active" (click)="navTo()" class="circle dark-orange-outline"></div>
+<div (click)="navTo()" [ngClass]="{'question-active': is_active && !is_section, 'cover-active': is_active && is_section, 'cover-nonactive': !is_active && is_section}" class="circle"></div>

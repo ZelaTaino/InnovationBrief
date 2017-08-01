@@ -1,29 +1,36 @@
-<form autocomplete="off" novalidate class="login-form" [formGroup]="form">
+<div class="wrap">
 
-    <fieldset>
-        <legend>Register</legend>
-        <div class="form-field">
-            <label>Client:</label>
-            <input name="client" formControlName="client">
-        </div>
-        <div class="form-field">
-            <label>Project:</label>
-            <input name="project" formControlName="project">
-        </div>
-        <div class="form-field">
-            <label>Username:</label>
-            <input name="username" formControlName="username">
-        </div>
-        <div class="form-field">
-            <label>Password:</label>
-            <input name="password" formControlName="password" type="password">
-        </div>
-        <div class="form-field">
-            <label>Confirm Password:</label>
-            <input name="confirm" formControlName="confirm" type="password">
-        </div>
-    </fieldset>
+  <div class="header-wrapper">
+    <img routerLink="/launchpad-dashboard" class="logo" src="../../assets/img/logo.png">
+    <a (click)="logout()" class="right logout" href="">Logout</a>
+  </div>
 
-    <button (click)="signUp()" [disabled]="!isPasswordMatch()">Create User</button>
+    <h1>Create new LaunchPad</h1>
+    <form autocomplete="off" novalidate class="login-form" [formGroup]="form">
 
-</form>
+        <fieldset>
+            <div class="form-field">
+                <input class=" center input-textfield rounded" name="client" placeholder="Client" formControlName="client">
+            </div>
+            <div class="form-field">
+                <input placeholder="Project" class="center input-textfield rounded" name="project" formControlName="project">
+            </div>
+            <div class="form-field">
+                <input placeholder="Username" class="center input-textfield rounded" name="username" formControlName="username">
+            </div>
+            <div class="form-field">
+                <input placeholder="Password" class="center input-textfield rounded" name="password" formControlName="password" type="password">
+            </div>
+            <div class="form-field">
+                <input placeholder="Confirm Password" class="center input-textfield rounded" name="confirm" formControlName="confirm" type="password">
+            </div>
+        </fieldset>
+
+        <button class="center button-primary rounded button-large" (click)="signUp()" [disabled]="!isPasswordMatch()">Create User</button>
+
+    </form>   
+</div>
+
+<div id="bg">
+  <img src="../../assets/img/backgrounds/register.jpg">
+</div>

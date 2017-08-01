@@ -39,7 +39,7 @@ a {
   -o-background-size: cover;
   background-size: cover;
 
-  padding-top: 2%;
+  padding-top: 160pt;
 
   /*padding: 100pt 6%;*/
   /*padding: 2% 2% 1% 2%;*/
@@ -47,9 +47,8 @@ a {
 
 }
 
-.text-container {
-  margin-top: 90pt;
-  margin-bottom: 60pt;
+.header-content {
+  padding: 10pt 22% 30pt 22%;
 }
 
 
@@ -95,6 +94,11 @@ a {
 
 .cell-content {
   margin-left: 80pt;
+}
+
+.cell-icon {
+  width: 60pt;
+  float: left;
 }
 
 #footer {

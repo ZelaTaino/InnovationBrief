@@ -106,8 +106,14 @@ body {
 }
 
 .nav-button {
-  color: white;
+  /*color: white;
   width: 120pt;
   padding: 7pt 15pt;
+  font-size: 1.3em;*/
+  color: white;
+  min-width: 120pt;
+  padding: 7pt 15pt;
   font-size: 1.3em;
+  margin: 0 2pt;
+  background-color: #FF5F01;
 }

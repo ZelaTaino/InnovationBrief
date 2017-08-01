@@ -7,6 +7,7 @@ import { GeneralService } from '../shared/model/general.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent  {
 

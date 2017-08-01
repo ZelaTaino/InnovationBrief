@@ -1,39 +1,32 @@
-div {
-  margin: 0;
-}
 
 .circle {
-  width: 2vw;
-  height: 2vw;
+  width: 1.8vw;
+  height: 1.8vw;
   max-width: 24pt;
   max-height: 24pt;
   min-width: 15pt;
   min-height: 15pt;
   border-radius: 50%;
+
+  border: 1.5pt solid #F79F1A;
+  background-color: transparent;
   
   display: inline-block;
-  margin: 0.5pt;
+  margin: 0.08vw;
 
   cursor: pointer;
 }
 
-.orange-circle {
+.question-active {
   background-color: #F79F1A;
-  border: 2pt solid #F79F1A;
 }
 
-.orange-outline {
-  border: 2pt solid #F79F1A;
-  background-color: transparent;
-}
-
-.dark-orange-circle {
+.cover-active {
   background-color: #FF5F01;
-  border: 2pt solid #FF5F01;
+  border-color: #FF5F01;
 }
 
-.dark-orange-outline {
-  border: 2pt solid #FF5F01;
-  background-color: transparent;
+.cover-nonactive {
+  border-color: #FF5F01;
 }
 

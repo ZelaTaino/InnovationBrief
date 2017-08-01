@@ -63,3 +63,8 @@ p {
   box-shadow: none;
 }
 
+.progress-bar-complete {
+  /*transition: background-color 2s ease-out;*/
+  /*background-color: transparent;*/
+}
+

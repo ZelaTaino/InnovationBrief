@@ -1,26 +1,9 @@
 h1 {
   color: white;
-  font-size: 4em;
-  text-align: center;
-  margin: 0;
-}
-
-h2 {
-  color: white;
   font-size: 2.5em;
   text-align: center;
-  margin: 0;
+  padding-bottom: 20pt;
 }
-
-a {
-  font-size: 1.6em;
-  color: white;
-}
-
-.lp-table {
-  margin: 0 auto;
-}
-
 
 #bg {
   position: fixed;
@@ -49,21 +32,21 @@ a {
   padding: 20px;
 }
 
-.header-wrapper {
-  margin: 0 2% 0 2%;
-}
-
 .logo {
   width: 21%;
   min-width: 100pt;
   cursor: pointer;
-  /*margin: 2% 0 17pt 2%;*/
 }
 
-.launchpad-list {
-  margin: 0 auto;
+.header-wrapper {
+  margin: 0 2% 0 2%;
 }
 
 .right {
   float: right;
+}
+
+.logout {
+  font-size: 1.6em;
+  color: white;
 }

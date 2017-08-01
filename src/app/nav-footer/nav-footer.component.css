@@ -1,0 +1,35 @@
+nav {
+  background-color: transparent;
+  width: 100%;
+  padding-top: 8pt;
+  padding-bottom: 8pt;
+}
+
+.icon {
+  width: 10pt;
+}
+
+.scrolling {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+
+.flex-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;  
+  align-content: center;
+  margin: 0pt 20pt;
+}
+
+.to-section {
+  background-color: #EA001B;
+}
+
+.v-align {
+  display: inline-block;
+  vertical-align: center;
+}

@@ -3,7 +3,8 @@ export class LaunchPad{
     public $key: string,
     public client: string,
     public project: string,
-    public url: string
+    public url: string,
+    public complete?: boolean 
   ){}
 
   static fromJsonList(array): LaunchPad[] {

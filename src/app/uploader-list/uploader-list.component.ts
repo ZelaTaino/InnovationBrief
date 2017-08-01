@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Rx';
 import { Upload } from '../shared/model/upload';
 import { InnovationBriefService } from '../shared/model/innovation-brief.service';
 import { AuthService } from '../security/auth.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'uploader-list',
@@ -17,7 +18,8 @@ export class UploaderListComponent implements OnInit, OnChanges{
 
   constructor(
     private ib_service: InnovationBriefService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
     // this.authService.getCurrentUserId()
@@ -34,6 +36,11 @@ export class UploaderListComponent implements OnInit, OnChanges{
   }
 
   ngOnChanges(changes){
+    this.getUploads();
+    // console.log("Inputs Changed: ", changes['tag_id'].currentValue);
+  }
+
+  getUploads(){
     this.authService.getCurrentUserId()
         .then( uid => {
           if(this.authService.isAdmin(uid)){
@@ -45,7 +52,6 @@ export class UploaderListComponent implements OnInit, OnChanges{
         .catch(err => {
           console.log(err)
         });
-    // console.log("Inputs Changed: ", changes['tag_id'].currentValue);
   }
 
   deleteUpload(upload){

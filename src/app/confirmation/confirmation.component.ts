@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuestionService } from '../shared/model/question.service';
+import { AuthService } from '../security/auth.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -13,13 +15,23 @@ export class ConfirmationComponent implements OnInit {
   num_bubbles = 11;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private question_service: QuestionService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {}
 
   submit(){
-    this.router.navigate(['innovation-brief/completed']);
+
+    this.authService.getCurrentUserId()
+      .then(uid => {
+        this.question_service.submit(uid);
+        this.router.navigate(['innovation-brief/completed']);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   prev(){

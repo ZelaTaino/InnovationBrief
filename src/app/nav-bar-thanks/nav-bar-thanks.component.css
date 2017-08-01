@@ -1,5 +1,5 @@
 nav {
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.4s ease-out;
   background-color: transparent;
   width: 100%;
   padding-top: 8pt;
@@ -14,12 +14,8 @@ a {
 
 
 .logout {
-  color: black;
+  color: white;
   text-align: right;
-}
-
-.bubbles {
-  padding-top: 7pt;
 }
 
 .logo {
@@ -48,7 +44,7 @@ a {
 }
 
 .page-scroll-header {
-  transition: background-color -webkit-box-shadow -moz-box-shadow box-shadow 0.3s ease-out;
+  transition: background-color 0.4s ease-out;
   background-color: white !important;
   -webkit-box-shadow: 0 0px 5px #595959;
   -moz-box-shadow: 0 0px 5px #595959;
@@ -56,6 +52,7 @@ a {
 }
 
 .page-scroll-logo {
+  content: url("../../assets/img/logo-black.png");
   transition: background-color 0.4s ease-out;
 }
 
@@ -68,20 +65,19 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;  
   align-content: center;
   margin: 0pt 20pt;
 }
 
 .side {
-  width: 18%;
+  /*flex-grow: 1;*/
+  width: 21%;
   align-self: center;
 }
 
-.middle {
-  /*flex-grow: 3;*/
-  width: 64%;
-  align-self: center;
+.lp-logo {
+  width: 16%;
 }
 

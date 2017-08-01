@@ -1,7 +1,15 @@
 <div class="container">
-  
-  <div class="square" *ngFor="let launchpad of launchpads">
-      <div class="content button">
+  <div class="square white frame">
+      <div routerLink="/register" class="content button">
+        <span class="helper"></span><img class="add-icon center" src="../../assets/img/add-icon.png">
+        <p class="add-text">Add launchpad</p>
+        
+
+      </div>
+  </div>
+
+  <div class="square orange" *ngFor="let launchpad of launchpads">
+      <div routerLink="innovation-brief/{{launchpad.$key}}/1" class="content button">
 
         <div class="project">
           <img class="icon v-align" src="../../assets/img/project-icon.png"><p class="project-name v-align">{{ launchpad.project }}</p>
@@ -11,10 +19,16 @@
           <img class="icon-small v-align" src="../../assets/img/client-icon.png"><p class="client-name v-align">{{ launchpad.client }}</p>
         </div>
 
-        <div class="status-container">
-          <div class="circle v-align"></div>
+        <div *ngIf="launchpad.complete" class="status-container">
+          <div class="circle-green v-align"></div>
           <p class="status-text v-align">Ready for review</p>
         </div>
+
+        <div *ngIf="!launchpad.complete" class="status-container">
+          <div class="circle-yellow v-align"></div>
+          <p class="status-text v-align">In progress</p>
+        </div>
+
 
       </div>
   </div>

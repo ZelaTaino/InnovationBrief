@@ -1,10 +1,30 @@
+
+
 p {
   margin: 0;
   color: white;
 }
 
+.helper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.frame {
+  text-align: center; margin: 1em 0;
+}
+
+.add-text {
+
+}
+
 .button {
   cursor: pointer;
+}
+
+.add-icon {
+  width: 30%;
+  vertical-align: middle;
 }
 
 .project {
@@ -43,8 +63,16 @@ p {
     min-height: 100pt;
     padding-bottom : 22%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
-    background-color:#F5A623;
     overflow:hidden;
+}
+
+.orange {
+  background-color:#F5A623;
+}
+
+.white {
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.3);
 }
 
 .content {
@@ -62,7 +90,7 @@ p {
   margin: 5%;
 }
 
-.circle {
+.circle-green {
   border-radius: 50%;
   background-color: #069F00;
   width: 0.8vw;
@@ -70,13 +98,17 @@ p {
   display: inline-block;
 }
 
-/*.status-text {
+.circle-yellow {
+  border-radius: 50%;
+  background-color: #FFEB00;
+  width: 0.8vw;
+  height: 0.8vw;
   display: inline-block;
-}*/
+}
 
 .v-align {
   display: inline-block;
-  vertical-align:middle;
+  vertical-align: middle;
 }
 
 .button:hover {

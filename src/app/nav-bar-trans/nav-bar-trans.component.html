@@ -1,15 +1,7 @@
 <nav class="scrolling page-scroll-header" [ngClass]="{'page-scroll-header': isScrolled}">
-  
   <div class="flex-box">
-
-    <img [ngClass]="{'page-scroll-logo': isScrolled}" (click)="goToHome()" class="logo side" src="../assets/img/logo-black.png">
-
+    <img [ngClass]="{'page-scroll-logo': isScrolled}" (click)="goToHome()" class="logo side" src="../assets/img/logo.png">
     <nav-bubbles class="bubbles middle"></nav-bubbles>
-
     <a class="logout side" [ngClass]="{'page-scroll-logout': isScrolled}" (click)="logout()" href="">Logout</a>
-
-    
-
   </div>
-
 </nav>

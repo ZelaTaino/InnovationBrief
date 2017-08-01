@@ -13,7 +13,7 @@ export class NavBubbleComponent implements OnInit {
   @Input() bubble_id: any;
   @Input() nav: string;
   is_active: boolean;
-  is_dark_orange: boolean;
+  is_section: boolean;
 
 
   constructor(
@@ -23,8 +23,10 @@ export class NavBubbleComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.bubble_id == 'cover' || this.bubble_id == 'confirmation'){
-      this.is_dark_orange = true;
+    if(this.bubble_id == 'cover' || 
+        this.bubble_id == 'confirmation' || 
+          this.bubble_id == 'innovation-brief'){
+      this.is_section = true;
     }
 
     this.route.params.subscribe((params: Params) => {
@@ -49,6 +51,8 @@ export class NavBubbleComponent implements OnInit {
         }
       }else if(+params['id'] >= 10 && this.bubble_id == 'cover'){
         this.is_active = true;
+      }else if(this.bubble_id == "innovation-brief"){
+        this.is_active = true;
       }else{
         this.is_active = false;
       }
@@ -57,11 +61,12 @@ export class NavBubbleComponent implements OnInit {
   }
 
   navTo(){
-    if(this.nav){
-      this.router.navigate(['innovation-brief', this.nav]);
+    if(this.bubble_id == 'innovation-brief'){
+      this.router.navigate([this.bubble_id]);
     }else{
-      this.router.navigate(['innovation-brief', this.bubble_id]);
+      this.router.navigate(["innovation-brief", this.bubble_id]);
     }
+    
   }
 
 

@@ -1,19 +1,14 @@
-<p>Add optional supporting documents</p>
+<div [hidden]="launchpad_id">
+  <p>Add optional supporting documents</p>
+  <input #input_elem type="file" name="file" id="file" class="input-file" (change)="detectFiles($event)">
+  <label for="file" [innerHtml]="label_text">
+  </label>
 
-<!-- <label for="upload-file" class="upload-file rounded button-primary">Testing</label>
+  <button class="upload-button rounded button-primary" type="button" (click)="upload($event)" [disabled]="!selectedFiles">Upload</button>
 
-<input #input_elem id="upload-file" type="file" name="{{ tag_id }}" (change)="detectFiles($event)" >
-
- -->
-
-<input #input_elem type="file" name="file" id="file" class="input-file" (change)="detectFiles($event)">
-<label for="file" [innerHtml]="label_text">
-</label>
-
-<button class="upload-button rounded button-primary" type="button" (click)="upload($event)" [disabled]="!selectedFiles">Upload</button>
-
-<div class="progress">
-  <div [style.width.%]="currentUpload?.progress" class="progress-bar"></div>
+  <div class="progress">
+    <div [ngClass]="{'progress-bar-complete': currentUpload?.progress === 100}" [style.width.%]="currentUpload?.progress" class="progress-bar"></div>
+  </div>
 </div>
 
 
@@ -22,7 +17,7 @@
   {{ currentUpload?.progress }}% Complete
 </div> -->
 
-<uploader-list [tag_id]="tag_id"></uploader-list>
+<uploader-list [launchpad_id]="launchpad_id" [tag_id]="tag_id"></uploader-list>
 
 <!-- <div *ngFor="let upload of (uploads$ | async)">
   <strong>{{ upload.name }}</strong>

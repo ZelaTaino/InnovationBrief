@@ -1,7 +1,7 @@
 <div class="wrap">
 
   <div class="header-wrapper">
-    <img routerLink="/innovation-brief" class="logo" src="../../assets/img/logo.png">
+    <img routerLink="/launchpad-dashboard" class="logo" src="../../assets/img/logo.png">
     <a (click)="logout()" class="right" href="">Logout</a>
   </div>
 
@@ -19,8 +19,6 @@
   </table> -->
 
   <launchpad-table class="lp-table" [launchpads]="launch_pads"></launchpad-table>
-
-  <a routerLink="register">Add Launch Pad</a>
 
 </div>
 

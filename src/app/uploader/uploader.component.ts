@@ -12,11 +12,14 @@ import { Observable } from 'rxjs/Rx';
 export class UploaderComponent implements OnInit {
 
   @Input() tag_id: string;
+  @Input() launchpad_id: string;
+
   @ViewChild('input_elem') input_elem: any;
 
   currentUpload: Upload;
   selectedFiles: FileList;
   label_text = "Choose file";
+  rest:boolean;
 
   constructor(
     private ib_service: InnovationBriefService,
@@ -27,6 +30,8 @@ export class UploaderComponent implements OnInit {
 
   //detecets when file is about to be uploaded
   detectFiles(event){
+    this.rest = true;
+    
     this.selectedFiles = event.target.files;
 
     let filename = "";
