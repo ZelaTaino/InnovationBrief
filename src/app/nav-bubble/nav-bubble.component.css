@@ -17,8 +17,18 @@
   cursor: pointer;
 }
 
+.circle:hover {
+  background-color: #FF5F01;
+}
+
 .question-active {
   background-color: #FF5F01;
+  border-color: #FF5F01;
+}
+
+.question-active:hover {
+  background-color: #D64F00;
+  border-color: #D64F00;
 }
 
 .cover-active {
@@ -28,6 +38,7 @@
 
 .cover-active:hover{
   background-color: #A00012;
+  border-color: #A00012;
 }
 
 .cover-nonactive {
