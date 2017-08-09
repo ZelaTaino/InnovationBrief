@@ -1,4 +1,3 @@
-import { InnovationBriefResponses } from './innovation-brief-responses';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs/Rx';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
@@ -10,7 +9,6 @@ import { Upload } from './upload';
 @Injectable()
 export class InnovationBriefService {
 
-  ib_responses: InnovationBriefResponses;
   private uploadTask: firebase.storage.UploadTask;
   sdkdb: any;
   form_id = "form0";
@@ -26,24 +24,6 @@ export class InnovationBriefService {
   updateCompletion(uid){
     const path = this.db.object(`/userFormCompletion/${uid}`);
     path.update({"form0": true})
-  }
-  
-
-  //--------- RESPONSE METHODS
-
-  //passes answers to db when user submits
-  setIBR(uid){
-    console.log("setting ibr dict", this.ib_responses.getDict());
-    const path = this.db.object(`/responses/${uid}`);
-    path.update({ [this.ib_responses.$key] : this.ib_responses.getDict() });  
-  }
-
-  //loads responses when user enters form
-  getResponses(uid): Observable<InnovationBriefResponses>{
-    return this.db.object('responses/' + uid + "/" + this.form_id)
-      .do(val => console.log(val))
-      .map(val => InnovationBriefResponses.fromJson(val));
-
   }
 
 
@@ -108,14 +88,12 @@ export class InnovationBriefService {
 
   getUploads(uid, tag_id): Observable<Upload[]>{
 
-    const uploads$ = this.db.list(`uploadsPerForm/${uid}/${this.form_id}/${tag_id}`)
-    .do(val => console.log("get uplaods:", val));
+    const uploads$ = this.db.list(`uploadsPerForm/${uid}/${this.form_id}/${tag_id}`);
 
     return uploads$.map(uploadsPerForm => 
       uploadsPerForm.map(u => 
         this.db.object('uploads/' + u.$key)))
-            .flatMap(fb_observs => Observable.combineLatest(fb_observs))
-            .do(val => console.log("stuff: ", val));
+            .flatMap(fb_observs => Observable.combineLatest(fb_observs));
   }
 
   deleteUpload(uid, tag_id, upload){

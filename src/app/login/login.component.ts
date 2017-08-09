@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams.do(val => console.log(val)).subscribe(params => this.can_register = +params['can_register'] || 0);
+    this.route.queryParams
+        .subscribe(params => this.can_register = +params['can_register'] || 0);
   }
   
   login(value: any) {
-    console.log(value);
     this.submitted = true;
 
     if(!this.login_form.controls['username'].valid && !this.login_form.controls['password'].valid){
@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
       this.error_message = "Looks like you forgot to enter a password!";
     }else{
       let username_email = value.username + "@fake.com";
-      console.log(value.password);
       this.authService.login(username_email, value.password)
         .subscribe(
             (auth) => {

@@ -14,12 +14,7 @@ export class NavBubblesComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    // console.log('testingg: ', this.num_bubbles);
-    // this.num_bubbles_array = 
-    //   Array.apply(null, {length: this.num_bubbles}).map(function(value, index){
-    //     return index + 1;
-    //   });
-
+    
     this.authService.getCurrentUserId()
       .then(uid => {
         if(this.authService.isAdmin(uid)){

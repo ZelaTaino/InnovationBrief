@@ -11,20 +11,7 @@ a {
   min-width: 370pt;
 }
 
-/*.new-upload {
-  transition: background-color 0.4 ease-out;
-  transition-delay: 0.5s;
-  background-color: transparent;
-}*/
-
 .delete-button {
-/*  background-color: transparent;
-  border: 1pt solid black;
-  padding: 0 4pt;
-  margin: 0 5pt;
-  float: right;
-
-  font-size: 1.3em;*/
   background-color: transparent;
   border: none;
   float: right;

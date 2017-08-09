@@ -63,14 +63,4 @@ export class UploaderComponent implements OnInit {
         });
   }
 
-  // deleteUpload(upload){
-  //   this.authService.getCurrentUserId()
-  //       .then(uid => {
-  //         this.ib_service.deleteUpload(uid, this.tag_id, upload);
-  //       })
-  //       .catch(err => {
-  //         console.log(err)
-  //       });
-  // }
-
 }

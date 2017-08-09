@@ -11,7 +11,6 @@ import { AuthService } from '../security/auth.service';
 export class ConfirmationComponent implements OnInit {
 
   //TODO: Add num questions to form to make dynamic
-
   num_bubbles = 11;
 
   constructor(
@@ -40,7 +39,6 @@ export class ConfirmationComponent implements OnInit {
   }
 
   prev(){
-    console.log("TEST");
     this.router.navigate(['innovation-brief/11']);
   }
 

@@ -73,13 +73,15 @@
 }
 
 .wrapper {
-  margin-top: 100pt;
+  margin-top: 80pt;
   margin-bottom: 80pt;
+  margin: 100pt 35% 80pt 35%;
 }
 
 .logo {
-  width: 45%;
+  width: 100%;
   min-width: 190pt;
+  max-width: 400pt;
   margin-bottom: 40pt;
 }
 
@@ -87,5 +89,34 @@
 .button-primary:disabled {
   color: #7B7B7B;
   background-color: #8E8E8E;
+}
+
+/*smartphones*/
+@media screen and (min-device-width: 320px) and (max-device-width: 600px){
+  .wrap {
+    margin: 10px auto;
+  }
+
+  .wrapper {
+    margin-top: 35%;
+    margin-bottom: 5%;
+    margin: 28% 3% 5% 3%;
+  }
+
+}
+
+/*ipads*/
+@media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
+  
+  .wrapper {
+    margin-top: 35%;
+    margin-bottom: 5%;
+    margin: 28% auto 5% ;
+  }
+
+  .wrap {
+    margin: 50px auto;
+  }
+
 }
 

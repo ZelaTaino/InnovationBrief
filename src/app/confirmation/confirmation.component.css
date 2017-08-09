@@ -4,8 +4,10 @@ h3 {
   font-size: 3em;
   text-align: center;
 
-  margin: 0pt auto 20pt;
-  width: 60%;
+  margin: 100pt auto 20pt;
+  width: 100%;
+  max-width: 550pt;
+  min-width: 300pt;
 }
 
 #bg {
@@ -33,6 +35,10 @@ h3 {
     width: 100%;
     margin: 220px auto 20pt;
     padding: 0px;
+}
+
+.background {
+  width: 100%;
 }
 
 .clear {
@@ -76,4 +82,44 @@ h3 {
 
 .space {
   height: 10pt;
+}
+
+.wrapper {
+  margin-top: 100pt;
+  margin-bottom: 80pt;
+  margin: 100pt 35% 80pt 35%;
+}
+
+/*smartphones*/
+@media screen and (min-device-width: 320px) and (max-device-width: 600px){
+  .wrap {
+    margin: 10px auto;
+  }
+
+  .wrapper {
+    margin-top: 35%;
+    margin-bottom: 5%;
+    margin: 28% 3% 5% 3%;
+  }
+
+/*  h3{
+    margin-left: 5pt;
+    margin-right: 5pt;
+  }*/
+
+}
+
+/*ipads*/
+@media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
+  
+  .wrapper {
+    margin-top: 35%;
+    margin-bottom: 5%;
+    margin: 28% auto 5% ;
+  }
+
+  .wrap {
+    margin: 50px auto;
+  }
+
 }

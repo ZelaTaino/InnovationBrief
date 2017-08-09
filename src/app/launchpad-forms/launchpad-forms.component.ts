@@ -33,19 +33,7 @@ export class LaunchpadFormsComponent implements OnInit {
     });
 
     this.general_service.getFormsWithCompletion(launchpad_id)
-      .do(val => console.log('testing: ', val))
       .subscribe(val => this.forms = val);
   }
 
-  // getForms(){
-  //   this.general_service.getForms()
-  //     .do(val => console.log("getting forms: ", val))
-  //     .subscribe(val => this.forms = val);
-  // }
-
-  // getUserFormCompletion(){
-  //   this.route.paramMap
-  //     .switchMap((params: ParamMap) => this.general_service.getUserFormCompletion(params.get('id')))
-  //     .subscribe(val => this.completion_indication = val);
-  // }
 }

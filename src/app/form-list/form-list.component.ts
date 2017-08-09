@@ -41,8 +41,6 @@ export class FormListComponent implements OnInit {
           console.log(err);
         });
 
-    //if user, go to innovation brief
-
   }
 
 }

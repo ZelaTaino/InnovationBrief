@@ -13,7 +13,6 @@ export class LaunchpadTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.launchpads);
   }
 
 }

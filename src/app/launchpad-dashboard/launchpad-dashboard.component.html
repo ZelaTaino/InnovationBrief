@@ -2,23 +2,8 @@
 
 <div class="wrap">
 
-<!--   <div class="header-wrapper">
-    <img routerLink="/launchpad-dashboard" class="logo" src="../../assets/img/logo.png">
-    <a (click)="logout()" class="right" href="">Logout</a>
-  </div> -->
-
   <h1>{{ title }}</h1>
   <h2>List of launch pads</h2>
-
-<!--   <table class="launchpad-list">
-    <tr *ngFor="let launch_pad of launch_pads">
-      <td>
-        <button class="button-primary rounded button-extra-large" routerLink="launchpad/{{ launch_pad.$key }}">
-          {{ launch_pad.project }} {{ launch_pad.client }}
-        </button>
-      </td>
-    </tr>
-  </table> -->
 
   <launchpad-table class="lp-table" [launchpads]="launch_pads"></launchpad-table>
 

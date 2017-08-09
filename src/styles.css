@@ -12,12 +12,6 @@
   src: url(./assets/fonts/MarkPro-Black.otf);
 }
 
-/*@font-face {
-  font-family: MarkPro;
-  font-weight: lighter;
-  src: url(./assets/fonts/MarkPro-Book.otf);
-}*/
-
 @font-face {
   font-family: MarkPro;
   font-weight: normal;
@@ -56,10 +50,10 @@ body {
 
 .input-textfield {
   min-width: 180pt;
-  min-height: 30pt;
-  width: 30%;
+  width: 100%;
+  max-width: 400pt;
   border: none;
-  padding: 1%;
+  padding: 4%;
   text-align: center;
 
   font-size: 1.3em;
@@ -78,10 +72,10 @@ body {
 }
 
 .button-large {
-  width: 30%;
+  width: 100%;
+  max-width: 400pt;
   min-width: 180pt;
-  min-height: 32pt;
-  padding: 1%;
+  padding: 4%;
 
   font-size: 1.3em;
 }
@@ -106,10 +100,6 @@ body {
 }
 
 .nav-button {
-  /*color: white;
-  width: 120pt;
-  padding: 7pt 15pt;
-  font-size: 1.3em;*/
   color: white;
   min-width: 120pt;
   padding: 7pt 15pt;
@@ -162,7 +152,6 @@ body {
   justify-content: center;
   align-items: center;  
   align-content: center;
-  /*margin: 0pt 20pt;*/
 }
 
 .show-alert{
@@ -175,4 +164,26 @@ body {
 
 .nav-button:hover {
   background-color: #D64F00;
+}
+
+/*smartphones*/
+@media screen and (min-device-width: 320px) and (max-device-width: 600px){
+  .input-textfield {
+    padding: 4%;
+  }
+
+  .button-large {
+    padding: 4%;
+  }
+}
+
+/*ipads*/
+@media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
+  .input-textfield {
+    padding: 3%;
+  }
+
+  .button-large {
+    padding: 3%;
+  }
 }

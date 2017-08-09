@@ -21,23 +21,10 @@ export class UploaderListComponent implements OnInit, OnChanges{
     private authService: AuthService,
     private route: ActivatedRoute,) { }
 
-  ngOnInit() {
-    // this.authService.getCurrentUserId()
-    //     .then( uid => {
-    //       if(this.authService.isAdmin(uid)){
-    //         this.uploads$ = this.ib_service.getUploads(this.launchpad_id, this.tag_id);
-    //       }else{
-    //         this.uploads$ = this.ib_service.getUploads(uid, this.tag_id);
-    //       }
-    //     })
-    //     .catch(err => {
-    //       console.log(err)
-    //     });
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes){
     this.getUploads();
-    // console.log("Inputs Changed: ", changes['tag_id'].currentValue);
   }
 
   getUploads(){

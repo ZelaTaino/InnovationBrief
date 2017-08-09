@@ -33,7 +33,6 @@ export class LaunchpadDashboardComponent implements OnInit {
 
   getLaunchPads(){
     this.general_service.getLaunchPads()
-      .do(val => console.log("getLaunchPads: ", val))
       .subscribe(val => this.launch_pads = val);
   }
 }

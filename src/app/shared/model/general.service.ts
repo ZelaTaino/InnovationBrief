@@ -22,8 +22,7 @@ export class GeneralService {
       query: {
         orderByChild: 'client'
       }
-    }).do(val => console.log("ordered: ", val))
-      .map(val => LaunchPad.fromJsonList(val));
+    }).map(val => LaunchPad.fromJsonList(val));
 
     let lp_complete_list = lp_list
       .map(lps => {
@@ -42,15 +41,13 @@ export class GeneralService {
 
   getForms(): Observable<Form[]>{
     return this.db.list('forms/')
-      .do(val => console.log(val))
-      .map(val => Form.fromJsonList(val));
+               .map(val => Form.fromJsonList(val));
   }
 
   getFormsWithCompletion(launchpad_id: string): Observable<Form[]>{
-    console.log("test");
+
     //gives back list of forms
     const forms_list = this.db.list('forms/')
-      .do(val => console.log(val))
       .map(val => Form.fromJsonList(val));
 
     let forms_complete_list = forms_list
@@ -72,8 +69,8 @@ export class GeneralService {
     //pushes launchpad object
     const launch_pad_path = this.db.object('/launch-pads');
     let url = project.split(' ').join('-');
-    console.log('url: ', url);
     let launch_pad_object = {client: client, project: project, url: url};
+    
     launch_pad_path.update({ [created_user_id] : launch_pad_object });
 
     //pushes form status

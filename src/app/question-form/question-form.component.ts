@@ -52,14 +52,12 @@ export class QuestionFormComponent implements OnInit {
   getQuestion(id){
     let question_tag = `q_${id}`;
     this.question_service.getQuestion(question_tag)
-      .do(val => console.log(val))
       .subscribe(val => this.question = val);
   }
 
   setTags(id){
     this.answer_tag = "a_" + id;
     this.uploader_tag = `a_${id}_files`;
-    console.log("tag: ", this.uploader_tag);
   }
 
   getAnswer(id, lp_id?){
@@ -67,11 +65,9 @@ export class QuestionFormComponent implements OnInit {
       .then(uid => {
         if(this.authService.isAdmin(uid)){
           this.question_service.getAnswer(lp_id, this.answer_tag)
-            .do(val => console.log(val.$value))
             .subscribe(val => this.response = val.$value);
         }else{
           this.question_service.getAnswer(uid, this.answer_tag)
-            .do(val => console.log(val.$value))
             .subscribe(val => this.response = val.$value);
         }
 

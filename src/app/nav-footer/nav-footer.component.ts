@@ -58,32 +58,6 @@ export class NavFooterComponent implements OnInit {
         this.prev_button_text = "Previous";
       }
 
-      // if(this.question_id == 9 || this.question_id == 11){
-      //   this.is_next_cover = true;
-      //   if(this.question_id == 9){
-      //     this.next_button_text = "Challenge Statement";
-      //   }else if(this.question_id == 11){
-      //     this.next_button_text = "Overview";
-      //   }else{
-      //     this.next_button_text ="Next";
-      //   }
-      // }else{
-      //   this.is_next_cover = false;
-      // }
-
-      // if(this.question_id == 1 || this.question_id == 10){
-      //   this.is_prev_cover = true;
-      //   if(this.question_id == 1){
-      //     this.prev_button_text = "Home";
-      //   }else if(this.question_id == 10){
-      //     this.prev_button_text = "Challenge Statement";
-      //   }else{
-      //     this.prev_button_text = "Previous";
-      //   }
-      // }else{
-      //   this.is_prev_cover = false;
-      // }
-
     });
 
   }

@@ -28,7 +28,7 @@ h1 {
   position: relative;
   z-index: 2;
   width: 100%;
-  margin: 90px auto 20pt;
+  margin: 50px auto;
   padding: 20px;
 }
 
@@ -49,4 +49,39 @@ h1 {
 .logout {
   font-size: 1.6em;
   color: white;
+}
+
+.wrapper {
+  margin-top: 100pt;
+  margin-bottom: 80pt;
+  margin: 50pt 35% 80pt 35%;
+}
+
+/*smartphones*/
+@media screen and (min-device-width: 320px) and (max-device-width: 600px){
+  .wrap {
+    margin: 10px auto;
+  }
+
+  .wrapper {
+    margin-top: 35%;
+    margin-bottom: 5%;
+    margin: 28% 3% 5% 3%;
+  }
+
+}
+
+/*ipads*/
+@media screen and (min-device-width: 768px) and (max-device-width: 1000px) {
+  
+  .wrapper {
+    margin-top: 35%;
+    margin-bottom: 5%;
+    margin: 28% auto 5% ;
+  }
+
+  .wrap {
+    margin: 50px auto;
+  }
+
 }

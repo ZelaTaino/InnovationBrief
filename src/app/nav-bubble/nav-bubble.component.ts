@@ -30,16 +30,6 @@ export class NavBubbleComponent implements OnInit {
     }
 
     this.route.params.subscribe((params: Params) => {
-      // console.log("bubble: ", +params['id']);
-
-      // if(this.router.url == "/innovation-brief/confirmation"){
-      //   console.log("route: ", this.router.url);
-      //   this.is_active = true;
-      // }else if(+params['id'] >= this.bubble_id){
-      //   this.is_active = true;
-      // }else{
-      //   this.is_active = false;
-      // }
 
       if(this.bubble_id == "innovation-brief"){
         this.is_active = true;
