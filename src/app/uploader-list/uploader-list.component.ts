@@ -45,6 +45,7 @@ export class UploaderListComponent implements OnInit, OnChanges{
     this.authService.getCurrentUserId()
         .then(uid => {
           this.ib_service.deleteUpload(uid, this.tag_id, upload);
+          this.getUploads();
         })
         .catch(err => {
           console.log(err)

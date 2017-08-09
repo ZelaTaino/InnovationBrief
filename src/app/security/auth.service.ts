@@ -8,7 +8,9 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthService {
-  private adminId:string = 'LBS9fMtoeGME8LXFQPlvgHTNxtI3';
+  
+  //change this string when changing admin uid
+  private adminId:string = '0xcJsbFKyAhDEItBrjIqHEnN36g2';
 
   static UNKNOWN_USER = new AuthInfo(null);
 

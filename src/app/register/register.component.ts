@@ -38,12 +38,9 @@ export class RegisterComponent  {
   }
 
   signUp(form: any) {
-    console.log("wign: ", form);
     this.submitted = true;
     let value = form.value;
     let username_email = value.username + "@fake.com";
-
-    console.log(value.client);
 
     if(!value.client || !value.project || !value.username || !value.password || !value.confirm){
       this.error_message = "Please fill in required fields";

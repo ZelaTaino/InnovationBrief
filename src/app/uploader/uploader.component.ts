@@ -52,7 +52,6 @@ export class UploaderComponent implements OnInit {
 
     this.authService.getCurrentUserId()
         .then(uid => {
-          console.log("IDVALUE: ", this.tag_id);
           this.ib_service.upload(this.currentUpload, this.tag_id, uid);
           this.input_elem.nativeElement.value = "";
           this.label_text = "Choose file";

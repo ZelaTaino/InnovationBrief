@@ -24,7 +24,6 @@ export class LaunchpadDashboardComponent implements OnInit {
     // EXAMPLE OF GETTING CURRENT USER ID
     this.authService.getCurrentUserId()
         .then(function (uid) {
-          console.log(uid);
         })
         .catch(function (err) {
           console.log(err);
