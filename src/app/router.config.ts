@@ -25,6 +25,7 @@ const routes: Routes = [
     canActivate: [UserGuard]
   },
   {path: 'register', component: RegisterComponent, canActivate: [AdminGuard]},
+  {path: 'edit/:lp-id', component: RegisterComponent, canActivate: [AdminGuard]},
   {path: 'launchpad-dashboard', children: [
     {path:'innovation-brief/:lp-id/:id', component: QuestionFormComponent},
     {path: '', component: LaunchpadDashboardComponent}

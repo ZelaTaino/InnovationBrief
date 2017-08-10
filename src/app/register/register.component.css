@@ -51,6 +51,18 @@ h1 {
   color: white;
 }
 
+.button-alert {
+  background-color: #EA001B;
+  border: none;
+  color: white;
+}
+
+.button-alert:hover {
+  background-color: #B00014;
+  border: none;
+  color: white;
+}
+
 .wrapper {
   margin-top: 100pt;
   margin-bottom: 80pt;

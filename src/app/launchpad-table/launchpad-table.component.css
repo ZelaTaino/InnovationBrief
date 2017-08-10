@@ -5,6 +5,10 @@ p {
   color: white;
 }
 
+.edit-icon {
+  width: 19pt;
+}
+
 .helper {
   display: inline-block;
   vertical-align: middle;
@@ -87,6 +91,13 @@ p {
 .status-container {
   position: absolute;
   left: 0;
+  bottom: 0;
+  margin: 5%;
+}
+
+.edit-container {
+  position: absolute;
+  right: 0;
   bottom: 0;
   margin: 5%;
 }

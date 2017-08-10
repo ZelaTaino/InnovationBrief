@@ -20,15 +20,19 @@
       </div>
 
       <div>
-        <input [ngClass]="{'input-error': (!register_form.controls['password'].valid && submitted) || (register_form.controls['password'].valid && submitted && !isPasswordMatch())}" type="password" [formControl]="register_form.controls['password']" placeholder="Password" class="center input-textfield rounded">
+        <input [ngClass]="{'input-error': (!register_form.controls['password'].valid && submitted) || (register_form.controls['password'].valid && submitted && !isPasswordMatch())}" type="{{ !is_edit ? 'password' : 'text'}}" [formControl]="register_form.controls['password']" placeholder="Password" class="center input-textfield rounded">
       </div>
 
-      <div>
+      <div *ngIf="!is_edit">
         <input [ngClass]="{'input-error': !register_form.controls['confirm'].valid && submitted && !isPasswordMatch()}" type="password" [formControl]="register_form.controls['confirm']" placeholder="Confirm Password" class="center input-textfield rounded">
       </div>
 
-      <div class="">
+      <div *ngIf="!is_edit">
         <button class="button-primary button-large rounded center" type="submit">Create User</button>
+      </div>
+
+      <div *ngIf="is_edit" class="">
+        <button (click)="editLaunchPad()" class="button-primary button-large rounded center" type="submit">Edit User</button>
       </div>
 
       <div [ngClass]="{'show-alert': error_message}" class="center alert cell-container flex-box">
@@ -37,6 +41,10 @@
         </div>
 
     </form>
+
+    <div *ngIf="is_edit" class="">
+      <button (click)="deleteLaunchPad()" class="button-alert button-large rounded center" type="submit">Delete LaunchPad</button>
+    </div>
 
   </div>
 </div>

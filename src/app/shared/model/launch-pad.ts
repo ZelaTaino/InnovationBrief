@@ -3,7 +3,8 @@ export class LaunchPad{
     public $key: string,
     public client: string,
     public project: string,
-    public url: string,
+    public username: string,
+    public password: string,
     public complete?: boolean 
   ){}
 
@@ -11,7 +12,7 @@ export class LaunchPad{
     return array.map(LaunchPad.fromJson);
   }
 
-  static fromJson({$key, client, project, url}): LaunchPad {
-    return new LaunchPad($key, client, project, url);
+  static fromJson({$key, client, project, username, password }): LaunchPad {
+    return new LaunchPad($key, client, project, username, password);
   }
 }

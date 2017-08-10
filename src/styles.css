@@ -59,6 +59,10 @@ body {
   font-size: 1.3em;
 }
 
+.input-textfield:disabled {
+  background-color: #C1C1C1;
+}
+
 .button-primary {
   color: white;
   background-color: #F79F1A;

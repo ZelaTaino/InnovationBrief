@@ -13,11 +13,6 @@ export class GeneralService {
 
   getLaunchPads(): Observable<LaunchPad[]>{
 
-    //get list of launchpads
-    // const lp_list = this.db.list('launch-pads')
-    //   .do(val => console.log(val))
-    //   .map(val => LaunchPad.fromJsonList(val));
-
     const lp_list = this.db.list('launch-pads', {
       query: {
         orderByChild: 'client'
@@ -37,6 +32,12 @@ export class GeneralService {
 
     return lp_complete_list;
 
+  }
+
+  getLaunchPadInfo(lp_id): Observable<LaunchPad>{
+    //TODO: dynamic
+    return this.db.object(`launch-pads/${lp_id}`)
+               .map(val => LaunchPad.fromJson(val));
   }
 
   getForms(): Observable<Form[]>{
@@ -64,12 +65,11 @@ export class GeneralService {
     return forms_complete_list;
   }
 
-  addLaunchPad(client: string, project: string, created_user_id: string){
+  addLaunchPad(client: string, project: string, username: string, password:string, created_user_id: string){
     
     //pushes launchpad object
     const launch_pad_path = this.db.object('/launch-pads');
-    let url = project.split(' ').join('-');
-    let launch_pad_object = {client: client, project: project, url: url};
+    let launch_pad_object = {client: client, project: project, username: username, password: password};
     
     launch_pad_path.update({ [created_user_id] : launch_pad_object });
 
@@ -87,6 +87,15 @@ export class GeneralService {
       .subscribe(val => form_completion_path.update(obj));
   }
 
+  deleteLaunchPad(lp_id){
+    this.db.object(`launch-pads/${lp_id}`).remove();
+    this.db.object(`userFormCompletion/${lp_id}`).remove();
+  }
+
+  editLaunchPad(lp_id, lp){
+    let path = this.db.list('/launch-pads');
+    path.update(lp_id, { client : lp.client, project: lp.project } );
+  }
 
 
 }

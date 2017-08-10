@@ -17,7 +17,9 @@ export class AuthService {
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
   createdUID: string;
 
-  constructor(private afAuth: AngularFireAuth, private router:Router) {
+  constructor(
+    private afAuth: AngularFireAuth, 
+    private router:Router) {
   }
 
   login(email, password):Observable<any> {
@@ -47,12 +49,9 @@ export class AuthService {
     return this.createdUID;
   }
 
-
-  signUp(email, password) {
-    var secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary");
-    return this.fromFirebaseAuthPromise(secondaryApp.auth().createUserWithEmailAndPassword(email, password).then(function() {
-      secondaryApp.auth().signOut();
-    }));
+  signUp(username, password, client, project) {
+    let email = username + "@fake.com";
+    return this.fromFirebaseAuthPromise(this.afAuth.auth.createUserWithEmailAndPassword(email, password));
   }
 
   getAuthState() {
